@@ -6,11 +6,14 @@
     <title>Funções matemáticas CSS</title>
     <link rel="stylesheet" href="../assets/curso.css">
     <style>
-.cartao-exemplo {
-  padding: 24px;
+.bloco-calculado {
+  width: calc(100% - 40px);
+  font-size: clamp(16px, 4vw, 24px);
+  padding: 20px;
+  background: #f1faee;
+  border: 2px solid #457b9d;
   border-radius: 8px;
-  background: #eaf4fb;
-  color: #24313f;
+  text-align: center;
 }
     </style>
 </head>
@@ -26,22 +29,29 @@
         <section class="painel">
             <h2>Exemplo</h2>
             <div class="exemplo">
-                <div class="cartao-exemplo">Aprendendo CSS na prática</div>
+                <div class="bloco-calculado">
+                  Largura calculada dinamicamente com calc() e clamp()
+                </div>
             </div>
         </section>
 
         <section class="painel">
             <h2>Código base</h2>
             <pre><code>&lt;div class=&quot;exemplo&quot;&gt;
-  &lt;div class=&quot;cartao-exemplo&quot;&gt;Aprendendo CSS na prática&lt;/div&gt;
+  &lt;div class=&quot;bloco-calculado&quot;&gt;
+    Largura calculada dinamicamente com calc() e clamp()
+  &lt;/div&gt;
 &lt;/div&gt;
 
 &lt;style&gt;
-.cartao-exemplo {
-  padding: 24px;
+.bloco-calculado {
+  width: calc(100% - 40px);
+  font-size: clamp(16px, 4vw, 24px);
+  padding: 20px;
+  background: #f1faee;
+  border: 2px solid #457b9d;
   border-radius: 8px;
-  background: #eaf4fb;
-  color: #24313f;
+  text-align: center;
 }
 &lt;/style&gt;</code></pre>
         </section>

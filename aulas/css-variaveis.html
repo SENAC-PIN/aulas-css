@@ -6,11 +6,27 @@
     <title>Variáveis CSS</title>
     <link rel="stylesheet" href="../assets/curso.css">
     <style>
-:root { --cor-principal: #355070; --espaco: 18px; }
-.cartao-exemplo {
-  padding: var(--espaco);
-  background: var(--cor-principal);
+:root {
+  --cor-primaria: #355070;
+  --cor-secundaria: #b56576;
+  --espacamento-padrao: 18px;
+  --borda-raio: 8px;
+}
+.tema-personalizado {
+  padding: var(--espacamento-padrao);
+  border: 2px solid var(--cor-primaria);
+  border-radius: var(--borda-raio);
+}
+.botao-tema {
+  background: var(--cor-primaria);
   color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: var(--borda-raio);
+  cursor: pointer;
+}
+.botao-tema:hover {
+  background: var(--cor-secundaria);
 }
     </style>
 </head>
@@ -26,22 +42,44 @@
         <section class="painel">
             <h2>Exemplo</h2>
             <div class="exemplo">
-                <div class="cartao-exemplo">Aprendendo CSS na prática</div>
+                <div class="tema-personalizado">
+                  <h3>Tema Definido por Variáveis</h3>
+                  <button class="botao-tema">Clique Aqui</button>
+                </div>
             </div>
         </section>
 
         <section class="painel">
             <h2>Código base</h2>
             <pre><code>&lt;div class=&quot;exemplo&quot;&gt;
-  &lt;div class=&quot;cartao-exemplo&quot;&gt;Aprendendo CSS na prática&lt;/div&gt;
+  &lt;div class=&quot;tema-personalizado&quot;&gt;
+    &lt;h3&gt;Tema Definido por Variáveis&lt;/h3&gt;
+    &lt;button class=&quot;botao-tema&quot;&gt;Clique Aqui&lt;/button&gt;
+  &lt;/div&gt;
 &lt;/div&gt;
 
 &lt;style&gt;
-:root { --cor-principal: #355070; --espaco: 18px; }
-.cartao-exemplo {
-  padding: var(--espaco);
-  background: var(--cor-principal);
+:root {
+  --cor-primaria: #355070;
+  --cor-secundaria: #b56576;
+  --espacamento-padrao: 18px;
+  --borda-raio: 8px;
+}
+.tema-personalizado {
+  padding: var(--espacamento-padrao);
+  border: 2px solid var(--cor-primaria);
+  border-radius: var(--borda-raio);
+}
+.botao-tema {
+  background: var(--cor-primaria);
   color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: var(--borda-raio);
+  cursor: pointer;
+}
+.botao-tema:hover {
+  background: var(--cor-secundaria);
 }
 &lt;/style&gt;</code></pre>
         </section>

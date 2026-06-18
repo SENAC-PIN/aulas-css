@@ -6,9 +6,21 @@
     <title>Consultas de mídia CSS</title>
     <link rel="stylesheet" href="../assets/curso.css">
     <style>
-.cartao-exemplo { padding: 24px; background: #eaf4fb; }
+.caixa-media {
+  padding: 24px;
+  background: #a8dadc;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+}
+.caixa-media .status-mobile { display: none; }
+.caixa-media .status-desktop { display: inline; color: #1d3557; }
 @media (max-width: 600px) {
-  .cartao-exemplo { background: #fff3cd; font-size: 20px; }
+  .caixa-media {
+    background: #e63946;
+  }
+  .caixa-media .status-desktop { display: none; }
+  .caixa-media .status-mobile { display: inline; color: white; }
 }
     </style>
 </head>
@@ -24,20 +36,38 @@
         <section class="painel">
             <h2>Exemplo</h2>
             <div class="exemplo">
-                <div class="cartao-exemplo">Aprendendo CSS na prática</div>
+                <div class="caixa-media">
+                  <span class="status-desktop">Tela Grande (Desktop)</span>
+                  <span class="status-mobile">Tela Pequena (Mobile)</span>
+                </div>
             </div>
         </section>
 
         <section class="painel">
             <h2>Código base</h2>
             <pre><code>&lt;div class=&quot;exemplo&quot;&gt;
-  &lt;div class=&quot;cartao-exemplo&quot;&gt;Aprendendo CSS na prática&lt;/div&gt;
+  &lt;div class=&quot;caixa-media&quot;&gt;
+    &lt;span class=&quot;status-desktop&quot;&gt;Tela Grande (Desktop)&lt;/span&gt;
+    &lt;span class=&quot;status-mobile&quot;&gt;Tela Pequena (Mobile)&lt;/span&gt;
+  &lt;/div&gt;
 &lt;/div&gt;
 
 &lt;style&gt;
-.cartao-exemplo { padding: 24px; background: #eaf4fb; }
+.caixa-media {
+  padding: 24px;
+  background: #a8dadc;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+}
+.caixa-media .status-mobile { display: none; }
+.caixa-media .status-desktop { display: inline; color: #1d3557; }
 @media (max-width: 600px) {
-  .cartao-exemplo { background: #fff3cd; font-size: 20px; }
+  .caixa-media {
+    background: #e63946;
+  }
+  .caixa-media .status-desktop { display: none; }
+  .caixa-media .status-mobile { display: inline; color: white; }
 }
 &lt;/style&gt;</code></pre>
         </section>

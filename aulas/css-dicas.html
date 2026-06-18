@@ -6,11 +6,36 @@
     <title>Dicas flutuantes CSS</title>
     <link rel="stylesheet" href="../assets/curso.css">
     <style>
-.cartao-exemplo {
-  padding: 24px;
-  border-radius: 8px;
-  background: #eaf4fb;
-  color: #24313f;
+.conteiner-dica {
+  padding: 20px;
+  text-align: center;
+}
+.texto-dica {
+  color: #e63946;
+  font-weight: bold;
+  text-decoration: underline;
+  position: relative;
+  cursor: help;
+}
+.texto-dica::after {
+  content: attr(data-dica);
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1d3557;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 14px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease;
+}
+.texto-dica:hover::after {
+  opacity: 1;
+  visibility: visible;
 }
     </style>
 </head>
@@ -26,22 +51,51 @@
         <section class="painel">
             <h2>Exemplo</h2>
             <div class="exemplo">
-                <div class="cartao-exemplo">Aprendendo CSS na prática</div>
+                <div class="conteiner-dica">
+                  Passe o mouse <span class="texto-dica" data-dica="Esta é uma dica flutuante!">aqui</span> para ver o balão.
+                </div>
             </div>
         </section>
 
         <section class="painel">
             <h2>Código base</h2>
             <pre><code>&lt;div class=&quot;exemplo&quot;&gt;
-  &lt;div class=&quot;cartao-exemplo&quot;&gt;Aprendendo CSS na prática&lt;/div&gt;
+  &lt;div class=&quot;conteiner-dica&quot;&gt;
+    Passe o mouse &lt;span class=&quot;texto-dica&quot; data-dica=&quot;Esta é uma dica flutuante!&quot;&gt;aqui&lt;/span&gt; para ver o balão.
+  &lt;/div&gt;
 &lt;/div&gt;
 
 &lt;style&gt;
-.cartao-exemplo {
-  padding: 24px;
-  border-radius: 8px;
-  background: #eaf4fb;
-  color: #24313f;
+.conteiner-dica {
+  padding: 20px;
+  text-align: center;
+}
+.texto-dica {
+  color: #e63946;
+  font-weight: bold;
+  text-decoration: underline;
+  position: relative;
+  cursor: help;
+}
+.texto-dica::after {
+  content: attr(data-dica);
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1d3557;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 14px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease;
+}
+.texto-dica:hover::after {
+  opacity: 1;
+  visibility: visible;
 }
 &lt;/style&gt;</code></pre>
         </section>

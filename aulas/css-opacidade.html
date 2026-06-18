@@ -6,7 +6,26 @@
     <title>Opacidade CSS</title>
     <link rel="stylesheet" href="../assets/curso.css">
     <style>
-.cartao-exemplo { padding: 24px; background: #355070; color: white; opacity: 0.65; }
+.conteiner-opacidade {
+  display: flex;
+  gap: 15px;
+}
+.caixa-opaca, .caixa-rgba {
+  flex: 1;
+  padding: 20px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 6px;
+}
+.caixa-opaca {
+  background: #355070;
+  opacity: 0.5;
+}
+.caixa-rgba {
+  background: rgba(53, 80, 112, 0.5);
+  color: #355070;
+}
     </style>
 </head>
 <body>
@@ -21,18 +40,43 @@
         <section class="painel">
             <h2>Exemplo</h2>
             <div class="exemplo">
-                <div class="cartao-exemplo">Aprendendo CSS na prática</div>
+                <div class="conteiner-opacidade">
+                  <div class="caixa-opaca">Opacidade 0.5 (texto também fica opaco)</div>
+                  <div class="caixa-rgba">Fundo RGBA (texto permanece nítido)</div>
+                </div>
             </div>
         </section>
 
         <section class="painel">
             <h2>Código base</h2>
             <pre><code>&lt;div class=&quot;exemplo&quot;&gt;
-  &lt;div class=&quot;cartao-exemplo&quot;&gt;Aprendendo CSS na prática&lt;/div&gt;
+  &lt;div class=&quot;conteiner-opacidade&quot;&gt;
+    &lt;div class=&quot;caixa-opaca&quot;&gt;Opacidade 0.5 (texto também fica opaco)&lt;/div&gt;
+    &lt;div class=&quot;caixa-rgba&quot;&gt;Fundo RGBA (texto permanece nítido)&lt;/div&gt;
+  &lt;/div&gt;
 &lt;/div&gt;
 
 &lt;style&gt;
-.cartao-exemplo { padding: 24px; background: #355070; color: white; opacity: 0.65; }
+.conteiner-opacidade {
+  display: flex;
+  gap: 15px;
+}
+.caixa-opaca, .caixa-rgba {
+  flex: 1;
+  padding: 20px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 6px;
+}
+.caixa-opaca {
+  background: #355070;
+  opacity: 0.5;
+}
+.caixa-rgba {
+  background: rgba(53, 80, 112, 0.5);
+  color: #355070;
+}
 &lt;/style&gt;</code></pre>
         </section>
 

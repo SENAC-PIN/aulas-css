@@ -6,11 +6,23 @@
     <title>CSS @property</title>
     <link rel="stylesheet" href="../assets/curso.css">
     <style>
-:root { --cor-principal: #355070; --espaco: 18px; }
-.cartao-exemplo {
-  padding: var(--espaco);
-  background: var(--cor-principal);
+@property --cor-gradiente {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #355070;
+}
+.caixa-property {
+  padding: 30px;
+  background: var(--cor-gradiente);
   color: white;
+  border-radius: 8px;
+  text-align: center;
+  transition: --cor-gradiente 0.5s ease;
+  font-weight: bold;
+  cursor: pointer;
+}
+.caixa-property:hover {
+  --cor-gradiente: #b56576;
 }
     </style>
 </head>
@@ -26,22 +38,34 @@
         <section class="painel">
             <h2>Exemplo</h2>
             <div class="exemplo">
-                <div class="cartao-exemplo">Aprendendo CSS na prática</div>
+                <div class="caixa-property">Propriedade customizada tipada com transição de cor</div>
             </div>
         </section>
 
         <section class="painel">
             <h2>Código base</h2>
             <pre><code>&lt;div class=&quot;exemplo&quot;&gt;
-  &lt;div class=&quot;cartao-exemplo&quot;&gt;Aprendendo CSS na prática&lt;/div&gt;
+  &lt;div class=&quot;caixa-property&quot;&gt;Propriedade customizada tipada com transição de cor&lt;/div&gt;
 &lt;/div&gt;
 
 &lt;style&gt;
-:root { --cor-principal: #355070; --espaco: 18px; }
-.cartao-exemplo {
-  padding: var(--espaco);
-  background: var(--cor-principal);
+@property --cor-gradiente {
+  syntax: &#039;&lt;color&gt;&#039;;
+  inherits: false;
+  initial-value: #355070;
+}
+.caixa-property {
+  padding: 30px;
+  background: var(--cor-gradiente);
   color: white;
+  border-radius: 8px;
+  text-align: center;
+  transition: --cor-gradiente 0.5s ease;
+  font-weight: bold;
+  cursor: pointer;
+}
+.caixa-property:hover {
+  --cor-gradiente: #b56576;
 }
 &lt;/style&gt;</code></pre>
         </section>

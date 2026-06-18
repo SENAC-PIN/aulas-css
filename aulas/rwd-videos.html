@@ -6,9 +6,22 @@
     <title>Vídeos responsivos</title>
     <link rel="stylesheet" href="../assets/curso.css">
     <style>
-.cartao-exemplo { padding: 24px; background: #eaf4fb; }
-@media (max-width: 600px) {
-  .cartao-exemplo { background: #fff3cd; font-size: 20px; }
+.video-responsivo-conteiner {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  height: 0;
+  background: #eceff1;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.iframe-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
 }
     </style>
 </head>
@@ -24,20 +37,37 @@
         <section class="painel">
             <h2>Exemplo</h2>
             <div class="exemplo">
-                <div class="cartao-exemplo">Aprendendo CSS na prática</div>
+                <div class="video-responsivo-conteiner">
+                  <iframe src="about:blank" class="iframe-video" title="Video Placeholder"></iframe>
+                </div>
             </div>
         </section>
 
         <section class="painel">
             <h2>Código base</h2>
             <pre><code>&lt;div class=&quot;exemplo&quot;&gt;
-  &lt;div class=&quot;cartao-exemplo&quot;&gt;Aprendendo CSS na prática&lt;/div&gt;
+  &lt;div class=&quot;video-responsivo-conteiner&quot;&gt;
+    &lt;iframe src=&quot;about:blank&quot; class=&quot;iframe-video&quot; title=&quot;Video Placeholder&quot;&gt;&lt;/iframe&gt;
+  &lt;/div&gt;
 &lt;/div&gt;
 
 &lt;style&gt;
-.cartao-exemplo { padding: 24px; background: #eaf4fb; }
-@media (max-width: 600px) {
-  .cartao-exemplo { background: #fff3cd; font-size: 20px; }
+.video-responsivo-conteiner {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  height: 0;
+  background: #eceff1;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.iframe-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
 }
 &lt;/style&gt;</code></pre>
         </section>

@@ -6,11 +6,16 @@
     <title>Sombras CSS</title>
     <link rel="stylesheet" href="../assets/curso.css">
     <style>
-.cartao-exemplo {
+.cartao-sombras {
   padding: 24px;
+  background: white;
   border-radius: 8px;
-  background: #eaf4fb;
-  color: #24313f;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15), 0 3px 6px rgba(0,0,0,0.1);
+  text-align: center;
+}
+.texto-sombra {
+  color: #355070;
+  text-shadow: 2px 2px 4px rgba(53, 80, 112, 0.3);
 }
     </style>
 </head>
@@ -26,22 +31,31 @@
         <section class="painel">
             <h2>Exemplo</h2>
             <div class="exemplo">
-                <div class="cartao-exemplo">Aprendendo CSS na prática</div>
+                <div class="cartao-sombras">
+                  <h3 class="texto-sombra">Texto e Caixa Sombreados</h3>
+                </div>
             </div>
         </section>
 
         <section class="painel">
             <h2>Código base</h2>
             <pre><code>&lt;div class=&quot;exemplo&quot;&gt;
-  &lt;div class=&quot;cartao-exemplo&quot;&gt;Aprendendo CSS na prática&lt;/div&gt;
+  &lt;div class=&quot;cartao-sombras&quot;&gt;
+    &lt;h3 class=&quot;texto-sombra&quot;&gt;Texto e Caixa Sombreados&lt;/h3&gt;
+  &lt;/div&gt;
 &lt;/div&gt;
 
 &lt;style&gt;
-.cartao-exemplo {
+.cartao-sombras {
   padding: 24px;
+  background: white;
   border-radius: 8px;
-  background: #eaf4fb;
-  color: #24313f;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15), 0 3px 6px rgba(0,0,0,0.1);
+  text-align: center;
+}
+.texto-sombra {
+  color: #355070;
+  text-shadow: 2px 2px 4px rgba(53, 80, 112, 0.3);
 }
 &lt;/style&gt;</code></pre>
         </section>

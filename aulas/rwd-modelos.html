@@ -6,9 +6,19 @@
     <title>Modelos responsivos</title>
     <link rel="stylesheet" href="../assets/curso.css">
     <style>
-.cartao-exemplo { padding: 24px; background: #eaf4fb; }
-@media (max-width: 600px) {
-  .cartao-exemplo { background: #fff3cd; font-size: 20px; }
+.grade-modelos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+.cartao-modelo-rwd {
+  flex: 1 1 120px;
+  padding: 15px;
+  background: #eaf4fb;
+  text-align: center;
+  border: 1px solid #355070;
+  border-radius: 6px;
 }
     </style>
 </head>
@@ -24,20 +34,38 @@
         <section class="painel">
             <h2>Exemplo</h2>
             <div class="exemplo">
-                <div class="cartao-exemplo">Aprendendo CSS na prática</div>
+                <div class="grade-modelos">
+                  <div class="cartao-modelo-rwd">Modelo A</div>
+                  <div class="cartao-modelo-rwd">Modelo B</div>
+                  <div class="cartao-modelo-rwd">Modelo C</div>
+                </div>
             </div>
         </section>
 
         <section class="painel">
             <h2>Código base</h2>
             <pre><code>&lt;div class=&quot;exemplo&quot;&gt;
-  &lt;div class=&quot;cartao-exemplo&quot;&gt;Aprendendo CSS na prática&lt;/div&gt;
+  &lt;div class=&quot;grade-modelos&quot;&gt;
+    &lt;div class=&quot;cartao-modelo-rwd&quot;&gt;Modelo A&lt;/div&gt;
+    &lt;div class=&quot;cartao-modelo-rwd&quot;&gt;Modelo B&lt;/div&gt;
+    &lt;div class=&quot;cartao-modelo-rwd&quot;&gt;Modelo C&lt;/div&gt;
+  &lt;/div&gt;
 &lt;/div&gt;
 
 &lt;style&gt;
-.cartao-exemplo { padding: 24px; background: #eaf4fb; }
-@media (max-width: 600px) {
-  .cartao-exemplo { background: #fff3cd; font-size: 20px; }
+.grade-modelos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+.cartao-modelo-rwd {
+  flex: 1 1 120px;
+  padding: 15px;
+  background: #eaf4fb;
+  text-align: center;
+  border: 1px solid #355070;
+  border-radius: 6px;
 }
 &lt;/style&gt;</code></pre>
         </section>

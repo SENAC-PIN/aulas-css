@@ -6,10 +6,18 @@
     <title>Comentários CSS</title>
     <link rel="stylesheet" href="../assets/curso.css">
     <style>
-/* Comentario: explica a decisao de estilo */
-.cartao-exemplo {
-  padding: 24px;
-  background: #eaf4fb;
+/* Define o design base da caixa de exemplo */
+.caixa-comentario {
+  padding: 20px;
+  background-color: #457b9d;
+  color: white;
+  border-radius: 6px;
+  transition: background-color 0.3s;
+  text-align: center;
+}
+/* Altera a cor de fundo durante o hover do usuário */
+.caixa-comentario:hover {
+  background-color: #1d3557;
 }
     </style>
 </head>
@@ -25,21 +33,29 @@
         <section class="painel">
             <h2>Exemplo</h2>
             <div class="exemplo">
-                <div class="cartao-exemplo">Aprendendo CSS na prática</div>
+                <div class="caixa-comentario">Passe o mouse para ver a cor mudar</div>
             </div>
         </section>
 
         <section class="painel">
             <h2>Código base</h2>
             <pre><code>&lt;div class=&quot;exemplo&quot;&gt;
-  &lt;div class=&quot;cartao-exemplo&quot;&gt;Aprendendo CSS na prática&lt;/div&gt;
+  &lt;div class=&quot;caixa-comentario&quot;&gt;Passe o mouse para ver a cor mudar&lt;/div&gt;
 &lt;/div&gt;
 
 &lt;style&gt;
-/* Comentario: explica a decisao de estilo */
-.cartao-exemplo {
-  padding: 24px;
-  background: #eaf4fb;
+/* Define o design base da caixa de exemplo */
+.caixa-comentario {
+  padding: 20px;
+  background-color: #457b9d;
+  color: white;
+  border-radius: 6px;
+  transition: background-color 0.3s;
+  text-align: center;
+}
+/* Altera a cor de fundo durante o hover do usuário */
+.caixa-comentario:hover {
+  background-color: #1d3557;
 }
 &lt;/style&gt;</code></pre>
         </section>

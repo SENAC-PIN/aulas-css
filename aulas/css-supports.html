@@ -6,9 +6,17 @@
     <title>CSS @supports</title>
     <link rel="stylesheet" href="../assets/curso.css">
     <style>
-.cartao-exemplo { padding: 24px; background: #eaf4fb; }
+.caixa-suporte {
+  padding: 20px;
+  background: #eaf4fb;
+  border: 1px solid #355070;
+}
 @supports (display: grid) {
-  .cartao-exemplo { border: 4px solid #2a9d8f; }
+  .caixa-suporte {
+    display: grid;
+    place-items: center;
+    border: 3px double #2a9d8f;
+  }
 }
     </style>
 </head>
@@ -24,20 +32,32 @@
         <section class="painel">
             <h2>Exemplo</h2>
             <div class="exemplo">
-                <div class="cartao-exemplo">Aprendendo CSS na prática</div>
+                <div class="caixa-suporte">
+                  <span class="mensagem-suporte">Esta caixa foi estilizada condicionalmente usando @supports.</span>
+                </div>
             </div>
         </section>
 
         <section class="painel">
             <h2>Código base</h2>
             <pre><code>&lt;div class=&quot;exemplo&quot;&gt;
-  &lt;div class=&quot;cartao-exemplo&quot;&gt;Aprendendo CSS na prática&lt;/div&gt;
+  &lt;div class=&quot;caixa-suporte&quot;&gt;
+    &lt;span class=&quot;mensagem-suporte&quot;&gt;Esta caixa foi estilizada condicionalmente usando @supports.&lt;/span&gt;
+  &lt;/div&gt;
 &lt;/div&gt;
 
 &lt;style&gt;
-.cartao-exemplo { padding: 24px; background: #eaf4fb; }
+.caixa-suporte {
+  padding: 20px;
+  background: #eaf4fb;
+  border: 1px solid #355070;
+}
 @supports (display: grid) {
-  .cartao-exemplo { border: 4px solid #2a9d8f; }
+  .caixa-suporte {
+    display: grid;
+    place-items: center;
+    border: 3px double #2a9d8f;
+  }
 }
 &lt;/style&gt;</code></pre>
         </section>

@@ -6,9 +6,25 @@
     <title>Frameworks responsivos</title>
     <link rel="stylesheet" href="../assets/curso.css">
     <style>
-.cartao-exemplo { padding: 24px; background: #eaf4fb; }
+.linha-simulada {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -8px;
+}
+.col-6-simulada {
+  flex: 0 0 calc(50% - 16px);
+  margin: 8px;
+  padding: 20px;
+  background: #eaf4fb;
+  border: 1px solid #355070;
+  border-radius: 4px;
+  box-sizing: border-box;
+  text-align: center;
+}
 @media (max-width: 600px) {
-  .cartao-exemplo { background: #fff3cd; font-size: 20px; }
+  .col-6-simulada {
+    flex: 0 0 calc(100% - 16px);
+  }
 }
     </style>
 </head>
@@ -24,20 +40,42 @@
         <section class="painel">
             <h2>Exemplo</h2>
             <div class="exemplo">
-                <div class="cartao-exemplo">Aprendendo CSS na prática</div>
+                <div class="linha-simulada">
+                  <div class="col-6-simulada">Coluna 1 (50% largura)</div>
+                  <div class="col-6-simulada">Coluna 2 (50% largura)</div>
+                </div>
             </div>
         </section>
 
         <section class="painel">
             <h2>Código base</h2>
             <pre><code>&lt;div class=&quot;exemplo&quot;&gt;
-  &lt;div class=&quot;cartao-exemplo&quot;&gt;Aprendendo CSS na prática&lt;/div&gt;
+  &lt;div class=&quot;linha-simulada&quot;&gt;
+    &lt;div class=&quot;col-6-simulada&quot;&gt;Coluna 1 (50% largura)&lt;/div&gt;
+    &lt;div class=&quot;col-6-simulada&quot;&gt;Coluna 2 (50% largura)&lt;/div&gt;
+  &lt;/div&gt;
 &lt;/div&gt;
 
 &lt;style&gt;
-.cartao-exemplo { padding: 24px; background: #eaf4fb; }
+.linha-simulada {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -8px;
+}
+.col-6-simulada {
+  flex: 0 0 calc(50% - 16px);
+  margin: 8px;
+  padding: 20px;
+  background: #eaf4fb;
+  border: 1px solid #355070;
+  border-radius: 4px;
+  box-sizing: border-box;
+  text-align: center;
+}
 @media (max-width: 600px) {
-  .cartao-exemplo { background: #fff3cd; font-size: 20px; }
+  .col-6-simulada {
+    flex: 0 0 calc(100% - 16px);
+  }
 }
 &lt;/style&gt;</code></pre>
         </section>

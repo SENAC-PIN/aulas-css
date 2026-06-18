@@ -6,11 +6,22 @@
     <title>Transformações 3D CSS</title>
     <link rel="stylesheet" href="../assets/curso.css">
     <style>
-.exemplo { perspective: 500px; }
-.cartao-exemplo {
-  padding: 24px;
-  background: #eaf4fb;
-  transform: rotateY(25deg);
+.perspectiva-3d {
+  perspective: 800px;
+  padding: 20px;
+}
+.bloco-3d {
+  padding: 30px;
+  background: #355070;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+}
+.perspectiva-3d:hover .bloco-3d {
+  transform: rotateY(30deg) rotateX(15deg);
 }
     </style>
 </head>
@@ -26,22 +37,37 @@
         <section class="painel">
             <h2>Exemplo</h2>
             <div class="exemplo">
-                <div class="cartao-exemplo">Aprendendo CSS na prática</div>
+                <div class="perspectiva-3d">
+                  <div class="bloco-3d">Efeito Rotativo 3D no Hover</div>
+                </div>
             </div>
         </section>
 
         <section class="painel">
             <h2>Código base</h2>
             <pre><code>&lt;div class=&quot;exemplo&quot;&gt;
-  &lt;div class=&quot;cartao-exemplo&quot;&gt;Aprendendo CSS na prática&lt;/div&gt;
+  &lt;div class=&quot;perspectiva-3d&quot;&gt;
+    &lt;div class=&quot;bloco-3d&quot;&gt;Efeito Rotativo 3D no Hover&lt;/div&gt;
+  &lt;/div&gt;
 &lt;/div&gt;
 
 &lt;style&gt;
-.exemplo { perspective: 500px; }
-.cartao-exemplo {
-  padding: 24px;
-  background: #eaf4fb;
-  transform: rotateY(25deg);
+.perspectiva-3d {
+  perspective: 800px;
+  padding: 20px;
+}
+.bloco-3d {
+  padding: 30px;
+  background: #355070;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+}
+.perspectiva-3d:hover .bloco-3d {
+  transform: rotateY(30deg) rotateX(15deg);
 }
 &lt;/style&gt;</code></pre>
         </section>

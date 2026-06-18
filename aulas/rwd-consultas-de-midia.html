@@ -6,9 +6,21 @@
     <title>Consultas de mídia responsivas</title>
     <link rel="stylesheet" href="../assets/curso.css">
     <style>
-.cartao-exemplo { padding: 24px; background: #eaf4fb; }
-@media (max-width: 600px) {
-  .cartao-exemplo { background: #fff3cd; font-size: 20px; }
+.grid-layout-rwd {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.item-layout-rwd {
+  padding: 20px;
+  background: #eaf4fb;
+  text-align: center;
+  border-radius: 4px;
+}
+@media (min-width: 600px) {
+  .grid-layout-rwd {
+    flex-direction: row;
+  }
 }
     </style>
 </head>
@@ -24,20 +36,38 @@
         <section class="painel">
             <h2>Exemplo</h2>
             <div class="exemplo">
-                <div class="cartao-exemplo">Aprendendo CSS na prática</div>
+                <div class="grid-layout-rwd">
+                  <div class="item-layout-rwd">Primeiro Item</div>
+                  <div class="item-layout-rwd">Segundo Item</div>
+                </div>
             </div>
         </section>
 
         <section class="painel">
             <h2>Código base</h2>
             <pre><code>&lt;div class=&quot;exemplo&quot;&gt;
-  &lt;div class=&quot;cartao-exemplo&quot;&gt;Aprendendo CSS na prática&lt;/div&gt;
+  &lt;div class=&quot;grid-layout-rwd&quot;&gt;
+    &lt;div class=&quot;item-layout-rwd&quot;&gt;Primeiro Item&lt;/div&gt;
+    &lt;div class=&quot;item-layout-rwd&quot;&gt;Segundo Item&lt;/div&gt;
+  &lt;/div&gt;
 &lt;/div&gt;
 
 &lt;style&gt;
-.cartao-exemplo { padding: 24px; background: #eaf4fb; }
-@media (max-width: 600px) {
-  .cartao-exemplo { background: #fff3cd; font-size: 20px; }
+.grid-layout-rwd {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.item-layout-rwd {
+  padding: 20px;
+  background: #eaf4fb;
+  text-align: center;
+  border-radius: 4px;
+}
+@media (min-width: 600px) {
+  .grid-layout-rwd {
+    flex-direction: row;
+  }
 }
 &lt;/style&gt;</code></pre>
         </section>
