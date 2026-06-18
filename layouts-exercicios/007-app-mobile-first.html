@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício de layout 007 - Aplicativo mobile-first</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #24313f;
+            background: #f4f7fb;
+        }
+
+        /* Comece pelo celular e depois use media query para telas maiores. */
+    </style>
+</head>
+<body>
+    <!--
+        Tarefa:
+        1. Crie uma tela de aplicativo começando pelo mobile.
+        2. Use cards para ações principais.
+        3. Crie uma navegação inferior.
+        4. Em telas maiores, centralize e limite a largura da tela.
+    -->
+
+    <main class="app">
+        <header>
+            <h1>Meu app</h1>
+            <p>Resumo do dia</p>
+        </header>
+
+        <section class="acoes">
+            <article>Atividade</article>
+            <article>Mensagens</article>
+            <article>Progresso</article>
+        </section>
+
+        <nav>
+            <a href="#">Início</a>
+            <a href="#">Busca</a>
+            <a href="#">Perfil</a>
+        </nav>
+    </main>
+</body>
+</html>

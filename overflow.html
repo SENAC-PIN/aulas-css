@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula: CSS Overflow</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            color: #26313d;
+            background: #f3f6f8;
+        }
+
+        header {
+            padding: 32px 24px;
+            color: #ffffff;
+            background: #355070;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 28px 20px 48px;
+        }
+
+        section {
+            margin-bottom: 28px;
+            padding: 22px;
+            border: 1px solid #d6dee8;
+            border-radius: 8px;
+            background: #ffffff;
+        }
+
+        h1,
+        h2,
+        h3,
+        p {
+            margin-top: 0;
+        }
+
+        code {
+            padding: 2px 6px;
+            border-radius: 4px;
+            background: #edf2f7;
+            font-size: 0.95em;
+        }
+
+        .grade {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+        }
+
+        .exemplo {
+            padding: 14px;
+            border: 2px solid #b9c6d3;
+            background: #fbfdff;
+        }
+
+        .caixa {
+            width: 180px;
+            height: 120px;
+            padding: 12px;
+            border: 3px solid #3d7199;
+            background: #eaf4fb;
+        }
+
+        .conteudo-grande {
+            width: 260px;
+            color: #1f2d3a;
+        }
+
+        .visible {
+            overflow: visible;
+        }
+
+        .hidden {
+            overflow: hidden;
+        }
+
+        .scroll {
+            overflow: scroll;
+        }
+
+        .auto {
+            overflow: auto;
+        }
+
+        .overflow-x {
+            overflow-x: auto;
+            overflow-y: hidden;
+            white-space: nowrap;
+        }
+
+        .linha-comprida {
+            display: inline-block;
+            width: 520px;
+            padding: 10px;
+            color: #ffffff;
+            background: #b56576;
+        }
+
+        .observacao {
+            margin-bottom: 0;
+            padding: 12px;
+            border-left: 5px solid #355070;
+            background: #eaf0f6;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Aula pr&aacute;tica: CSS Overflow</h1>
+        <p>O <code>overflow</code> controla o que acontece quando o conte&uacute;do &eacute; maior que a caixa.</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>1. Comparando os valores principais</h2>
+            <p>
+                Todas as caixas abaixo t&ecirc;m o mesmo tamanho. O que muda &eacute; apenas o valor de
+                <code>overflow</code>.
+            </p>
+
+            <div class="grade">
+                <div class="exemplo">
+                    <h3><code>overflow: visible</code></h3>
+                    <div class="caixa visible">
+                        <div class="conteudo-grande">
+                            O conte&uacute;do passa para fora da caixa. Esse &eacute; o comportamento padr&atilde;o.
+                            O texto continua aparecendo mesmo sem caber.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="exemplo">
+                    <h3><code>overflow: hidden</code></h3>
+                    <div class="caixa hidden">
+                        <div class="conteudo-grande">
+                            O conte&uacute;do que n&atilde;o couber fica escondido. N&atilde;o aparece barra de rolagem.
+                            Parte do texto ser&aacute; cortada.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="exemplo">
+                    <h3><code>overflow: scroll</code></h3>
+                    <div class="caixa scroll">
+                        <div class="conteudo-grande">
+                            A caixa sempre mostra barras de rolagem, mesmo quando talvez n&atilde;o fossem necess&aacute;rias.
+                            Aqui voc&ecirc; pode rolar para ver o resto.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="exemplo">
+                    <h3><code>overflow: auto</code></h3>
+                    <div class="caixa auto">
+                        <div class="conteudo-grande">
+                            O navegador decide quando precisa mostrar barra de rolagem. Na pr&aacute;tica, esse costuma
+                            ser o valor mais usado.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>2. Overflow apenas na horizontal</h2>
+            <p>
+                Tamb&eacute;m podemos controlar os eixos separadamente com <code>overflow-x</code> e
+                <code>overflow-y</code>.
+            </p>
+
+            <div class="exemplo">
+                <div class="caixa overflow-x">
+                    <span class="linha-comprida">
+                        Esta linha &eacute; maior que a caixa, ent&atilde;o a rolagem aparece apenas na horizontal.
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Resumo</h2>
+            <p class="observacao">
+                Use <code>overflow: auto</code> quando quiser rolagem somente se for necess&aacute;rio.
+                Use <code>overflow: hidden</code> quando quiser cortar o excesso de conte&uacute;do.
+            </p>
+        </section>
+    </main>
+</body>
+
+</html>

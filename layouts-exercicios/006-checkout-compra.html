@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício de layout 006 - Checkout de compra</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #24313f;
+            background: #f4f7fb;
+        }
+
+        /* Complete o CSS do checkout aqui. */
+    </style>
+</head>
+<body>
+    <!--
+        Tarefa:
+        1. Crie um layout com formulário e resumo do pedido.
+        2. Use duas colunas no desktop.
+        3. Empilhe as áreas no celular.
+        4. Destaque o botão de finalizar compra.
+    -->
+
+    <header>
+        <h1>Finalizar compra</h1>
+    </header>
+
+    <main class="checkout">
+        <form>
+            <h2>Dados do cliente</h2>
+            <label>Nome <input type="text"></label>
+            <label>Email <input type="email"></label>
+            <label>Endereço <input type="text"></label>
+            <button>Finalizar compra</button>
+        </form>
+
+        <aside>
+            <h2>Resumo</h2>
+            <p>Produto: Curso CSS</p>
+            <p>Total: R$ 199,00</p>
+        </aside>
+    </main>
+</body>
+</html>

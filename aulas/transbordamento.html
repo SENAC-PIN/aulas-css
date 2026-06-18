@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transbordamento</title>
+    <link rel="stylesheet" href="../assets/curso.css">
+    <style>
+.caixa-rolagem {
+  width: 220px;
+  height: 90px;
+  overflow: auto;
+  border: 2px solid #355070;
+  padding: 12px;
+}
+    </style>
+</head>
+<body>
+    <header class="cabecalho-aula">
+        <a class="link-voltar" href="../index.html">Voltar ao índice</a>
+        <h1>Transbordamento</h1>
+        <p>Controle o que acontece quando o conteudo fica maior que a caixa.</p>
+    </header>
+
+    <main class="aula">
+        <section class="painel">
+            <h2>Exemplo</h2>
+            <div class="exemplo">
+                <div class="caixa-rolagem">Conteudo grande dentro de uma caixa pequena. Role para ler tudo que aparece aqui.</div>
+            </div>
+        </section>
+
+        <section class="painel">
+            <h2>Código base</h2>
+            <pre><code>&lt;div class=&quot;exemplo&quot;&gt;
+  &lt;div class=&quot;caixa-rolagem&quot;&gt;Conteudo grande dentro de uma caixa pequena. Role para ler tudo que aparece aqui.&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+.caixa-rolagem {
+  width: 220px;
+  height: 90px;
+  overflow: auto;
+  border: 2px solid #355070;
+  padding: 12px;
+}
+&lt;/style&gt;</code></pre>
+        </section>
+
+        <section class="painel atividade">
+            <h2>Atividade prática</h2>
+            <p>Teste visible, hidden, scroll, auto, overflow-x e overflow-y.</p>
+            <ol>
+                <li>Abra esta página no navegador.</li>
+                <li>Edite o CSS no arquivo ou no DevTools.</li>
+                <li>Anote qual propriedade mudou o resultado visual.</li>
+            </ol>
+            <p><a class="link-exercicio" href="../exercicios/026-transbordamento.html">Abrir página do exercício</a></p>
+        </section>
+
+        <nav class="navegacao-aula">
+            <a href="css-transbordamento.html">Anterior: Transbordamento CSS</a>
+            <a href="transbordamento-x-e-y.html">Próxima: Transbordamento nos eixos X e Y</a>
+        </nav>
+    </main>
+</body>
+</html>

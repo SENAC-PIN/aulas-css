@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SASS para CSS</title>
+    <link rel="stylesheet" href="../assets/curso.css">
+    <style>
+$cor: #355070;
+.cartao {
+  padding: 24px;
+  background: $cor;
+  color: white;
+}
+    </style>
+</head>
+<body>
+    <header class="cabecalho-aula">
+        <a class="link-voltar" href="../index.html">Voltar ao índice</a>
+        <h1>SASS para CSS</h1>
+        <p>Aprenda o papel de SASS para CSS e pratique alterando o exemplo.</p>
+    </header>
+
+    <main class="aula">
+        <section class="painel">
+            <h2>Exemplo</h2>
+            <div class="exemplo">
+                <div class="cartao">Aprendendo SASS na pratica</div>
+            </div>
+        </section>
+
+        <section class="painel">
+            <h2>Código base</h2>
+            <pre><code>&lt;div class=&quot;exemplo&quot;&gt;
+  &lt;div class=&quot;cartao&quot;&gt;Aprendendo SASS na pratica&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+$cor: #355070;
+.cartao {
+  padding: 24px;
+  background: $cor;
+  color: white;
+}
+&lt;/style&gt;</code></pre>
+        </section>
+
+        <section class="painel atividade">
+            <h2>Atividade prática</h2>
+            <p>Reescreva o exemplo em CSS comum, substituindo a variavel SASS.</p>
+            <ol>
+                <li>Abra esta página no navegador.</li>
+                <li>Edite o CSS no arquivo ou no DevTools.</li>
+                <li>Anote qual propriedade mudou o resultado visual.</li>
+            </ol>
+            <p><a class="link-exercicio" href="../exercicios/098-css-sass.html">Abrir página do exercício</a></p>
+        </section>
+
+        <nav class="navegacao-aula">
+            <a href="css-certificado.html">Anterior: Certificado CSS</a>
+            <a href="tutorial-sass.html">Próxima: Tutorial de SASS</a>
+        </nav>
+    </main>
+</body>
+</html>

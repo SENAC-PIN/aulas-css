@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudoelementos CSS</title>
+    <link rel="stylesheet" href="../assets/curso.css">
+    <style>
+.frase::before { content: ">> "; color: #b56576; }
+.frase::first-letter { font-size: 36px; color: #355070; }
+    </style>
+</head>
+<body>
+    <header class="cabecalho-aula">
+        <a class="link-voltar" href="../index.html">Voltar ao índice</a>
+        <h1>Pseudoelementos CSS</h1>
+        <p>Treine formas de escolher elementos especificos da pagina para aplicar estilos.</p>
+    </header>
+
+    <main class="aula">
+        <section class="painel">
+            <h2>Exemplo</h2>
+            <div class="exemplo">
+                <p class="frase">CSS cria detalhes sem mudar o HTML.</p>
+            </div>
+        </section>
+
+        <section class="painel">
+            <h2>Código base</h2>
+            <pre><code>&lt;div class=&quot;exemplo&quot;&gt;
+  &lt;p class=&quot;frase&quot;&gt;CSS cria detalhes sem mudar o HTML.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+.frase::before { content: &quot;&gt;&gt; &quot;; color: #b56576; }
+.frase::first-letter { font-size: 36px; color: #355070; }
+&lt;/style&gt;</code></pre>
+        </section>
+
+        <section class="painel atividade">
+            <h2>Atividade prática</h2>
+            <p>Use ::after para adicionar um detalhe no final.</p>
+            <ol>
+                <li>Abra esta página no navegador.</li>
+                <li>Edite o CSS no arquivo ou no DevTools.</li>
+                <li>Anote qual propriedade mudou o resultado visual.</li>
+            </ol>
+            <p><a class="link-exercicio" href="../exercicios/034-css-pseudoelementos.html">Abrir página do exercício</a></p>
+        </section>
+
+        <nav class="navegacao-aula">
+            <a href="css-pseudoclasses.html">Anterior: Pseudoclasses CSS</a>
+            <a href="css-opacidade.html">Próxima: Opacidade CSS</a>
+        </nav>
+    </main>
+</body>
+</html>

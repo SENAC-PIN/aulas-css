@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posição de objeto CSS</title>
+    <link rel="stylesheet" href="../assets/curso.css">
+    <style>
+.area-posicao { position: relative; height: 160px; background: #eaf4fb; }
+.area-posicao span { position: absolute; width: 90px; height: 90px; display: grid; place-items: center; color: white; }
+.camada-um { left: 30px; top: 20px; background: #355070; z-index: 1; }
+.camada-dois { left: 80px; top: 55px; background: #b56576; z-index: 2; }
+    </style>
+</head>
+<body>
+    <header class="cabecalho-aula">
+        <a class="link-voltar" href="../index.html">Voltar ao índice</a>
+        <h1>Posição de objeto CSS</h1>
+        <p>Controle apresentação, corte, filtro e posicionamento de imagens.</p>
+    </header>
+
+    <main class="aula">
+        <section class="painel">
+            <h2>Exemplo</h2>
+            <div class="exemplo">
+                <div class="area-posicao"><span class="camada-um">1</span><span class="camada-dois">2</span></div>
+            </div>
+        </section>
+
+        <section class="painel">
+            <h2>Código base</h2>
+            <pre><code>&lt;div class=&quot;exemplo&quot;&gt;
+  &lt;div class=&quot;area-posicao&quot;&gt;&lt;span class=&quot;camada-um&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;camada-dois&quot;&gt;2&lt;/span&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+.area-posicao { position: relative; height: 160px; background: #eaf4fb; }
+.area-posicao span { position: absolute; width: 90px; height: 90px; display: grid; place-items: center; color: white; }
+.camada-um { left: 30px; top: 20px; background: #355070; z-index: 1; }
+.camada-dois { left: 80px; top: 55px; background: #b56576; z-index: 2; }
+&lt;/style&gt;</code></pre>
+        </section>
+
+        <section class="painel atividade">
+            <h2>Atividade prática</h2>
+            <p>Teste top, right, bottom, left e inverta o z-index.</p>
+            <ol>
+                <li>Abra esta página no navegador.</li>
+                <li>Edite o CSS no arquivo ou no DevTools.</li>
+                <li>Anote qual propriedade mudou o resultado visual.</li>
+            </ol>
+            <p><a class="link-exercicio" href="../exercicios/066-css-posicao-de-objeto.html">Abrir página do exercício</a></p>
+        </section>
+
+        <nav class="navegacao-aula">
+            <a href="css-ajuste-de-objeto.html">Anterior: Ajuste de objeto CSS</a>
+            <a href="css-mascaras.html">Próxima: Máscaras CSS</a>
+        </nav>
+    </main>
+</body>
+</html>

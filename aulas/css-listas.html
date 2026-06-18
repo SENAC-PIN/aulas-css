@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listas CSS</title>
+    <link rel="stylesheet" href="../assets/curso.css">
+    <style>
+.etapas { counter-reset: etapa; list-style: none; padding-left: 0; }
+.etapas li::before {
+  counter-increment: etapa;
+  content: "Etapa " counter(etapa) ": ";
+  font-weight: bold;
+  color: #355070;
+}
+    </style>
+</head>
+<body>
+    <header class="cabecalho-aula">
+        <a class="link-voltar" href="../index.html">Voltar ao índice</a>
+        <h1>Listas CSS</h1>
+        <p>Aprenda o papel de Listas CSS e pratique alterando o exemplo.</p>
+    </header>
+
+    <main class="aula">
+        <section class="painel">
+            <h2>Exemplo</h2>
+            <div class="exemplo">
+                <ol class="etapas"><li>Planejar</li><li>Codar</li><li>Revisar</li></ol>
+            </div>
+        </section>
+
+        <section class="painel">
+            <h2>Código base</h2>
+            <pre><code>&lt;div class=&quot;exemplo&quot;&gt;
+  &lt;ol class=&quot;etapas&quot;&gt;&lt;li&gt;Planejar&lt;/li&gt;&lt;li&gt;Codar&lt;/li&gt;&lt;li&gt;Revisar&lt;/li&gt;&lt;/ol&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+.etapas { counter-reset: etapa; list-style: none; padding-left: 0; }
+.etapas li::before {
+  counter-increment: etapa;
+  content: &quot;Etapa &quot; counter(etapa) &quot;: &quot;;
+  font-weight: bold;
+  color: #355070;
+}
+&lt;/style&gt;</code></pre>
+        </section>
+
+        <section class="painel atividade">
+            <h2>Atividade prática</h2>
+            <p>Mude o texto exibido antes de cada item.</p>
+            <ol>
+                <li>Abra esta página no navegador.</li>
+                <li>Edite o CSS no arquivo ou no DevTools.</li>
+                <li>Anote qual propriedade mudou o resultado visual.</li>
+            </ol>
+            <p><a class="link-exercicio" href="../exercicios/018-css-listas.html">Abrir página do exercício</a></p>
+        </section>
+
+        <nav class="navegacao-aula">
+            <a href="css-links.html">Anterior: Links CSS</a>
+            <a href="css-tabelas.html">Próxima: Tabelas CSS</a>
+        </nav>
+    </main>
+</body>
+</html>

@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividades completas de layout</title>
+    <link rel="stylesheet" href="assets/curso.css">
+    <style>
+        .grade-projetos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 18px;
+        }
+
+        .projeto {
+            display: grid;
+            gap: 14px;
+            align-content: start;
+        }
+
+        .cabecalho-projeto {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .numero-projeto {
+            display: grid;
+            place-items: center;
+            width: 42px;
+            height: 42px;
+            border-radius: 8px;
+            color: #ffffff;
+            background: var(--brand);
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .cabecalho-projeto h2 {
+            margin: 0;
+            font-size: 20px;
+            line-height: 1.2;
+        }
+
+        .mini-layout {
+            display: grid;
+            min-height: 190px;
+            overflow: hidden;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: #ffffff;
+        }
+
+        .mini-layout span {
+            display: grid;
+            place-items: center;
+            padding: 10px;
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .mini-topo { background: #355070; }
+        .mini-menu { background: #2d8a5f; }
+        .mini-conteudo { background: #b56576; }
+        .mini-lateral { background: #607080; }
+        .mini-rodape { background: #24313f; }
+        .mini-destaque { background: #7f4f9f; }
+        .mini-card { background: #1f7a8c; }
+
+        .layout-landing {
+            grid-template-rows: 48px 1fr 48px;
+        }
+
+        .layout-landing .mini-conteudo {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .layout-dashboard {
+            grid-template-columns: 90px 1fr;
+            grid-template-rows: 48px 1fr;
+        }
+
+        .layout-dashboard .mini-topo {
+            grid-column: 1 / -1;
+        }
+
+        .layout-galeria,
+        .layout-blog {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 6px;
+            padding: 8px;
+        }
+
+        .layout-galeria span,
+        .layout-blog span {
+            min-height: 52px;
+        }
+
+        .layout-blog .mini-topo {
+            grid-column: 1 / -1;
+        }
+
+        .layout-blog .mini-conteudo {
+            grid-column: span 2;
+        }
+
+        .layout-portfolio {
+            grid-template-columns: 1.2fr 1fr;
+            grid-template-rows: 56px 1fr 1fr;
+            gap: 6px;
+            padding: 8px;
+        }
+
+        .layout-portfolio .mini-topo {
+            grid-column: 1 / -1;
+        }
+
+        .layout-checkout {
+            grid-template-columns: 1fr 120px;
+            grid-template-rows: 52px 1fr 52px;
+        }
+
+        .layout-checkout .mini-topo,
+        .layout-checkout .mini-rodape {
+            grid-column: 1 / -1;
+        }
+
+        .layout-app {
+            grid-template-rows: 48px 1fr 56px;
+        }
+
+        .layout-app .mini-conteudo {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 6px;
+            padding: 8px;
+        }
+
+        .layout-revista {
+            grid-template-columns: 1.4fr 1fr;
+            grid-template-rows: 52px 1fr 1fr;
+            gap: 6px;
+            padding: 8px;
+        }
+
+        .layout-revista .mini-topo {
+            grid-column: 1 / -1;
+        }
+
+        .layout-revista .mini-destaque {
+            grid-row: span 2;
+        }
+
+        .codigo-curto {
+            min-height: auto;
+            white-space: pre-wrap;
+        }
+
+        .lista-requisitos {
+            margin-top: 0;
+        }
+
+        .trilha-layouts {
+            margin-bottom: 18px;
+        }
+
+        @media (max-width: 620px) {
+            .cabecalho-projeto {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="cabecalho-aula">
+        <a class="link-voltar" href="index.html">Voltar ao índice</a>
+        <span class="professor">Professor Diogo Fragoso</span>
+        <h1>Atividades completas de layout</h1>
+        <p>Projetos maiores para praticar estrutura, alinhamento, responsividade e organização visual com CSS.</p>
+    </header>
+
+    <main class="aula">
+        <section class="painel trilha-layouts">
+            <h2>Como usar a trilha</h2>
+            <p>Faça os projetos na ordem dos números. Cada card tem um exemplo visual, requisitos e um arquivo próprio para o estudante editar.</p>
+        </section>
+
+        <section class="grade-projetos">
+            <article class="painel projeto">
+                <div class="cabecalho-projeto">
+                    <span class="numero-projeto">01</span>
+                    <h2>Landing page responsiva</h2>
+                </div>
+                <div class="mini-layout layout-landing">
+                    <span class="mini-topo">Topo</span>
+                    <span class="mini-conteudo">Hero + chamada</span>
+                    <span class="mini-rodape">Rodapé</span>
+                </div>
+                <ul class="lista-requisitos">
+                    <li>Criar cabeçalho com navegação.</li>
+                    <li>Montar área principal com texto e chamada para ação.</li>
+                    <li>Usar Flexbox ou Grid.</li>
+                    <li>Adicionar media query para celular.</li>
+                </ul>
+                <pre class="codigo-curto"><code>.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}</code></pre>
+                <a class="link-exercicio" href="layouts-exercicios/001-landing-page.html">Abrir exercício 01</a>
+            </article>
+
+            <article class="painel projeto">
+                <div class="cabecalho-projeto">
+                    <span class="numero-projeto">02</span>
+                    <h2>Painel administrativo</h2>
+                </div>
+                <div class="mini-layout layout-dashboard">
+                    <span class="mini-topo">Topo</span>
+                    <span class="mini-menu">Menu</span>
+                    <span class="mini-conteudo">Conteúdo</span>
+                </div>
+                <ul class="lista-requisitos">
+                    <li>Criar menu lateral.</li>
+                    <li>Montar cartões de dados no conteúdo.</li>
+                    <li>Usar CSS Grid para a estrutura geral.</li>
+                    <li>Adaptar para uma coluna no celular.</li>
+                </ul>
+                <pre class="codigo-curto"><code>.dashboard {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+}</code></pre>
+                <a class="link-exercicio" href="layouts-exercicios/002-painel-administrativo.html">Abrir exercício 02</a>
+            </article>
+
+            <article class="painel projeto">
+                <div class="cabecalho-projeto">
+                    <span class="numero-projeto">03</span>
+                    <h2>Galeria de produtos</h2>
+                </div>
+                <div class="mini-layout layout-galeria">
+                    <span class="mini-topo">1</span>
+                    <span class="mini-menu">2</span>
+                    <span class="mini-conteudo">3</span>
+                    <span class="mini-lateral">4</span>
+                    <span class="mini-rodape">5</span>
+                    <span class="mini-topo">6</span>
+                </div>
+                <ul class="lista-requisitos">
+                    <li>Criar uma grade de cards.</li>
+                    <li>Cada card deve ter imagem, título, preço e botão.</li>
+                    <li>Usar <code>repeat()</code>, <code>minmax()</code> ou <code>auto-fit</code>.</li>
+                    <li>Garantir boa leitura em telas pequenas.</li>
+                </ul>
+                <pre class="codigo-curto"><code>.produtos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}</code></pre>
+                <a class="link-exercicio" href="layouts-exercicios/003-galeria-produtos.html">Abrir exercício 03</a>
+            </article>
+
+            <article class="painel projeto">
+                <div class="cabecalho-projeto">
+                    <span class="numero-projeto">04</span>
+                    <h2>Blog com sidebar</h2>
+                </div>
+                <div class="mini-layout layout-blog">
+                    <span class="mini-topo">Topo</span>
+                    <span class="mini-conteudo">Posts</span>
+                    <span class="mini-lateral">Sidebar</span>
+                    <span class="mini-card">Card</span>
+                    <span class="mini-card">Card</span>
+                </div>
+                <ul class="lista-requisitos">
+                    <li>Criar área de posts e barra lateral.</li>
+                    <li>Usar Grid para conteúdo + sidebar.</li>
+                    <li>Empilhar a sidebar abaixo dos posts no celular.</li>
+                    <li>Adicionar espaçamento consistente.</li>
+                </ul>
+                <pre class="codigo-curto"><code>.conteudo-blog {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+}</code></pre>
+                <a class="link-exercicio" href="layouts-exercicios/004-blog-sidebar.html">Abrir exercício 04</a>
+            </article>
+
+            <article class="painel projeto">
+                <div class="cabecalho-projeto">
+                    <span class="numero-projeto">05</span>
+                    <h2>Portfólio pessoal</h2>
+                </div>
+                <div class="mini-layout layout-portfolio">
+                    <span class="mini-topo">Apresentação</span>
+                    <span class="mini-destaque">Projeto</span>
+                    <span class="mini-card">Skill</span>
+                    <span class="mini-card">Contato</span>
+                    <span class="mini-lateral">Sobre</span>
+                </div>
+                <ul class="lista-requisitos">
+                    <li>Criar seção sobre, projetos, habilidades e contato.</li>
+                    <li>Usar cards para os projetos.</li>
+                    <li>Usar Flexbox para habilidades.</li>
+                    <li>Adaptar a ordem das seções no celular.</li>
+                </ul>
+                <pre class="codigo-curto"><code>.projetos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}</code></pre>
+                <a class="link-exercicio" href="layouts-exercicios/005-portfolio-pessoal.html">Abrir exercício 05</a>
+            </article>
+
+            <article class="painel projeto">
+                <div class="cabecalho-projeto">
+                    <span class="numero-projeto">06</span>
+                    <h2>Checkout de compra</h2>
+                </div>
+                <div class="mini-layout layout-checkout">
+                    <span class="mini-topo">Etapas</span>
+                    <span class="mini-conteudo">Formulário</span>
+                    <span class="mini-lateral">Resumo</span>
+                    <span class="mini-rodape">Ação</span>
+                </div>
+                <ul class="lista-requisitos">
+                    <li>Criar formulário e resumo do pedido.</li>
+                    <li>Usar duas colunas no desktop.</li>
+                    <li>Manter botão principal visível.</li>
+                    <li>Empilhar tudo no celular.</li>
+                </ul>
+                <pre class="codigo-curto"><code>.checkout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 24px;
+}</code></pre>
+                <a class="link-exercicio" href="layouts-exercicios/006-checkout-compra.html">Abrir exercício 06</a>
+            </article>
+
+            <article class="painel projeto">
+                <div class="cabecalho-projeto">
+                    <span class="numero-projeto">07</span>
+                    <h2>Aplicativo mobile-first</h2>
+                </div>
+                <div class="mini-layout layout-app">
+                    <span class="mini-topo">Topo</span>
+                    <span class="mini-conteudo">Cards</span>
+                    <span class="mini-menu">Menu inferior</span>
+                </div>
+                <ul class="lista-requisitos">
+                    <li>Começar o CSS pelo layout mobile.</li>
+                    <li>Criar navegação inferior.</li>
+                    <li>Usar cards de ação.</li>
+                    <li>Melhorar o layout em telas maiores com media query.</li>
+                </ul>
+                <pre class="codigo-curto"><code>.acoes {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}</code></pre>
+                <a class="link-exercicio" href="layouts-exercicios/007-app-mobile-first.html">Abrir exercício 07</a>
+            </article>
+
+            <article class="painel projeto">
+                <div class="cabecalho-projeto">
+                    <span class="numero-projeto">08</span>
+                    <h2>Revista digital</h2>
+                </div>
+                <div class="mini-layout layout-revista">
+                    <span class="mini-topo">Capa</span>
+                    <span class="mini-destaque">Matéria principal</span>
+                    <span class="mini-card">Nota</span>
+                    <span class="mini-card">Nota</span>
+                </div>
+                <ul class="lista-requisitos">
+                    <li>Criar uma capa editorial.</li>
+                    <li>Usar destaque visual para a matéria principal.</li>
+                    <li>Trabalhar múltiplas colunas ou Grid.</li>
+                    <li>Garantir hierarquia clara de títulos.</li>
+                </ul>
+                <pre class="codigo-curto"><code>.revista {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 20px;
+}</code></pre>
+                <a class="link-exercicio" href="layouts-exercicios/008-revista-digital.html">Abrir exercício 08</a>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício de layout 004 - Blog com sidebar</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #24313f;
+            background: #f4f7fb;
+        }
+
+        /* Complete o CSS do blog com sidebar aqui. */
+    </style>
+</head>
+<body>
+    <!--
+        Tarefa:
+        1. Crie um topo para o blog.
+        2. Organize posts e sidebar em duas colunas no desktop.
+        3. Faça a sidebar descer para baixo dos posts no celular.
+        4. Use espaçamento consistente entre cards.
+    -->
+
+    <header>
+        <h1>Blog de estudos</h1>
+        <p>Artigos, dicas e referências de CSS.</p>
+    </header>
+
+    <main class="conteudo-blog">
+        <section class="posts">
+            <article>
+                <h2>Post principal</h2>
+                <p>Escreva uma chamada para o post.</p>
+            </article>
+            <article>
+                <h2>Outro post</h2>
+                <p>Adicione mais um conteúdo.</p>
+            </article>
+        </section>
+
+        <aside>
+            <h2>Categorias</h2>
+            <a href="#">Layout</a>
+            <a href="#">Responsivo</a>
+            <a href="#">Boas práticas</a>
+        </aside>
+    </main>
+</body>
+</html>

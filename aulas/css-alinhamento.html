@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alinhamento CSS</title>
+    <link rel="stylesheet" href="../assets/curso.css">
+    <style>
+.container-flexivel { display: flex; gap: 10px; justify-content: space-between; align-items: center; }
+.container-flexivel span { padding: 18px; background: #eaf4fb; border: 1px solid #355070; }
+    </style>
+</head>
+<body>
+    <header class="cabecalho-aula">
+        <a class="link-voltar" href="../index.html">Voltar ao índice</a>
+        <h1>Alinhamento CSS</h1>
+        <p>Aprenda o papel de Alinhamento CSS e pratique alterando o exemplo.</p>
+    </header>
+
+    <main class="aula">
+        <section class="painel">
+            <h2>Exemplo</h2>
+            <div class="exemplo">
+                <div class="container-flexivel"><span>1</span><span>2</span><span>3</span></div>
+            </div>
+        </section>
+
+        <section class="painel">
+            <h2>Código base</h2>
+            <pre><code>&lt;div class=&quot;exemplo&quot;&gt;
+  &lt;div class=&quot;container-flexivel&quot;&gt;&lt;span&gt;1&lt;/span&gt;&lt;span&gt;2&lt;/span&gt;&lt;span&gt;3&lt;/span&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+.container-flexivel { display: flex; gap: 10px; justify-content: space-between; align-items: center; }
+.container-flexivel span { padding: 18px; background: #eaf4fb; border: 1px solid #355070; }
+&lt;/style&gt;</code></pre>
+        </section>
+
+        <section class="painel atividade">
+            <h2>Atividade prática</h2>
+            <p>Teste flex-direction, justify-content, align-items, gap e flex-wrap.</p>
+            <ol>
+                <li>Abra esta página no navegador.</li>
+                <li>Edite o CSS no arquivo ou no DevTools.</li>
+                <li>Anote qual propriedade mudou o resultado visual.</li>
+            </ol>
+            <p><a class="link-exercicio" href="../exercicios/031-css-alinhamento.html">Abrir página do exercício</a></p>
+        </section>
+
+        <nav class="navegacao-aula">
+            <a href="css-bloco-em-linha.html">Anterior: Bloco em linha CSS</a>
+            <a href="css-combinadores.html">Próxima: Combinadores CSS</a>
+        </nav>
+    </main>
+</body>
+</html>

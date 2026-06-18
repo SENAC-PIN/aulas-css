@@ -1,0 +1,2168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório de exercícios</title>
+    <style>
+        :root {
+            --texto: #24313f;
+            --muted: #607080;
+            --linha: #d7e0ea;
+            --fundo: #f4f7fb;
+            --papel: #ffffff;
+            --azul: #355070;
+            --verde: #2d8a5f;
+            --vermelho: #b64b4b;
+            --amarelo: #fff4d6;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+            color: var(--texto);
+            background: var(--fundo);
+        }
+
+        header {
+            padding: 32px 24px;
+            color: #ffffff;
+            background: var(--azul);
+        }
+
+        header h1,
+        header p {
+            margin: 0;
+        }
+
+        header p {
+            margin-top: 8px;
+        }
+
+        main {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 28px 20px 48px;
+        }
+
+        .resumo {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 14px;
+            margin-bottom: 22px;
+        }
+
+        .cartao {
+            padding: 18px;
+            border: 1px solid var(--linha);
+            border-radius: 8px;
+            background: var(--papel);
+        }
+
+        .cartao strong {
+            display: block;
+            font-size: 28px;
+        }
+
+        .cartao span {
+            color: var(--muted);
+        }
+
+        .resultado {
+            margin-bottom: 16px;
+            padding: 18px;
+            border: 1px solid var(--linha);
+            border-left: 7px solid var(--verde);
+            border-radius: 8px;
+            background: var(--papel);
+        }
+
+        .resultado.revisar {
+            border-left-color: var(--vermelho);
+        }
+
+        .linha-principal {
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        h2 {
+            margin: 0 0 4px;
+            font-size: 18px;
+        }
+
+        h3 {
+            margin: 0 0 8px;
+            font-size: 15px;
+        }
+
+        a {
+            color: var(--azul);
+        }
+
+        .status {
+            flex: 0 0 auto;
+            padding: 6px 10px;
+            border-radius: 999px;
+            color: #ffffff;
+            background: var(--verde);
+            font-weight: bold;
+            font-size: 13px;
+        }
+
+        .revisar .status {
+            background: var(--vermelho);
+        }
+
+        .detalhes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .vazio {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        .aviso {
+            margin-bottom: 22px;
+            padding: 14px 16px;
+            border: 1px solid #efd58b;
+            border-radius: 8px;
+            background: var(--amarelo);
+        }
+
+        @media (max-width: 640px) {
+            .linha-principal {
+                display: grid;
+            }
+
+            .status {
+                width: max-content;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Relatório de exercícios</h1>
+        <p>Gerado em 18/06/2026, 14:45:52</p>
+    </header>
+
+    <main>
+        <section class="resumo">
+            <div class="cartao">
+                <strong>99</strong>
+                <span>Total de exercícios</span>
+            </div>
+            <div class="cartao">
+                <strong>0</strong>
+                <span>Corretos</span>
+            </div>
+            <div class="cartao">
+                <strong>99</strong>
+                <span>Precisam revisar</span>
+            </div>
+        </section>
+
+        <section class="aviso">
+            Este corretor verifica requisitos objetivos no HTML/CSS. Ele ajuda na triagem, mas a revisão do professor ainda é importante.
+        </section>
+
+        <article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>001-css-sintaxe.html</h2>
+            <a href="exercicios/001-css-sintaxe.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>002-css-seletores.html</h2>
+            <a href="exercicios/002-css-seletores.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>003-css-como-usar.html</h2>
+            <a href="exercicios/003-css-como-usar.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>004-css-comentarios.html</h2>
+            <a href="exercicios/004-css-comentarios.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>005-css-erros.html</h2>
+            <a href="exercicios/005-css-erros.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>006-css-cores.html</h2>
+            <a href="exercicios/006-css-cores.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li><li>atende ao requisito: usar cores em CSS</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>007-css-fundos.html</h2>
+            <a href="exercicios/007-css-fundos.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li><li>atende ao requisito: configurar fundo</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>008-css-bordas.html</h2>
+            <a href="exercicios/008-css-bordas.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li><li>atende ao requisito: configurar bordas</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>009-css-margens.html</h2>
+            <a href="exercicios/009-css-margens.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li><li>atende ao requisito: usar margem</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>010-css-preenchimento.html</h2>
+            <a href="exercicios/010-css-preenchimento.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li><li>atende ao requisito: usar padding</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>011-css-altura-largura.html</h2>
+            <a href="exercicios/011-css-altura-largura.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li><li>atende ao requisito: controlar tamanho</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>012-css-modelo-de-caixa.html</h2>
+            <a href="exercicios/012-css-modelo-de-caixa.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li><li>atende ao requisito: trabalhar modelo de caixa</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>013-css-contorno.html</h2>
+            <a href="exercicios/013-css-contorno.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li><li>atende ao requisito: usar outline</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>014-css-texto.html</h2>
+            <a href="exercicios/014-css-texto.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li><li>atende ao requisito: estilizar texto</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>015-css-fontes.html</h2>
+            <a href="exercicios/015-css-fontes.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li><li>atende ao requisito: estilizar texto</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>016-css-icones.html</h2>
+            <a href="exercicios/016-css-icones.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li><li>não atende ao requisito: criar ou estilizar botão</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>017-css-links.html</h2>
+            <a href="exercicios/017-css-links.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li><li>não atende ao requisito: estilizar links ou navegação</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>018-css-listas.html</h2>
+            <a href="exercicios/018-css-listas.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li><li>não atende ao requisito: trabalhar listas</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>019-css-tabelas.html</h2>
+            <a href="exercicios/019-css-tabelas.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li><li>não atende ao requisito: criar tabela</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>020-css-display.html</h2>
+            <a href="exercicios/020-css-display.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li><li>não atende ao requisito: usar display</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>021-css-largura-maxima.html</h2>
+            <a href="exercicios/021-css-largura-maxima.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li><li>atende ao requisito: controlar tamanho</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>022-css-posicionamento.html</h2>
+            <a href="exercicios/022-css-posicionamento.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li><li>não atende ao requisito: usar posicionamento</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>023-css-deslocamentos-de-posicao.html</h2>
+            <a href="exercicios/023-css-deslocamentos-de-posicao.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li><li>não atende ao requisito: usar posicionamento</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>024-css-z-index.html</h2>
+            <a href="exercicios/024-css-z-index.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li><li>não atende ao requisito: usar posicionamento</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>025-css-transbordamento.html</h2>
+            <a href="exercicios/025-css-transbordamento.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li><li>atende ao requisito: usar overflow</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>026-transbordamento.html</h2>
+            <a href="exercicios/026-transbordamento.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li><li>atende ao requisito: usar overflow</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>027-transbordamento-x-e-y.html</h2>
+            <a href="exercicios/027-transbordamento-x-e-y.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li><li>atende ao requisito: usar overflow</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>028-desafio-de-codigo.html</h2>
+            <a href="exercicios/028-desafio-de-codigo.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>029-css-flutuacao.html</h2>
+            <a href="exercicios/029-css-flutuacao.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li><li>não atende ao requisito: usar float</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>030-css-bloco-em-linha.html</h2>
+            <a href="exercicios/030-css-bloco-em-linha.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li><li>não atende ao requisito: usar display</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>031-css-alinhamento.html</h2>
+            <a href="exercicios/031-css-alinhamento.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li><li>não atende ao requisito: usar flexbox</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>032-css-combinadores.html</h2>
+            <a href="exercicios/032-css-combinadores.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>033-css-pseudoclasses.html</h2>
+            <a href="exercicios/033-css-pseudoclasses.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li><li>atende ao requisito: usar pseudoclasse</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>034-css-pseudoelementos.html</h2>
+            <a href="exercicios/034-css-pseudoelementos.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li><li>atende ao requisito: usar pseudoelemento</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>035-css-opacidade.html</h2>
+            <a href="exercicios/035-css-opacidade.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li><li>não atende ao requisito: usar opacity</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>036-css-barras-de-navegacao.html</h2>
+            <a href="exercicios/036-css-barras-de-navegacao.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li><li>não atende ao requisito: estilizar links ou navegação</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>037-css-menus-suspensos.html</h2>
+            <a href="exercicios/037-css-menus-suspensos.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li><li>não atende ao requisito: criar menu suspenso</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>038-css-galeria-de-imagens.html</h2>
+            <a href="exercicios/038-css-galeria-de-imagens.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li><li>atende ao requisito: trabalhar imagem</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>039-css-sprites-de-imagem.html</h2>
+            <a href="exercicios/039-css-sprites-de-imagem.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li><li>atende ao requisito: trabalhar imagem</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>040-css-seletores-de-atributo.html</h2>
+            <a href="exercicios/040-css-seletores-de-atributo.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li><li>não atende ao requisito: trabalhar formulário</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>041-css-formularios.html</h2>
+            <a href="exercicios/041-css-formularios.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li><li>não atende ao requisito: trabalhar formulário</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>042-css-contadores.html</h2>
+            <a href="exercicios/042-css-contadores.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li><li>não atende ao requisito: trabalhar listas</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>043-css-unidades.html</h2>
+            <a href="exercicios/043-css-unidades.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li><li>atende ao requisito: usar unidades CSS</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>044-css-heranca.html</h2>
+            <a href="exercicios/044-css-heranca.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>045-css-especificidade.html</h2>
+            <a href="exercicios/045-css-especificidade.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>046-css-important.html</h2>
+            <a href="exercicios/046-css-important.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>047-css-funcoes-matematicas.html</h2>
+            <a href="exercicios/047-css-funcoes-matematicas.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>048-css-otimizacao.html</h2>
+            <a href="exercicios/048-css-otimizacao.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>049-css-acessibilidade.html</h2>
+            <a href="exercicios/049-css-acessibilidade.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>050-css-layout-de-site.html</h2>
+            <a href="exercicios/050-css-layout-de-site.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>051-css-gradientes.html</h2>
+            <a href="exercicios/051-css-gradientes.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li><li>atende ao requisito: configurar fundo</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>052-css-sombras.html</h2>
+            <a href="exercicios/052-css-sombras.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li><li>não atende ao requisito: usar sombra</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>053-css-efeitos-de-texto.html</h2>
+            <a href="exercicios/053-css-efeitos-de-texto.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li><li>atende ao requisito: estilizar texto</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>054-css-fontes-personalizadas.html</h2>
+            <a href="exercicios/054-css-fontes-personalizadas.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li><li>atende ao requisito: estilizar texto</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>055-css-transformacoes-2d.html</h2>
+            <a href="exercicios/055-css-transformacoes-2d.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li><li>não atende ao requisito: usar transform</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>056-css-transformacoes-3d.html</h2>
+            <a href="exercicios/056-css-transformacoes-3d.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li><li>não atende ao requisito: usar transform</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>057-css-transicoes.html</h2>
+            <a href="exercicios/057-css-transicoes.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li><li>não atende ao requisito: usar transition</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>058-css-animacoes.html</h2>
+            <a href="exercicios/058-css-animacoes.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li><li>não atende ao requisito: usar animation</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>059-css-dicas.html</h2>
+            <a href="exercicios/059-css-dicas.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>060-css-estilizacao-de-imagens.html</h2>
+            <a href="exercicios/060-css-estilizacao-de-imagens.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li><li>atende ao requisito: trabalhar imagem</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>061-css-modal-de-imagem.html</h2>
+            <a href="exercicios/061-css-modal-de-imagem.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li><li>atende ao requisito: trabalhar imagem</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>062-css-centralizacao-de-imagem.html</h2>
+            <a href="exercicios/062-css-centralizacao-de-imagem.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li><li>atende ao requisito: trabalhar imagem</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>063-css-filtros-de-imagem.html</h2>
+            <a href="exercicios/063-css-filtros-de-imagem.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li><li>atende ao requisito: trabalhar imagem</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>064-css-formatos-de-imagem.html</h2>
+            <a href="exercicios/064-css-formatos-de-imagem.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li><li>atende ao requisito: trabalhar imagem</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>065-css-ajuste-de-objeto.html</h2>
+            <a href="exercicios/065-css-ajuste-de-objeto.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li><li>atende ao requisito: trabalhar imagem</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>066-css-posicao-de-objeto.html</h2>
+            <a href="exercicios/066-css-posicao-de-objeto.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li><li>não atende ao requisito: trabalhar imagem</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>067-css-mascaras.html</h2>
+            <a href="exercicios/067-css-mascaras.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li><li>atende ao requisito: trabalhar imagem</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>068-css-botoes.html</h2>
+            <a href="exercicios/068-css-botoes.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li><li>não atende ao requisito: criar ou estilizar botão</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>069-css-paginacao.html</h2>
+            <a href="exercicios/069-css-paginacao.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li><li>não atende ao requisito: estilizar links ou navegação</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>070-css-multiplas-colunas.html</h2>
+            <a href="exercicios/070-css-multiplas-colunas.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>071-css-interface-de-usuario.html</h2>
+            <a href="exercicios/071-css-interface-de-usuario.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>072-css-variaveis.html</h2>
+            <a href="exercicios/072-css-variaveis.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li><li>não atende ao requisito: usar variável CSS</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>073-css-property.html</h2>
+            <a href="exercicios/073-css-property.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li><li>não atende ao requisito: usar variável CSS</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>074-css-dimensionamento-de-caixa.html</h2>
+            <a href="exercicios/074-css-dimensionamento-de-caixa.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li><li>atende ao requisito: trabalhar modelo de caixa</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>075-css-consultas-de-midia.html</h2>
+            <a href="exercicios/075-css-consultas-de-midia.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li><li>não atende ao requisito: usar media query</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>076-css-flexbox.html</h2>
+            <a href="exercicios/076-css-flexbox.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li><li>não atende ao requisito: usar flexbox</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>077-flexbox-introducao.html</h2>
+            <a href="exercicios/077-flexbox-introducao.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li><li>não atende ao requisito: usar flexbox</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>078-container-flex.html</h2>
+            <a href="exercicios/078-container-flex.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li><li>não atende ao requisito: usar flexbox</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>079-itens-flex.html</h2>
+            <a href="exercicios/079-itens-flex.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li><li>não atende ao requisito: usar flexbox</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>080-flex-responsivo.html</h2>
+            <a href="exercicios/080-flex-responsivo.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li><li>não atende ao requisito: usar flexbox</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>081-css-grid.html</h2>
+            <a href="exercicios/081-css-grid.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li><li>não atende ao requisito: usar grid</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>082-grid-introducao.html</h2>
+            <a href="exercicios/082-grid-introducao.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li><li>não atende ao requisito: usar grid</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>083-container-grid.html</h2>
+            <a href="exercicios/083-container-grid.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li><li>não atende ao requisito: usar grid</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>084-itens-grid.html</h2>
+            <a href="exercicios/084-itens-grid.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li><li>não atende ao requisito: usar grid</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>085-layout-grid-12-colunas.html</h2>
+            <a href="exercicios/085-layout-grid-12-colunas.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li><li>não atende ao requisito: usar grid</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>086-css-supports.html</h2>
+            <a href="exercicios/086-css-supports.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li><li>atende ao requisito: usar @supports</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>087-css-responsivo.html</h2>
+            <a href="exercicios/087-css-responsivo.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li><li>não atende ao requisito: usar media query</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>088-rwd-introducao.html</h2>
+            <a href="exercicios/088-rwd-introducao.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li><li>não atende ao requisito: usar media query</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>089-rwd-janela-de-visualizacao.html</h2>
+            <a href="exercicios/089-rwd-janela-de-visualizacao.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li><li>não atende ao requisito: usar media query</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>090-rwd-visao-em-grade.html</h2>
+            <a href="exercicios/090-rwd-visao-em-grade.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li><li>não atende ao requisito: usar grid</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>091-rwd-consultas-de-midia.html</h2>
+            <a href="exercicios/091-rwd-consultas-de-midia.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li><li>não atende ao requisito: usar media query</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>092-rwd-imagens.html</h2>
+            <a href="exercicios/092-rwd-imagens.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li><li>atende ao requisito: trabalhar imagem</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>093-rwd-videos.html</h2>
+            <a href="exercicios/093-rwd-videos.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li><li>não atende ao requisito: usar media query</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>094-rwd-frameworks.html</h2>
+            <a href="exercicios/094-rwd-frameworks.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li><li>não atende ao requisito: usar media query</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>095-rwd-modelos.html</h2>
+            <a href="exercicios/095-rwd-modelos.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li><li>não atende ao requisito: usar media query</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>096-css-certificacao.html</h2>
+            <a href="exercicios/096-css-certificacao.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>097-css-certificado.html</h2>
+            <a href="exercicios/097-css-certificado.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>098-css-sass.html</h2>
+            <a href="exercicios/098-css-sass.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li><li>atende ao requisito: responder sobre SASS</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li></ul>
+          </section>
+        </div>
+      </article>
+<article class="resultado revisar">
+        <div class="linha-principal">
+          <div>
+            <h2>099-tutorial-sass.html</h2>
+            <a href="exercicios/099-tutorial-sass.html">Abrir exercício</a>
+          </div>
+          <span class="status">Precisa revisar</span>
+        </div>
+
+        <div class="detalhes">
+          <section>
+            <h3>Pontos corretos</h3>
+            <ul><li>possui bloco &lt;style&gt;</li><li>possui classe HTML</li><li>atende ao requisito: responder sobre SASS</li></ul>
+          </section>
+          <section>
+            <h3>Precisa revisar</h3>
+            <ul><li>ainda contém o texto padrão do modelo</li></ul>
+          </section>
+        </div>
+      </article>
+    </main>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paginação CSS</title>
+    <link rel="stylesheet" href="../assets/curso.css">
+    <style>
+.navegacao { display: flex; gap: 8px; background: #355070; padding: 10px; }
+.navegacao a { color: white; text-decoration: none; padding: 8px 12px; }
+.navegacao a:hover { background: #b56576; }
+    </style>
+</head>
+<body>
+    <header class="cabecalho-aula">
+        <a class="link-voltar" href="../index.html">Voltar ao índice</a>
+        <h1>Paginação CSS</h1>
+        <p>Aprenda o papel de Paginação CSS e pratique alterando o exemplo.</p>
+    </header>
+
+    <main class="aula">
+        <section class="painel">
+            <h2>Exemplo</h2>
+            <div class="exemplo">
+                <nav class="navegacao"><a href="#">Inicio</a><a href="#">Aulas</a><a href="#">Contato</a></nav>
+            </div>
+        </section>
+
+        <section class="painel">
+            <h2>Código base</h2>
+            <pre><code>&lt;div class=&quot;exemplo&quot;&gt;
+  &lt;nav class=&quot;navegacao&quot;&gt;&lt;a href=&quot;#&quot;&gt;Inicio&lt;/a&gt;&lt;a href=&quot;#&quot;&gt;Aulas&lt;/a&gt;&lt;a href=&quot;#&quot;&gt;Contato&lt;/a&gt;&lt;/nav&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+.navegacao { display: flex; gap: 8px; background: #355070; padding: 10px; }
+.navegacao a { color: white; text-decoration: none; padding: 8px 12px; }
+.navegacao a:hover { background: #b56576; }
+&lt;/style&gt;</code></pre>
+        </section>
+
+        <section class="painel atividade">
+            <h2>Atividade prática</h2>
+            <p>Adicione estilos para hover, active e pagina atual.</p>
+            <ol>
+                <li>Abra esta página no navegador.</li>
+                <li>Edite o CSS no arquivo ou no DevTools.</li>
+                <li>Anote qual propriedade mudou o resultado visual.</li>
+            </ol>
+            <p><a class="link-exercicio" href="../exercicios/069-css-paginacao.html">Abrir página do exercício</a></p>
+        </section>
+
+        <nav class="navegacao-aula">
+            <a href="css-botoes.html">Anterior: Botões CSS</a>
+            <a href="css-multiplas-colunas.html">Próxima: Múltiplas colunas CSS</a>
+        </nav>
+    </main>
+</body>
+</html>

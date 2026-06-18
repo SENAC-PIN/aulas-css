@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display CSS</title>
+    <link rel="stylesheet" href="../assets/curso.css">
+    <style>
+.etiqueta {
+  display: inline-block;
+  margin: 6px;
+  padding: 12px 18px;
+  background: #eaf4fb;
+  border: 1px solid #355070;
+}
+    </style>
+</head>
+<body>
+    <header class="cabecalho-aula">
+        <a class="link-voltar" href="../index.html">Voltar ao índice</a>
+        <h1>Display CSS</h1>
+        <p>Aprenda o papel de Display CSS e pratique alterando o exemplo.</p>
+    </header>
+
+    <main class="aula">
+        <section class="painel">
+            <h2>Exemplo</h2>
+            <div class="exemplo">
+                <span class="etiqueta">A</span><span class="etiqueta">B</span><span class="etiqueta">C</span>
+            </div>
+        </section>
+
+        <section class="painel">
+            <h2>Código base</h2>
+            <pre><code>&lt;div class=&quot;exemplo&quot;&gt;
+  &lt;span class=&quot;etiqueta&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;etiqueta&quot;&gt;B&lt;/span&gt;&lt;span class=&quot;etiqueta&quot;&gt;C&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+.etiqueta {
+  display: inline-block;
+  margin: 6px;
+  padding: 12px 18px;
+  background: #eaf4fb;
+  border: 1px solid #355070;
+}
+&lt;/style&gt;</code></pre>
+        </section>
+
+        <section class="painel atividade">
+            <h2>Atividade prática</h2>
+            <p>Compare display inline, block, inline-block e none.</p>
+            <ol>
+                <li>Abra esta página no navegador.</li>
+                <li>Edite o CSS no arquivo ou no DevTools.</li>
+                <li>Anote qual propriedade mudou o resultado visual.</li>
+            </ol>
+            <p><a class="link-exercicio" href="../exercicios/020-css-display.html">Abrir página do exercício</a></p>
+        </section>
+
+        <nav class="navegacao-aula">
+            <a href="css-tabelas.html">Anterior: Tabelas CSS</a>
+            <a href="css-largura-maxima.html">Próxima: Largura máxima CSS</a>
+        </nav>
+    </main>
+</body>
+</html>

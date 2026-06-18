@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulários CSS</title>
+    <link rel="stylesheet" href="../assets/curso.css">
+    <style>
+.formulario { display: grid; gap: 10px; max-width: 280px; }
+.formulario input { padding: 10px; border: 1px solid #9fb0c1; }
+.formulario input[type="email"] { border-color: #b56576; }
+.formulario button { padding: 10px; background: #355070; color: white; border: 0; }
+    </style>
+</head>
+<body>
+    <header class="cabecalho-aula">
+        <a class="link-voltar" href="../index.html">Voltar ao índice</a>
+        <h1>Formulários CSS</h1>
+        <p>Aprenda o papel de Formulários CSS e pratique alterando o exemplo.</p>
+    </header>
+
+    <main class="aula">
+        <section class="painel">
+            <h2>Exemplo</h2>
+            <div class="exemplo">
+                <form class="formulario"><label>Nome<input></label><label>Email<input type="email"></label><button>Enviar</button></form>
+            </div>
+        </section>
+
+        <section class="painel">
+            <h2>Código base</h2>
+            <pre><code>&lt;div class=&quot;exemplo&quot;&gt;
+  &lt;form class=&quot;formulario&quot;&gt;&lt;label&gt;Nome&lt;input&gt;&lt;/label&gt;&lt;label&gt;Email&lt;input type=&quot;email&quot;&gt;&lt;/label&gt;&lt;button&gt;Enviar&lt;/button&gt;&lt;/form&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+.formulario { display: grid; gap: 10px; max-width: 280px; }
+.formulario input { padding: 10px; border: 1px solid #9fb0c1; }
+.formulario input[type=&quot;email&quot;] { border-color: #b56576; }
+.formulario button { padding: 10px; background: #355070; color: white; border: 0; }
+&lt;/style&gt;</code></pre>
+        </section>
+
+        <section class="painel atividade">
+            <h2>Atividade prática</h2>
+            <p>Adicione estilo para input:focus e input[type='email'].</p>
+            <ol>
+                <li>Abra esta página no navegador.</li>
+                <li>Edite o CSS no arquivo ou no DevTools.</li>
+                <li>Anote qual propriedade mudou o resultado visual.</li>
+            </ol>
+            <p><a class="link-exercicio" href="../exercicios/041-css-formularios.html">Abrir página do exercício</a></p>
+        </section>
+
+        <nav class="navegacao-aula">
+            <a href="css-seletores-de-atributo.html">Anterior: Seletores de atributo CSS</a>
+            <a href="css-contadores.html">Próxima: Contadores CSS</a>
+        </nav>
+    </main>
+</body>
+</html>

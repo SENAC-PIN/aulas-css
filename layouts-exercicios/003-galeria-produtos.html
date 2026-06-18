@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício de layout 003 - Galeria de produtos</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #24313f;
+            background: #f4f7fb;
+        }
+
+        /* Complete o CSS da galeria aqui. */
+    </style>
+</head>
+<body>
+    <!--
+        Tarefa:
+        1. Crie uma grade responsiva de produtos.
+        2. Cada produto deve ter área de imagem, título, preço e botão.
+        3. Use grid-template-columns com repeat(), minmax() ou auto-fit.
+        4. Garanta bom espaçamento no celular.
+    -->
+
+    <header>
+        <h1>Galeria de produtos</h1>
+    </header>
+
+    <main class="produtos">
+        <article>
+            <div>Imagem</div>
+            <h2>Produto 1</h2>
+            <p>R$ 99,00</p>
+            <button>Comprar</button>
+        </article>
+
+        <article>
+            <div>Imagem</div>
+            <h2>Produto 2</h2>
+            <p>R$ 149,00</p>
+            <button>Comprar</button>
+        </article>
+
+        <article>
+            <div>Imagem</div>
+            <h2>Produto 3</h2>
+            <p>R$ 199,00</p>
+            <button>Comprar</button>
+        </article>
+    </main>
+</body>
+</html>
