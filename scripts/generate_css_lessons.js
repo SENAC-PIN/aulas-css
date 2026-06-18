@@ -234,7 +234,7 @@ function titleOf(topic) {
 function summary(topic) {
   const key = topic.toLowerCase();
   if (key.includes("selector") || key.includes("combinator") || key.includes("pseudo")) {
-    return "Treine formas de escolher elementos especificos da pagina para aplicar estilos.";
+    return "Treine formas de escolher elementos específicos da página para aplicar estilos.";
   }
   if (key.includes("overflow")) {
     return "Controle o que acontece quando o conteudo fica maior que a caixa.";
@@ -246,7 +246,7 @@ function summary(topic) {
     return "Crie layouts em linhas e colunas com controle preciso.";
   }
   if (key.includes("responsive") || key.startsWith("rwd") || key.includes("media")) {
-    return "Adapte a pagina para telas pequenas, medias e grandes.";
+    return "Adapte a página para telas pequenas, medias e grandes.";
   }
   if (key.includes("animation") || key.includes("transition") || key.includes("transform")) {
     return "Adicione movimento e mudancas visuais controladas com CSS.";
@@ -259,7 +259,7 @@ function summary(topic) {
 
 function lesson(topic) {
   const key = topic.toLowerCase();
-  let html = '<div class="cartao-exemplo">Aprendendo CSS na pratica</div>';
+  let html = '<div class="cartao-exemplo">Aprendendo CSS na prática</div>';
   let css = `.cartao-exemplo {
   padding: 24px;
   border-radius: 8px;
@@ -373,7 +373,7 @@ function lesson(topic) {
     css = `.navegacao { display: flex; gap: 8px; background: #355070; padding: 10px; }
 .navegacao a { color: white; text-decoration: none; padding: 8px 12px; }
 .navegacao a:hover { background: #b56576; }`;
-    activity = "Adicione estilos para hover, active e pagina atual.";
+    activity = "Adicione estilos para hover, active e página atual.";
   } else if (key.includes("lists") || key.includes("counters")) {
     html = '<ol class="etapas"><li>Planejar</li><li>Codar</li><li>Revisar</li></ol>';
     css = `.etapas { counter-reset: etapa; list-style: none; padding-left: 0; }
@@ -452,7 +452,7 @@ function lesson(topic) {
 .menu-suspenso div { display: none; position: absolute; min-width: 120px; background: white; border: 1px solid #9fb0c1; }
 .menu-suspenso:hover div { display: block; }
 .menu-suspenso a { display: block; padding: 8px; }`;
-    activity = "Adicione links e mude a posicao do menu.";
+    activity = "Adicione links e mude a posição do menu.";
   } else if (key.includes("image gallery")) {
     html = '<div class="galeria-imagens"><img alt="Imagem azul" src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20320%20220%22%3E%3Crect%20width=%22320%22%20height=%22220%22%20fill=%22%23355070%22/%3E%3Ccircle%20cx=%22235%22%20cy=%2270%22%20r=%2254%22%20fill=%22%23b56576%22/%3E%3C/svg%3E"><img alt="Imagem verde" src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20320%20220%22%3E%3Crect%20width=%22320%22%20height=%22220%22%20fill=%22%232d8a5f%22/%3E%3Ccircle%20cx=%2285%22%20cy=%22125%22%20r=%2260%22%20fill=%22%23f4d35e%22/%3E%3C/svg%3E"><img alt="Imagem vinho" src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20320%20220%22%3E%3Crect%20width=%22320%22%20height=%22220%22%20fill=%22%23b56576%22/%3E%3Ccircle%20cx=%22195%22%20cy=%22105%22%20r=%2268%22%20fill=%22%231f7a8c%22/%3E%3C/svg%3E"></div>';
     css = `.galeria-imagens {
@@ -524,7 +524,7 @@ function lesson(topic) {
 }`;
     activity = "Crie uma regra alternativa para quando uma propriedade for suportada.";
   } else if (key.includes("sass")) {
-    html = '<div class="cartao">Aprendendo SASS na pratica</div>';
+    html = '<div class="cartao">Aprendendo SASS na prática</div>';
     css = `$cor: #355070;
 .cartao {
   padding: 24px;
