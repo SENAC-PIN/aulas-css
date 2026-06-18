@@ -26,6 +26,21 @@
             background: #f4f7fb;
         }
 
+        .orientacao h2 {
+            margin: 18px 0 8px;
+            font-size: 18px;
+        }
+
+        .orientacao ol,
+        .orientacao ul {
+            margin-top: 8px;
+            padding-left: 24px;
+        }
+
+        .orientacao li + li {
+            margin-top: 6px;
+        }
+
         .area-do-aluno {
             min-height: 260px;
             padding: 20px;
@@ -37,8 +52,26 @@
     <main>
         <section class="orientacao">
             <h1>Exercício 078: Container flexível</h1>
-            <p>Teste flex-direction, justify-content, align-items, gap e flex-wrap.</p>
-            <p>Edite esta página para completar a tarefa.</p>
+            <p><strong>Objetivo:</strong> Organizar elementos em linha ou coluna usando Flexbox.</p>
+            <p><strong>Proposta:</strong> Teste flex-direction, justify-content, align-items, gap e flex-wrap.</p>
+
+            <h2>O que fazer</h2>
+            <ol>
+                <li>Crie um container com pelo menos três itens dentro.</li>
+                <li>Aplique display: flex no container.</li>
+                <li>Use propriedades como gap, justify-content, align-items, flex-wrap ou flex-direction.</li>
+                <li>Teste a largura da janela para observar como os itens se comportam.</li>
+            </ol>
+
+            <h2>Resultado esperado</h2>
+            <p>Os itens devem ficar alinhados e distribuídos pelo container com controle de espaçamento e direção.</p>
+
+            <h2>Checklist antes de entregar</h2>
+            <ul>
+                <li>O container usa display: flex.</li>
+                <li>Há três ou mais itens.</li>
+                <li>Foi usada ao menos uma propriedade de alinhamento ou distribuição.</li>
+            </ul>
         </section>
 
         <section class="area-do-aluno">

@@ -366,6 +366,7 @@ function lesson(topic) {
   color: white;
   cursor: pointer;
 }
+
 .botao:hover { background: #b56576; }`;
     activity = "Crie estados hover, active e focus-visible.";
   } else if (key.includes("links") || key.includes("navigation") || key.includes("pagination")) {
@@ -454,22 +455,33 @@ function lesson(topic) {
 .menu-suspenso a { display: block; padding: 8px; }`;
     activity = "Adicione links e mude a posição do menu.";
   } else if (key.includes("image gallery")) {
-    html = '<div class="galeria-imagens"><img alt="Imagem azul" src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20320%20220%22%3E%3Crect%20width=%22320%22%20height=%22220%22%20fill=%22%23355070%22/%3E%3Ccircle%20cx=%22235%22%20cy=%2270%22%20r=%2254%22%20fill=%22%23b56576%22/%3E%3C/svg%3E"><img alt="Imagem verde" src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20320%20220%22%3E%3Crect%20width=%22320%22%20height=%22220%22%20fill=%22%232d8a5f%22/%3E%3Ccircle%20cx=%2285%22%20cy=%22125%22%20r=%2260%22%20fill=%22%23f4d35e%22/%3E%3C/svg%3E"><img alt="Imagem vinho" src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20320%20220%22%3E%3Crect%20width=%22320%22%20height=%22220%22%20fill=%22%23b56576%22/%3E%3Ccircle%20cx=%22195%22%20cy=%22105%22%20r=%2268%22%20fill=%22%231f7a8c%22/%3E%3C/svg%3E"></div>';
+    html = '<div class="galeria-imagens"><figure class="item-galeria"><img class="foto-galeria" src="../assets/galeria-projeto-1.svg" alt="Cartaz colorido do projeto 1"><figcaption>Projeto 1</figcaption></figure><figure class="item-galeria"><img class="foto-galeria" src="../assets/galeria-projeto-2.svg" alt="Cartaz colorido do projeto 2"><figcaption>Projeto 2</figcaption></figure><figure class="item-galeria"><img class="foto-galeria" src="../assets/galeria-projeto-3.svg" alt="Cartaz colorido do projeto 3"><figcaption>Projeto 3</figcaption></figure></div>';
     css = `.galeria-imagens {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 14px;
 }
-.galeria-imagens img {
+.item-galeria {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid #d7e0ea;
+  border-radius: 8px;
+  background: #ffffff;
+}
+.foto-galeria {
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
-  border-radius: 8px;
   display: block;
+}
+.item-galeria figcaption {
+  margin: 0;
+  padding: 10px;
+  font-weight: bold;
 }`;
     activity = "Adicione novas imagens e teste diferentes tamanhos de coluna na galeria.";
   } else if (key.includes("image") || key.includes("object") || key.includes("mask") || key.includes("sprites")) {
-    html = '<img class="foto" alt="Bloco colorido" src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20320%20180%22%3E%3Crect%20width=%22320%22%20height=%22180%22%20fill=%22%23355070%22/%3E%3Ccircle%20cx=%22230%22%20cy=%2280%22%20r=%2260%22%20fill=%22%23b56576%22/%3E%3C/svg%3E">';
+    html = '<img class="foto" alt="Imagem colorida de exemplo" src="../assets/imagem-exemplo.svg">';
     css = `.foto {
   width: 260px;
   height: 150px;
@@ -542,6 +554,188 @@ function lesson(topic) {
   return { html, css, activity };
 }
 
+
+function exerciseGuide(topic, item) {
+  const key = topic.toLowerCase();
+  const title = titleOf(topic);
+  const base = {
+    goal: `Praticar ${title} alterando o HTML e o CSS desta página.`,
+    steps: [
+      "Leia a proposta da atividade e mantenha o tema principal do exercício.",
+      "Substitua o conteúdo de exemplo da área do estudante pela sua própria solução.",
+      "Crie ou edite regras CSS dentro da tag <style> para resolver a tarefa.",
+      "Abra a página no navegador e confira se o resultado visual mudou de forma clara.",
+    ],
+    result: "Ao final, a página deve mostrar uma solução visual diferente do modelo inicial e relacionada ao assunto estudado.",
+    checklist: [
+      "Removeu o texto padrão do modelo.",
+      "Usou pelo menos uma propriedade CSS ligada ao tema da aula.",
+      "O resultado aparece corretamente no navegador.",
+    ],
+  };
+
+  if (key.includes("colors")) {
+    return {
+      goal: "Praticar formas diferentes de escrever cores em CSS: HEX, RGB e HSL.",
+      steps: [
+        "Crie três blocos, etiquetas ou cartões dentro da área do estudante.",
+        "Aplique uma cor usando HEX, uma usando rgb() e outra usando hsl().",
+        "Coloque um texto dentro de cada bloco identificando o formato de cor usado.",
+        "Garanta contraste suficiente para que o texto fique legível.",
+      ],
+      result: "A página deve exibir três elementos coloridos, cada um usando uma sintaxe de cor diferente.",
+      checklist: ["Há uma cor em HEX.", "Há uma cor em rgb().", "Há uma cor em hsl().", "Os textos continuam fáceis de ler."],
+    };
+  }
+
+  if (key.includes("selector") || key.includes("combinator") || key.includes("pseudo")) {
+    return {
+      goal: "Treinar a escolha correta dos elementos que receberão estilos.",
+      steps: [
+        "Crie uma pequena estrutura HTML com títulos, parágrafos, links ou itens de lista.",
+        "Escreva seletores específicos para alterar apenas alguns elementos, não todos.",
+        "Use o seletor estudado na aula, como classe, descendente, combinador, pseudoclasse ou pseudoelemento.",
+        "Teste se cada regra afeta somente o elemento esperado.",
+      ],
+      result: "A página deve deixar evidente que elementos diferentes receberam estilos diferentes por causa dos seletores usados.",
+      checklist: ["Usou o seletor pedido pelo tema.", "Evitou aplicar o mesmo estilo em tudo.", "O efeito visual confirma que o seletor funcionou."],
+    };
+  }
+
+  if (key.includes("overflow")) {
+    return {
+      goal: "Controlar o comportamento de um conteúdo maior que sua caixa.",
+      steps: [
+        "Crie uma caixa com largura ou altura limitada.",
+        "Coloque dentro dela um texto longo, uma lista grande ou outro conteúdo que ultrapasse o espaço disponível.",
+        "Aplique overflow, overflow-x ou overflow-y para controlar a rolagem ou o corte do conteúdo.",
+        "Compare o resultado com visible, hidden, scroll ou auto.",
+      ],
+      result: "A página deve mostrar uma caixa onde o conteúdo excedente é controlado de forma intencional.",
+      checklist: ["A caixa tem tamanho limitado.", "O conteúdo passa do tamanho da caixa.", "A propriedade overflow foi aplicada e é perceptível."],
+    };
+  }
+
+  if (key.includes("flex")) {
+    return {
+      goal: "Organizar elementos em linha ou coluna usando Flexbox.",
+      steps: [
+        "Crie um container com pelo menos três itens dentro.",
+        "Aplique display: flex no container.",
+        "Use propriedades como gap, justify-content, align-items, flex-wrap ou flex-direction.",
+        "Teste a largura da janela para observar como os itens se comportam.",
+      ],
+      result: "Os itens devem ficar alinhados e distribuídos pelo container com controle de espaçamento e direção.",
+      checklist: ["O container usa display: flex.", "Há três ou mais itens.", "Foi usada ao menos uma propriedade de alinhamento ou distribuição."],
+    };
+  }
+
+  if (key.includes("grid")) {
+    return {
+      goal: "Criar uma organização em linhas e colunas usando CSS Grid.",
+      steps: [
+        "Crie um container com vários blocos de conteúdo.",
+        "Aplique display: grid no container.",
+        "Defina colunas com grid-template-columns e espaçamento com gap.",
+        "Se possível, faça um dos itens ocupar mais de uma coluna ou linha.",
+      ],
+      result: "A página deve apresentar uma grade clara, com itens alinhados em colunas e espaçamentos consistentes.",
+      checklist: ["O container usa display: grid.", "As colunas foram definidas.", "O espaçamento entre itens está controlado."],
+    };
+  }
+
+  if (key.includes("responsive") || key.startsWith("rwd") || key.includes("media")) {
+    return {
+      goal: "Adaptar o layout para diferentes tamanhos de tela.",
+      steps: [
+        "Crie uma seção com conteúdo que funcione em tela grande e pequena.",
+        "Use medidas flexíveis, como %, max-width, fr ou rem.",
+        "Adicione uma media query para alterar layout, tamanho ou espaçamento em telas menores.",
+        "Teste diminuindo a largura do navegador.",
+      ],
+      result: "A página deve continuar organizada em telas pequenas, sem conteúdo espremido ou cortado.",
+      checklist: ["Usou @media ou técnica responsiva equivalente.", "O layout muda em tela menor.", "Não há rolagem horizontal desnecessária."],
+    };
+  }
+
+  if (key.includes("image") || key.includes("object") || key.includes("mask") || key.includes("sprites")) {
+    return {
+      goal: "Praticar apresentação e ajuste visual de imagens com CSS.",
+      steps: [
+        "Insira uma imagem na área do estudante usando a tag <img> ou um recurso local da pasta assets.",
+        "Aplique estilos como width, height, object-fit, object-position, border-radius, filter ou clip-path.",
+        "Inclua texto alternativo no atributo alt quando usar <img>.",
+        "Observe se a imagem mantém boa proporção e não deforma.",
+      ],
+      result: "A página deve mostrar uma imagem estilizada, com tamanho, corte ou efeito visual controlado por CSS.",
+      checklist: ["Há uma imagem no HTML ou no CSS.", "A imagem foi estilizada por CSS.", "A imagem não ficou deformada sem intenção."],
+    };
+  }
+
+  if (key.includes("position") || key.includes("z-index")) {
+    return {
+      goal: "Controlar a posição de elementos na página.",
+      steps: [
+        "Crie pelo menos duas caixas ou elementos visuais.",
+        "Aplique position com valores como relative, absolute, fixed ou sticky.",
+        "Use top, right, bottom ou left para deslocar um elemento.",
+        "Se houver sobreposição, use z-index para definir qual elemento fica na frente.",
+      ],
+      result: "A página deve mostrar um elemento deslocado ou sobreposto de forma controlada.",
+      checklist: ["Usou a propriedade position.", "Usou ao menos um deslocamento.", "O posicionamento final é intencional e visível."],
+    };
+  }
+
+  if (key.includes("float")) {
+    return {
+      goal: "Entender como o float faz um elemento flutuar ao lado de outro conteúdo.",
+      steps: [
+        "Crie uma imagem, caixa ou destaque pequeno antes de um parágrafo.",
+        "Aplique float: left ou float: right nesse elemento.",
+        "Adicione texto suficiente para contornar o elemento flutuante.",
+        "Use clear em um elemento posterior para encerrar o efeito quando necessário.",
+      ],
+      result: "O texto deve contornar o elemento flutuante, e a área seguinte deve voltar ao fluxo normal quando clear for usado.",
+      checklist: ["Usou float.", "Há texto contornando o elemento.", "Usou clear se o próximo conteúdo precisar ficar abaixo."],
+    };
+  }
+
+  if (key.includes("form") || key.includes("attribute")) {
+    return {
+      goal: "Criar e estilizar campos de formulário de forma organizada.",
+      steps: [
+        "Monte um pequeno formulário com label, input e botão.",
+        "Estilize os campos com padding, border, width ou background.",
+        "Use seletores de atributo quando o tema pedir, por exemplo input[type=\"text\"].",
+        "Verifique se os rótulos deixam claro o que deve ser preenchido.",
+      ],
+      result: "A página deve apresentar um formulário legível, alinhado e fácil de preencher.",
+      checklist: ["Há labels associados aos campos.", "Os inputs foram estilizados.", "O botão está visível e coerente com o formulário."],
+    };
+  }
+
+  if (key.includes("animation") || key.includes("transition") || key.includes("transform")) {
+    return {
+      goal: "Criar uma mudança visual controlada com CSS.",
+      steps: [
+        "Crie uma caixa, botão ou cartão para receber o efeito.",
+        "Aplique transform, transition ou animation de acordo com o tema da aula.",
+        "Use :hover quando quiser que o efeito aconteça ao passar o mouse.",
+        "Mantenha o movimento simples para que o resultado seja fácil de observar.",
+      ],
+      result: "O elemento deve mudar de posição, escala, rotação, cor ou estado com uma transição ou animação perceptível.",
+      checklist: ["O efeito está ligado ao tema.", "A mudança visual é perceptível.", "O movimento não atrapalha a leitura."],
+    };
+  }
+
+  return {
+    ...base,
+    steps: [
+      `Resolva a proposta: ${item.activity}`,
+      ...base.steps.slice(1),
+    ],
+  };
+}
 function page(topic, previous, next, exerciseFile) {
   const item = lesson(topic);
   const title = titleOf(topic);
@@ -611,6 +805,9 @@ ${item.css}
 function exercisePage(topic, number, item) {
   const title = titleOf(topic);
   const padded = String(number).padStart(3, "0");
+  const guide = exerciseGuide(topic, item);
+  const steps = guide.steps.map((step) => `                <li>${escapeHtml(step)}</li>`).join("\n");
+  const checklist = guide.checklist.map((step) => `                <li>${escapeHtml(step)}</li>`).join("\n");
 
   return `<!DOCTYPE html>
 <html lang="pt-BR">
@@ -640,6 +837,21 @@ function exercisePage(topic, number, item) {
             background: #f4f7fb;
         }
 
+        .orientacao h2 {
+            margin: 18px 0 8px;
+            font-size: 18px;
+        }
+
+        .orientacao ol,
+        .orientacao ul {
+            margin-top: 8px;
+            padding-left: 24px;
+        }
+
+        .orientacao li + li {
+            margin-top: 6px;
+        }
+
         .area-do-aluno {
             min-height: 260px;
             padding: 20px;
@@ -651,8 +863,21 @@ function exercisePage(topic, number, item) {
     <main>
         <section class="orientacao">
             <h1>Exercício ${padded}: ${escapeHtml(title)}</h1>
-            <p>${escapeHtml(item.activity)}</p>
-            <p>Edite esta página para completar a tarefa.</p>
+            <p><strong>Objetivo:</strong> ${escapeHtml(guide.goal)}</p>
+            <p><strong>Proposta:</strong> ${escapeHtml(item.activity)}</p>
+
+            <h2>O que fazer</h2>
+            <ol>
+${steps}
+            </ol>
+
+            <h2>Resultado esperado</h2>
+            <p>${escapeHtml(guide.result)}</p>
+
+            <h2>Checklist antes de entregar</h2>
+            <ul>
+${checklist}
+            </ul>
         </section>
 
         <section class="area-do-aluno">

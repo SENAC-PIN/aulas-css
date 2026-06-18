@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-labelledby="titulo desc">
+  <title id="titulo">Cartaz colorido do projeto 1</title>
+  <desc id="desc">Imagem decorativa abstrata com faixas coloridas para exemplo de galeria.</desc>
+  <rect width="480" height="360" fill="#eaf4fb"/>
+  <path d="M0 230 L480 120 L480 360 L0 360 Z" fill="#355070"/>
+  <rect x="46" y="48" width="176" height="118" rx="12" fill="#2d8a5f"/>
+  <rect x="258" y="72" width="142" height="72" rx="10" fill="#f4d35e"/>
+  <path d="M60 270 L185 190 L292 274 L390 202 L480 272 L480 360 L60 360 Z" fill="#b56576"/>
+</svg>

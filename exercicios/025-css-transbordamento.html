@@ -26,6 +26,21 @@
             background: #f4f7fb;
         }
 
+        .orientacao h2 {
+            margin: 18px 0 8px;
+            font-size: 18px;
+        }
+
+        .orientacao ol,
+        .orientacao ul {
+            margin-top: 8px;
+            padding-left: 24px;
+        }
+
+        .orientacao li + li {
+            margin-top: 6px;
+        }
+
         .area-do-aluno {
             min-height: 260px;
             padding: 20px;
@@ -37,8 +52,26 @@
     <main>
         <section class="orientacao">
             <h1>Exercício 025: Transbordamento CSS</h1>
-            <p>Teste visible, hidden, scroll, auto, overflow-x e overflow-y.</p>
-            <p>Edite esta página para completar a tarefa.</p>
+            <p><strong>Objetivo:</strong> Controlar o comportamento de um conteúdo maior que sua caixa.</p>
+            <p><strong>Proposta:</strong> Teste visible, hidden, scroll, auto, overflow-x e overflow-y.</p>
+
+            <h2>O que fazer</h2>
+            <ol>
+                <li>Crie uma caixa com largura ou altura limitada.</li>
+                <li>Coloque dentro dela um texto longo, uma lista grande ou outro conteúdo que ultrapasse o espaço disponível.</li>
+                <li>Aplique overflow, overflow-x ou overflow-y para controlar a rolagem ou o corte do conteúdo.</li>
+                <li>Compare o resultado com visible, hidden, scroll ou auto.</li>
+            </ol>
+
+            <h2>Resultado esperado</h2>
+            <p>A página deve mostrar uma caixa onde o conteúdo excedente é controlado de forma intencional.</p>
+
+            <h2>Checklist antes de entregar</h2>
+            <ul>
+                <li>A caixa tem tamanho limitado.</li>
+                <li>O conteúdo passa do tamanho da caixa.</li>
+                <li>A propriedade overflow foi aplicada e é perceptível.</li>
+            </ul>
         </section>
 
         <section class="area-do-aluno">

@@ -8,15 +8,26 @@
     <style>
 .galeria-imagens {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 14px;
 }
-.galeria-imagens img {
+.item-galeria {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid #d7e0ea;
+  border-radius: 8px;
+  background: #ffffff;
+}
+.foto-galeria {
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
-  border-radius: 8px;
   display: block;
+}
+.item-galeria figcaption {
+  margin: 0;
+  padding: 10px;
+  font-weight: bold;
 }
     </style>
 </head>
@@ -32,34 +43,39 @@
         <section class="painel">
             <h2>Exemplo</h2>
             <div class="exemplo">
-                <div class="galeria-imagens">
-                    <img alt="Imagem azul" src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20320%20220%22%3E%3Crect%20width=%22320%22%20height=%22220%22%20fill=%22%23355070%22/%3E%3Ccircle%20cx=%22235%22%20cy=%2270%22%20r=%2254%22%20fill=%22%23b56576%22/%3E%3C/svg%3E">
-                    <img alt="Imagem verde" src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20320%20220%22%3E%3Crect%20width=%22320%22%20height=%22220%22%20fill=%22%232d8a5f%22/%3E%3Ccircle%20cx=%2285%22%20cy=%22125%22%20r=%2260%22%20fill=%22%23f4d35e%22/%3E%3C/svg%3E">
-                    <img alt="Imagem vinho" src="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20320%20220%22%3E%3Crect%20width=%22320%22%20height=%22220%22%20fill=%22%23b56576%22/%3E%3Ccircle%20cx=%22195%22%20cy=%22105%22%20r=%2268%22%20fill=%22%231f7a8c%22/%3E%3C/svg%3E">
-                </div>
+                <div class="galeria-imagens"><figure class="item-galeria"><img class="foto-galeria" src="../assets/galeria-projeto-1.svg" alt="Cartaz colorido do projeto 1"><figcaption>Projeto 1</figcaption></figure><figure class="item-galeria"><img class="foto-galeria" src="../assets/galeria-projeto-2.svg" alt="Cartaz colorido do projeto 2"><figcaption>Projeto 2</figcaption></figure><figure class="item-galeria"><img class="foto-galeria" src="../assets/galeria-projeto-3.svg" alt="Cartaz colorido do projeto 3"><figcaption>Projeto 3</figcaption></figure></div>
             </div>
         </section>
 
         <section class="painel">
             <h2>Código base</h2>
-            <pre><code>&lt;div class=&quot;galeria-imagens&quot;&gt;
-  &lt;img alt=&quot;Imagem azul&quot; src=&quot;data:image/svg+xml,...&quot;&gt;
-  &lt;img alt=&quot;Imagem verde&quot; src=&quot;data:image/svg+xml,...&quot;&gt;
-  &lt;img alt=&quot;Imagem vinho&quot; src=&quot;data:image/svg+xml,...&quot;&gt;
+            <pre><code>&lt;div class=&quot;exemplo&quot;&gt;
+  &lt;div class=&quot;galeria-imagens&quot;&gt;&lt;figure class=&quot;item-galeria&quot;&gt;&lt;img class=&quot;foto-galeria&quot; src=&quot;../assets/galeria-projeto-1.svg&quot; alt=&quot;Cartaz colorido do projeto 1&quot;&gt;&lt;figcaption&gt;Projeto 1&lt;/figcaption&gt;&lt;/figure&gt;&lt;figure class=&quot;item-galeria&quot;&gt;&lt;img class=&quot;foto-galeria&quot; src=&quot;../assets/galeria-projeto-2.svg&quot; alt=&quot;Cartaz colorido do projeto 2&quot;&gt;&lt;figcaption&gt;Projeto 2&lt;/figcaption&gt;&lt;/figure&gt;&lt;figure class=&quot;item-galeria&quot;&gt;&lt;img class=&quot;foto-galeria&quot; src=&quot;../assets/galeria-projeto-3.svg&quot; alt=&quot;Cartaz colorido do projeto 3&quot;&gt;&lt;figcaption&gt;Projeto 3&lt;/figcaption&gt;&lt;/figure&gt;&lt;/div&gt;
 &lt;/div&gt;
 
 &lt;style&gt;
 .galeria-imagens {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 14px;
 }
-.galeria-imagens img {
+.item-galeria {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid #d7e0ea;
+  border-radius: 8px;
+  background: #ffffff;
+}
+.foto-galeria {
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
-  border-radius: 8px;
   display: block;
+}
+.item-galeria figcaption {
+  margin: 0;
+  padding: 10px;
+  font-weight: bold;
 }
 &lt;/style&gt;</code></pre>
         </section>

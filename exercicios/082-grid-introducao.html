@@ -26,6 +26,21 @@
             background: #f4f7fb;
         }
 
+        .orientacao h2 {
+            margin: 18px 0 8px;
+            font-size: 18px;
+        }
+
+        .orientacao ol,
+        .orientacao ul {
+            margin-top: 8px;
+            padding-left: 24px;
+        }
+
+        .orientacao li + li {
+            margin-top: 6px;
+        }
+
         .area-do-aluno {
             min-height: 260px;
             padding: 20px;
@@ -37,8 +52,26 @@
     <main>
         <section class="orientacao">
             <h1>Exercício 082: Introdução ao Grid</h1>
-            <p>Mude para 3 colunas e faca um item ocupar duas colunas.</p>
-            <p>Edite esta página para completar a tarefa.</p>
+            <p><strong>Objetivo:</strong> Criar uma organização em linhas e colunas usando CSS Grid.</p>
+            <p><strong>Proposta:</strong> Mude para 3 colunas e faca um item ocupar duas colunas.</p>
+
+            <h2>O que fazer</h2>
+            <ol>
+                <li>Crie um container com vários blocos de conteúdo.</li>
+                <li>Aplique display: grid no container.</li>
+                <li>Defina colunas com grid-template-columns e espaçamento com gap.</li>
+                <li>Se possível, faça um dos itens ocupar mais de uma coluna ou linha.</li>
+            </ol>
+
+            <h2>Resultado esperado</h2>
+            <p>A página deve apresentar uma grade clara, com itens alinhados em colunas e espaçamentos consistentes.</p>
+
+            <h2>Checklist antes de entregar</h2>
+            <ul>
+                <li>O container usa display: grid.</li>
+                <li>As colunas foram definidas.</li>
+                <li>O espaçamento entre itens está controlado.</li>
+            </ul>
         </section>
 
         <section class="area-do-aluno">

@@ -84,18 +84,6 @@ a:hover { color: var(--accent); }
     width: min(100%, 1100px);
 }
 
-@media (max-width: 640px) {
-    .cabecalho-site,
-    .cabecalho-aula {
-        padding: 28px 18px;
-    }
-
-    .cabecalho-site h1,
-    .cabecalho-aula h1 {
-        font-size: 26px;
-    }
-}
-
 .layout-indice,
 .chamada-layouts,
 .aula {
@@ -225,6 +213,16 @@ code { font-family: Consolas, Monaco, monospace; }
 }
 
 @media (max-width: 640px) {
+    .cabecalho-site,
+    .cabecalho-aula {
+        padding: 28px 18px;
+    }
+
+    .cabecalho-site h1,
+    .cabecalho-aula h1 {
+        font-size: 26px;
+    }
+
     .navegacao-aula { display: grid; }
 }
 

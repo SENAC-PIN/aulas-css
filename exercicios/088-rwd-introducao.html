@@ -26,6 +26,21 @@
             background: #f4f7fb;
         }
 
+        .orientacao h2 {
+            margin: 18px 0 8px;
+            font-size: 18px;
+        }
+
+        .orientacao ol,
+        .orientacao ul {
+            margin-top: 8px;
+            padding-left: 24px;
+        }
+
+        .orientacao li + li {
+            margin-top: 6px;
+        }
+
         .area-do-aluno {
             min-height: 260px;
             padding: 20px;
@@ -37,8 +52,26 @@
     <main>
         <section class="orientacao">
             <h1>Exercício 088: Introdução ao design responsivo</h1>
-            <p>Altere o breakpoint para 800px e teste a largura da tela.</p>
-            <p>Edite esta página para completar a tarefa.</p>
+            <p><strong>Objetivo:</strong> Adaptar o layout para diferentes tamanhos de tela.</p>
+            <p><strong>Proposta:</strong> Altere o breakpoint para 800px e teste a largura da tela.</p>
+
+            <h2>O que fazer</h2>
+            <ol>
+                <li>Crie uma seção com conteúdo que funcione em tela grande e pequena.</li>
+                <li>Use medidas flexíveis, como %, max-width, fr ou rem.</li>
+                <li>Adicione uma media query para alterar layout, tamanho ou espaçamento em telas menores.</li>
+                <li>Teste diminuindo a largura do navegador.</li>
+            </ol>
+
+            <h2>Resultado esperado</h2>
+            <p>A página deve continuar organizada em telas pequenas, sem conteúdo espremido ou cortado.</p>
+
+            <h2>Checklist antes de entregar</h2>
+            <ul>
+                <li>Usou @media ou técnica responsiva equivalente.</li>
+                <li>O layout muda em tela menor.</li>
+                <li>Não há rolagem horizontal desnecessária.</li>
+            </ul>
         </section>
 
         <section class="area-do-aluno">

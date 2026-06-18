@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Máscaras CSS</title>
+    <link rel="stylesheet" href="../assets/curso.css">
+    <style>
+.foto {
+  width: 260px;
+  height: 150px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 14px;
+  filter: saturate(1.3);
+  display: block;
+  margin: auto;
+}
+    </style>
+</head>
+<body>
+    <header class="cabecalho-aula">
+        <a class="link-voltar" href="../index.html">Voltar ao índice</a>
+        <span class="professor">Professor Diogo Fragoso</span>
+        <h1>Máscaras CSS</h1>
+        <p>Controle apresentação, corte, filtro e posicionamento de imagens.</p>
+    </header>
+
+    <main class="aula">
+        <section class="painel">
+            <h2>Exemplo</h2>
+            <div class="exemplo">
+                <img class="foto" alt="Imagem colorida de exemplo" src="../assets/imagem-exemplo.svg">
+            </div>
+        </section>
+
+        <section class="painel">
+            <h2>Código base</h2>
+            <pre><code>&lt;div class=&quot;exemplo&quot;&gt;
+  &lt;img class=&quot;foto&quot; alt=&quot;Imagem colorida de exemplo&quot; src=&quot;../assets/imagem-exemplo.svg&quot;&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+.foto {
+  width: 260px;
+  height: 150px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 14px;
+  filter: saturate(1.3);
+  display: block;
+  margin: auto;
+}
+&lt;/style&gt;</code></pre>
+        </section>
+
+        <section class="painel atividade">
+            <h2>Atividade prática</h2>
+            <p>Teste object-fit, object-position, filter, border-radius e clip-path.</p>
+            <ol>
+                <li>Abra esta página no navegador.</li>
+                <li>Edite o CSS no arquivo ou no DevTools.</li>
+                <li>Anote qual propriedade mudou o resultado visual.</li>
+            </ol>
+            <p><a class="link-exercicio" href="../exercicios/067-css-mascaras.html">Abrir página do exercício</a></p>
+        </section>
+
+        <nav class="navegacao-aula">
+            <a href="css-posicao-de-objeto.html">Anterior: Posição de objeto CSS</a>
+            <a href="css-botoes.html">Próxima: Botões CSS</a>
+        </nav>
+    </main>
+</body>
+</html>

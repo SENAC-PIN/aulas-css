@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-labelledby="titulo desc">
+  <title id="titulo">Imagem colorida de exemplo</title>
+  <desc id="desc">Imagem abstrata com formas retangulares e faixas coloridas para exemplos de CSS.</desc>
+  <rect width="640" height="360" fill="#eaf4fb"/>
+  <rect x="38" y="38" width="228" height="142" rx="14" fill="#355070"/>
+  <rect x="304" y="38" width="298" height="92" rx="14" fill="#2d8a5f"/>
+  <rect x="304" y="162" width="126" height="160" rx="14" fill="#b56576"/>
+  <rect x="464" y="162" width="138" height="160" rx="14" fill="#f4d35e"/>
+  <path d="M38 248 L142 206 L244 248 L244 322 L38 322 Z" fill="#1f7a8c"/>
+</svg>
