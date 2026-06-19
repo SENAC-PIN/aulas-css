@@ -99,6 +99,10 @@ function renderExercisePage({ title, activity, exerciseFile }) {
             padding: 20px;
             border: 2px dashed #aebdcc;
         }
+
+        /* STUDENT_CSS_START */
+        /* Escreva seu CSS aqui. */
+        /* STUDENT_CSS_END */
     </style>
 </head>
 <body>
@@ -110,9 +114,10 @@ function renderExercisePage({ title, activity, exerciseFile }) {
         </section>
 
         <section class="area-do-aluno">
-            <!-- Área do estudante: escreva o HTML aqui. -->
+            <!-- STUDENT_HTML_START -->
             <h2>Minha solução</h2>
             <p>Substitua este conteúdo pela sua resposta.</p>
+            <!-- STUDENT_HTML_END -->
         </section>
     </main>
 </body>

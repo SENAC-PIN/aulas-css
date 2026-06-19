@@ -125,110 +125,112 @@ const portugueseFiles = {
   "SASS Tutorial": "tutorial-sass.html",
 };
 
-const portugueseTitles = {
-  "CSS Syntax": "Sintaxe CSS",
-  "CSS Selectors": "Seletores CSS",
-  "CSS How To": "Como usar CSS",
-  "CSS Comments": "Comentários CSS",
-  "CSS Errors": "Erros em CSS",
-  "CSS Colors": "Cores CSS",
-  "CSS Backgrounds": "Fundos CSS",
-  "CSS Borders": "Bordas CSS",
-  "CSS Margins": "Margens CSS",
-  "CSS Padding": "Preenchimento CSS",
-  "CSS Height / Width": "Altura e largura CSS",
-  "CSS Box Model": "Modelo de caixa CSS",
-  "CSS Outline": "Contorno CSS",
-  "CSS Text": "Texto CSS",
-  "CSS Fonts": "Fontes CSS",
-  "CSS Icons": "Ícones CSS",
-  "CSS Links": "Links CSS",
-  "CSS Lists": "Listas CSS",
-  "CSS Tables": "Tabelas CSS",
-  "CSS Display": "Display CSS",
-  "CSS Max-width": "Largura máxima CSS",
-  "CSS Position": "Posicionamento CSS",
-  "CSS Position Offsets": "Deslocamentos de posição CSS",
-  "CSS Z-index": "Z-index CSS",
-  "CSS Overflow": "Transbordamento CSS",
-  "Overflow": "Transbordamento",
-  "Overflow X and Y": "Transbordamento nos eixos X e Y",
-  "Code Challenge": "Desafio de código",
-  "CSS Float": "Flutuação CSS",
-  "CSS Inline-block": "Bloco em linha CSS",
-  "CSS Align": "Alinhamento CSS",
-  "CSS Combinators": "Combinadores CSS",
-  "CSS Pseudo-classes": "Pseudoclasses CSS",
-  "CSS Pseudo-elements": "Pseudoelementos CSS",
-  "CSS Opacity": "Opacidade CSS",
-  "CSS Navigation Bars": "Barras de navegação CSS",
-  "CSS Dropdowns": "Menus suspensos CSS",
-  "CSS Image Gallery": "Galeria de imagens CSS",
-  "CSS Image Sprites": "Sprites de imagem CSS",
-  "CSS Attribute Selectors": "Seletores de atributo CSS",
-  "CSS Forms": "Formulários CSS",
-  "CSS Counters": "Contadores CSS",
-  "CSS Units": "Unidades CSS",
-  "CSS Inheritance": "Herança CSS",
-  "CSS Specificity": "Especificidade CSS",
+const technicalTitles = {
+  "CSS Syntax": "CSS Syntax",
+  "CSS Selectors": "CSS Selectors",
+  "CSS How To": "CSS How To",
+  "CSS Comments": "CSS Comments",
+  "CSS Errors": "CSS Errors",
+  "CSS Colors": "CSS Colors",
+  "CSS Backgrounds": "CSS Backgrounds",
+  "CSS Borders": "CSS Borders",
+  "CSS Margins": "CSS Margins",
+  "CSS Padding": "CSS Padding",
+  "CSS Height / Width": "CSS Height / Width",
+  "CSS Box Model": "CSS Box Model",
+  "CSS Outline": "CSS Outline",
+  "CSS Text": "CSS Text",
+  "CSS Fonts": "CSS Fonts",
+  "CSS Icons": "CSS Icons",
+  "CSS Links": "CSS Links",
+  "CSS Lists": "CSS Lists",
+  "CSS Tables": "CSS Tables",
+  "CSS Display": "CSS Display",
+  "CSS Max-width": "CSS Max-width",
+  "CSS Position": "CSS Position",
+  "CSS Position Offsets": "CSS Position Offsets",
+  "CSS Z-index": "CSS Z-index",
+  "CSS Overflow": "CSS Overflow",
+  "Overflow": "Overflow",
+  "Overflow X and Y": "Overflow X and Y",
+  "Code Challenge": "Code Challenge",
+  "CSS Float": "CSS Float",
+  "CSS Inline-block": "CSS Inline-block",
+  "CSS Align": "CSS Align",
+  "CSS Combinators": "CSS Combinators",
+  "CSS Pseudo-classes": "CSS Pseudo-classes",
+  "CSS Pseudo-elements": "CSS Pseudo-elements",
+  "CSS Opacity": "CSS Opacity",
+  "CSS Navigation Bars": "CSS Navigation Bars",
+  "CSS Dropdowns": "CSS Dropdowns",
+  "CSS Image Gallery": "CSS Image Gallery",
+  "CSS Image Sprites": "CSS Image Sprites",
+  "CSS Attribute Selectors": "CSS Attribute Selectors",
+  "CSS Forms": "CSS Forms",
+  "CSS Counters": "CSS Counters",
+  "CSS Units": "CSS Units",
+  "CSS Inheritance": "CSS Inheritance",
+  "CSS Specificity": "CSS Specificity",
   "CSS !important": "CSS !important",
-  "CSS Math Functions": "Funções matemáticas CSS",
-  "CSS Optimization": "Otimização CSS",
-  "CSS Accessibility": "Acessibilidade CSS",
-  "CSS Website Layout": "Layout de site com CSS",
-  "CSS Gradients": "Gradientes CSS",
-  "CSS Shadows": "Sombras CSS",
-  "CSS Text Effects": "Efeitos de texto CSS",
-  "CSS Custom Fonts": "Fontes personalizadas CSS",
-  "CSS 2D Transforms": "Transformações 2D CSS",
-  "CSS 3D Transforms": "Transformações 3D CSS",
-  "CSS Transitions": "Transições CSS",
-  "CSS Animations": "Animações CSS",
-  "CSS Tooltips": "Dicas flutuantes CSS",
-  "CSS Image Styling": "Estilização de imagens CSS",
-  "CSS Image Modal": "Modal de imagem CSS",
-  "CSS Image Centering": "Centralização de imagem CSS",
-  "CSS Image Filters": "Filtros de imagem CSS",
-  "CSS Image Shapes": "Formatos de imagem CSS",
-  "CSS object-fit": "Ajuste de objeto CSS",
-  "CSS object-position": "Posição de objeto CSS",
-  "CSS Masking": "Máscaras CSS",
-  "CSS Buttons": "Botões CSS",
-  "CSS Pagination": "Paginação CSS",
-  "CSS Multiple Columns": "Múltiplas colunas CSS",
-  "CSS User Interface": "Interface de usuário CSS",
-  "CSS Variables": "Variáveis CSS",
+  "CSS Math Functions": "CSS Math Functions",
+  "CSS Optimization": "CSS Optimization",
+  "CSS Accessibility": "CSS Accessibility",
+  "CSS Website Layout": "CSS Website Layout",
+  "CSS Gradients": "CSS Gradients",
+  "CSS Shadows": "CSS Shadows",
+  "CSS Text Effects": "CSS Text Effects",
+  "CSS Custom Fonts": "CSS Custom Fonts",
+  "CSS 2D Transforms": "CSS 2D Transforms",
+  "CSS 3D Transforms": "CSS 3D Transforms",
+  "CSS Transitions": "CSS Transitions",
+  "CSS Animations": "CSS Animations",
+  "CSS Tooltips": "CSS Tooltips",
+  "CSS Image Styling": "CSS Image Styling",
+  "CSS Image Modal": "CSS Image Modal",
+  "CSS Image Centering": "CSS Image Centering",
+  "CSS Image Filters": "CSS Image Filters",
+  "CSS Image Shapes": "CSS Image Shapes",
+  "CSS object-fit": "CSS object-fit",
+  "CSS object-position": "CSS object-position",
+  "CSS Masking": "CSS Masking",
+  "CSS Buttons": "CSS Buttons",
+  "CSS Pagination": "CSS Pagination",
+  "CSS Multiple Columns": "CSS Multiple Columns",
+  "CSS User Interface": "CSS User Interface",
+  "CSS Variables": "CSS Variables",
   "CSS @property": "CSS @property",
-  "CSS Box Sizing": "Dimensionamento de caixa CSS",
-  "CSS Media Queries": "Consultas de mídia CSS",
-  "CSS FLEXBOX": "Flexbox CSS",
-  "Flexbox Intro": "Introdução ao Flexbox",
-  "Flex Container": "Container flexível",
-  "Flex Items": "Itens flexíveis",
-  "Flex Responsive": "Flex responsivo",
-  "CSS GRID": "Grid CSS",
-  "Grid Intro": "Introdução ao Grid",
-  "Grid Container": "Container grid",
-  "Grid Items": "Itens grid",
-  "Grid 12-column Layout": "Layout grid de 12 colunas",
+  "CSS Box Sizing": "CSS Box Sizing",
+  "CSS Media Queries": "CSS Media Queries",
+  "CSS FLEXBOX": "CSS FLEXBOX",
+  "Flexbox Intro": "Flexbox Intro",
+  "Flex Container": "Flex Container",
+  "Flex Items": "Flex Items",
+  "Flex Responsive": "Flex Responsive",
+  "CSS GRID": "CSS GRID",
+  "Grid Intro": "Grid Intro",
+  "Grid Container": "Grid Container",
+  "Grid Items": "Grid Items",
+  "Grid 12-column Layout": "Grid 12-column Layout",
   "CSS @supports": "CSS @supports",
-  "CSS RESPONSIVE": "CSS responsivo",
-  "RWD Intro": "Introdução ao design responsivo",
-  "RWD Viewport": "Viewport responsivo",
-  "RWD Grid View": "Visualização em grade responsiva",
-  "RWD Media Queries": "Consultas de mídia responsivas",
-  "RWD Images": "Imagens responsivas",
-  "RWD Videos": "Vídeos responsivos",
-  "RWD Frameworks": "Frameworks responsivos",
-  "RWD Templates": "Modelos responsivos",
-  "CSS CERT": "Certificação CSS",
-  "CSS Certificate": "Certificado CSS",
-  "CSS SASS": "SASS para CSS",
-  "SASS Tutorial": "Tutorial de SASS",
+  "CSS RESPONSIVE": "CSS RESPONSIVE",
+  "RWD Intro": "RWD Intro",
+  "RWD Viewport": "RWD Viewport",
+  "RWD Grid View": "RWD Grid View",
+  "RWD Media Queries": "RWD Media Queries",
+  "RWD Images": "RWD Images",
+  "RWD Videos": "RWD Videos",
+  "RWD Frameworks": "RWD Frameworks",
+  "RWD Templates": "RWD Templates",
+  "CSS CERT": "CSS CERT",
+  "CSS Certificate": "CSS Certificate",
+  "CSS SASS": "CSS SASS",
+  "SASS Tutorial": "SASS Tutorial",
 };
 
 function titleOf(topic) {
-  return portugueseTitles[topic] || topic;
+  // Os nomes dos assuntos são termos técnicos e devem permanecer no
+  // original em inglês. O conteúdo explicativo continua em português.
+  return technicalTitles[topic] || topic;
 }
 
 function summary(topic) {
@@ -739,6 +741,21 @@ function exerciseGuide(topic, item) {
 function page(topic, previous, next, exerciseFile) {
   const item = lesson(topic);
   const title = titleOf(topic);
+  const videoLesson = topic === "CSS GRID" ? `
+        <section class="painel">
+            <h2>Videoaula: CSS Grid</h2>
+            <p>Assista à explicação antes de realizar a atividade prática.</p>
+            <div class="video-aula">
+                <iframe
+                    src="https://www.youtube-nocookie.com/embed/Q9rbVLAZcI8"
+                    title="Videoaula sobre CSS Grid"
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen></iframe>
+            </div>
+            <p><a href="https://youtu.be/Q9rbVLAZcI8">Abrir a videoaula no YouTube</a></p>
+        </section>` : "";
   const snippet = `<div class="exemplo">
   ${item.html}
 </div>
@@ -775,6 +792,7 @@ ${item.css}
                 ${item.html}
             </div>
         </section>
+${videoLesson}
 
         <section class="painel">
             <h2>Código base</h2>
@@ -857,6 +875,10 @@ function exercisePage(topic, number, item) {
             padding: 20px;
             border: 2px dashed #aebdcc;
         }
+
+        /* STUDENT_CSS_START */
+        /* Escreva seu CSS aqui. */
+        /* STUDENT_CSS_END */
     </style>
 </head>
 <body>
@@ -881,9 +903,10 @@ ${checklist}
         </section>
 
         <section class="area-do-aluno">
-            <!-- Área do estudante: escreva o HTML aqui. -->
+            <!-- STUDENT_HTML_START -->
             <h2>Minha solução</h2>
             <p>Substitua este conteúdo pela sua resposta.</p>
+            <!-- STUDENT_HTML_END -->
         </section>
     </main>
 </body>
@@ -1023,6 +1046,22 @@ a:hover { color: var(--accent); }
     background: var(--accent);
 }
 
+.acoes-indice {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.botao-layouts.secundario {
+    color: var(--brand);
+    background: #e8eef4;
+}
+
+.botao-layouts.secundario:hover {
+    color: #ffffff;
+    background: var(--accent);
+}
+
 .aula {
     max-width: 1100px;
 }
@@ -1070,6 +1109,20 @@ a:hover { color: var(--accent); }
     padding: 20px;
     border: 2px dashed #aebdcc;
     background: #fbfdff;
+}
+
+.video-aula {
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+    border-radius: 8px;
+    background: #111827;
+}
+
+.video-aula iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
 }
 
 pre {
@@ -1191,7 +1244,10 @@ function indexPage(pages) {
                 <h2>Atividades completas de layout</h2>
                 <p>Projetos maiores para praticar Flexbox, Grid, responsividade e organização visual com CSS.</p>
             </div>
-            <a class="botao-layouts" href="atividades-layouts.html">Abrir atividades</a>
+            <div class="acoes-indice">
+                <a class="botao-layouts" href="relatorio-exercicios.html">Ver meu progresso</a>
+                <a class="botao-layouts secundario" href="atividades-layouts.html">Abrir atividades</a>
+            </div>
         </div>
     </section>
 
