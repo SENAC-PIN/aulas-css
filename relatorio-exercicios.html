@@ -15,8 +15,12 @@
     .painel { padding:20px; border:1px solid var(--line); border-radius:10px; background:var(--paper); }
     .jogador { display:grid; grid-template-columns:auto 1fr auto; gap:18px; align-items:center; margin-bottom:16px; color:#fff; background:linear-gradient(135deg,#355070,#23364d); }
     .nivel { display:grid; place-items:center; width:76px; height:76px; border:3px solid #fff; border-radius:50%; text-align:center; } .nivel strong { display:block; font-size:26px; line-height:1; }
-    .jogador h2 { display:block; margin:0 0 6px; font-size:22px; } .jogador p { margin:0; color:#dce6ef; }
+    .jogador h2 { display:block; margin:8px 0 6px; font-size:22px; } .jogador p { margin:0; color:#dce6ef; }
     .jogador .barra { margin-top:10px; background:rgba(255,255,255,.22); } .jogador .barra span { background:#f4c95d; }
+    .campo-nome label { display:block; margin-bottom:5px; color:#dce6ef; font-size:13px; font-weight:bold; }
+    .controle-nome { display:flex; gap:8px; } .controle-nome input { flex:1; min-width:140px; padding:8px 10px; border:1px solid rgba(255,255,255,.45); border-radius:6px; font:inherit; }
+    .controle-nome button { padding:8px 12px; border:0; border-radius:6px; color:var(--brand); background:#fff; font-weight:bold; cursor:pointer; }
+    .mensagem-nome { min-height:20px; margin-top:4px !important; font-size:12px; }
     .metricas-jogo { display:flex; gap:16px; text-align:center; } .metricas-jogo strong { display:block; font-size:22px; } .metricas-jogo span { color:#dce6ef; font-size:13px; }
     .resumo { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; margin-bottom:20px; }
     .cartao strong { display:block; font-size:28px; } .cartao span { color:var(--muted); }
@@ -52,11 +56,14 @@
   </style>
 </head>
 <body>
-  <header><div><h1>Progresso dos exercícios</h1><p>Feedback automático gerado em 19/06/2026, 14:37:21</p></div></header>
+  <header><div><h1>Progresso dos exercícios</h1><p>Feedback automático gerado em 19/06/2026, 15:14:48</p></div></header>
   <main>
     <section class="painel jogador">
       <div class="nivel"><span>Nível</span><strong>1</strong></div>
-      <div><h2>Estudante</h2><p>0 XP acumulados</p><div class="barra"><span style="width:0%"></span></div><p>0/500 XP para o próximo nível</p></div>
+      <div>
+        <div class="campo-nome"><label for="nome-estudante">Nome do estudante</label><div class="controle-nome"><input id="nome-estudante" value="" maxlength="80" autocomplete="name" placeholder="Digite seu nome"><button id="salvar-nome" type="button">Salvar nome</button></div><p id="mensagem-nome" class="mensagem-nome" aria-live="polite"></p></div>
+        <h2>Olá, <span id="nome-relatorio">Estudante</span>!</h2><p>0 XP acumulados</p><div class="barra"><span style="width:0%"></span></div><p>0/500 XP para o próximo nível</p>
+      </div>
       <div class="metricas-jogo"><div><strong>0</strong><span>dias de sequência</span></div><div><strong>0</strong><span>badges</span></div></div>
     </section>
     <section class="resumo">
@@ -89,7 +96,7 @@
       <h2>Autoria e aprendizagem</h2>
       <p>O objetivo não é detectar IA — detectores são pouco confiáveis. Cada missão exige uma reflexão escrita e pode incluir uma breve defesa oral ou alteração ao vivo do código.</p>
       <p>O estudante deve conseguir explicar as próprias decisões e modificar sua solução sem ajuda externa.</p>
-      <div class="acoes"><a href="progresso-aluno.json" download>Baixar backup do progresso</a></div>
+      <div class="acoes"><a id="baixar-progresso" href="progresso-aluno.json" download="progresso-aluno.json">Baixar backup do progresso</a></div>
     </section>
     <section class="ferramentas painel" aria-label="Filtros">
       <input id="busca" type="search" placeholder="Buscar exercício ou assunto…" aria-label="Buscar exercício">
@@ -3195,6 +3202,33 @@
     </div>
   </main>
   <script>
+    const progressData = {"version":1,"profile":{"name":"Estudante"},"history":{"activityDates":[],"completedAt":{},"hintsUsed":{}},"snapshot":{"001-css-sintaxe.html":{"status":"not-started","score":0,"total":4},"002-css-seletores.html":{"status":"not-started","score":0,"total":4},"003-css-como-usar.html":{"status":"not-started","score":0,"total":4},"004-css-comentarios.html":{"status":"not-started","score":0,"total":4},"005-css-erros.html":{"status":"not-started","score":0,"total":4},"006-css-cores.html":{"status":"not-started","score":0,"total":5},"007-css-fundos.html":{"status":"not-started","score":0,"total":4},"008-css-bordas.html":{"status":"not-started","score":0,"total":4},"009-css-margens.html":{"status":"not-started","score":0,"total":4},"010-css-preenchimento.html":{"status":"not-started","score":0,"total":4},"011-css-altura-largura.html":{"status":"not-started","score":0,"total":4},"012-css-modelo-de-caixa.html":{"status":"not-started","score":0,"total":4},"013-css-contorno.html":{"status":"not-started","score":0,"total":4},"014-css-texto.html":{"status":"not-started","score":0,"total":4},"015-css-fontes.html":{"status":"not-started","score":0,"total":4},"016-css-icones.html":{"status":"not-started","score":0,"total":5},"017-css-links.html":{"status":"not-started","score":0,"total":5},"018-css-listas.html":{"status":"not-started","score":0,"total":4},"019-css-tabelas.html":{"status":"not-started","score":0,"total":4},"020-css-display.html":{"status":"not-started","score":0,"total":4},"021-css-largura-maxima.html":{"status":"not-started","score":0,"total":4},"022-css-posicionamento.html":{"status":"not-started","score":0,"total":4},"023-css-deslocamentos-de-posicao.html":{"status":"not-started","score":0,"total":4},"024-css-z-index.html":{"status":"not-started","score":0,"total":4},"025-css-transbordamento.html":{"status":"not-started","score":0,"total":4},"026-transbordamento.html":{"status":"not-started","score":0,"total":4},"027-transbordamento-x-e-y.html":{"status":"not-started","score":0,"total":4},"028-desafio-de-codigo.html":{"status":"not-started","score":0,"total":3},"029-css-flutuacao.html":{"status":"not-started","score":0,"total":4},"030-css-bloco-em-linha.html":{"status":"not-started","score":0,"total":4},"031-css-alinhamento.html":{"status":"not-started","score":0,"total":4},"032-css-combinadores.html":{"status":"not-started","score":0,"total":4},"033-css-pseudoclasses.html":{"status":"not-started","score":0,"total":5},"034-css-pseudoelementos.html":{"status":"not-started","score":0,"total":5},"035-css-opacidade.html":{"status":"not-started","score":0,"total":4},"036-css-barras-de-navegacao.html":{"status":"not-started","score":0,"total":5},"037-css-menus-suspensos.html":{"status":"not-started","score":0,"total":4},"038-css-galeria-de-imagens.html":{"status":"not-started","score":0,"total":4},"039-css-sprites-de-imagem.html":{"status":"not-started","score":0,"total":4},"040-css-seletores-de-atributo.html":{"status":"not-started","score":0,"total":5},"041-css-formularios.html":{"status":"not-started","score":0,"total":4},"042-css-contadores.html":{"status":"not-started","score":0,"total":4},"043-css-unidades.html":{"status":"not-started","score":0,"total":4},"044-css-heranca.html":{"status":"not-started","score":0,"total":3},"045-css-especificidade.html":{"status":"not-started","score":0,"total":3},"046-css-important.html":{"status":"not-started","score":0,"total":3},"047-css-funcoes-matematicas.html":{"status":"not-started","score":0,"total":3},"048-css-otimizacao.html":{"status":"not-started","score":0,"total":3},"049-css-acessibilidade.html":{"status":"not-started","score":0,"total":3},"050-css-layout-de-site.html":{"status":"not-started","score":0,"total":3},"051-css-gradientes.html":{"status":"not-started","score":0,"total":4},"052-css-sombras.html":{"status":"not-started","score":0,"total":4},"053-css-efeitos-de-texto.html":{"status":"not-started","score":0,"total":4},"054-css-fontes-personalizadas.html":{"status":"not-started","score":0,"total":4},"055-css-transformacoes-2d.html":{"status":"not-started","score":0,"total":4},"056-css-transformacoes-3d.html":{"status":"not-started","score":0,"total":4},"057-css-transicoes.html":{"status":"not-started","score":0,"total":4},"058-css-animacoes.html":{"status":"not-started","score":0,"total":4},"059-css-dicas.html":{"status":"not-started","score":0,"total":3},"060-css-estilizacao-de-imagens.html":{"status":"not-started","score":0,"total":4},"061-css-modal-de-imagem.html":{"status":"not-started","score":0,"total":4},"062-css-centralizacao-de-imagem.html":{"status":"not-started","score":0,"total":4},"063-css-filtros-de-imagem.html":{"status":"not-started","score":0,"total":4},"064-css-formatos-de-imagem.html":{"status":"not-started","score":0,"total":4},"065-css-ajuste-de-objeto.html":{"status":"not-started","score":0,"total":4},"066-css-posicao-de-objeto.html":{"status":"not-started","score":0,"total":4},"067-css-mascaras.html":{"status":"not-started","score":0,"total":4},"068-css-botoes.html":{"status":"not-started","score":0,"total":5},"069-css-paginacao.html":{"status":"not-started","score":0,"total":5},"070-css-multiplas-colunas.html":{"status":"not-started","score":0,"total":3},"071-css-interface-de-usuario.html":{"status":"not-started","score":0,"total":3},"072-css-variaveis.html":{"status":"not-started","score":0,"total":5},"073-css-property.html":{"status":"not-started","score":0,"total":5},"074-css-dimensionamento-de-caixa.html":{"status":"not-started","score":0,"total":4},"075-css-consultas-de-midia.html":{"status":"not-started","score":0,"total":4},"076-css-flexbox.html":{"status":"not-started","score":0,"total":4},"077-flexbox-introducao.html":{"status":"not-started","score":0,"total":4},"078-container-flex.html":{"status":"not-started","score":0,"total":4},"079-itens-flex.html":{"status":"not-started","score":0,"total":4},"080-flex-responsivo.html":{"status":"not-started","score":0,"total":5},"081-css-grid.html":{"status":"not-started","score":0,"total":5},"082-grid-introducao.html":{"status":"not-started","score":0,"total":5},"083-container-grid.html":{"status":"not-started","score":0,"total":5},"084-itens-grid.html":{"status":"not-started","score":0,"total":5},"085-layout-grid-12-colunas.html":{"status":"not-started","score":0,"total":5},"086-css-supports.html":{"status":"not-started","score":0,"total":4},"087-css-responsivo.html":{"status":"not-started","score":0,"total":4},"088-rwd-introducao.html":{"status":"not-started","score":0,"total":4},"089-rwd-janela-de-visualizacao.html":{"status":"not-started","score":0,"total":4},"090-rwd-visao-em-grade.html":{"status":"not-started","score":0,"total":6},"091-rwd-consultas-de-midia.html":{"status":"not-started","score":0,"total":4},"092-rwd-imagens.html":{"status":"not-started","score":0,"total":5},"093-rwd-videos.html":{"status":"not-started","score":0,"total":4},"094-rwd-frameworks.html":{"status":"not-started","score":0,"total":4},"095-rwd-modelos.html":{"status":"not-started","score":0,"total":4},"096-css-certificacao.html":{"status":"not-started","score":0,"total":3},"097-css-certificado.html":{"status":"not-started","score":0,"total":3},"098-css-sass.html":{"status":"not-started","score":0,"total":4},"099-tutorial-sass.html":{"status":"not-started","score":0,"total":4}},"derived":{"generatedAt":"2026-06-19T18:14:48.419Z","xp":0,"level":1,"currentLevelXp":0,"nextLevelXp":500,"streak":0,"completed":0,"badges":[]}};
+    const nameInput = document.querySelector("#nome-estudante");
+    const reportName = document.querySelector("#nome-relatorio");
+    const nameMessage = document.querySelector("#mensagem-nome");
+    const cachedName = localStorage.getItem("cssQuestStudentName");
+    if (cachedName) {
+      nameInput.value = cachedName;
+      reportName.textContent = cachedName;
+    }
+    document.querySelector("#salvar-nome").addEventListener("click", () => {
+      const name = nameInput.value.trim();
+      if (!name) {
+        nameMessage.textContent = "Digite um nome antes de salvar.";
+        nameInput.focus();
+        return;
+      }
+      localStorage.setItem("cssQuestStudentName", name);
+      reportName.textContent = name;
+      nameMessage.textContent = "Nome salvo e exibido neste relatório.";
+    });
+    document.querySelector("#baixar-progresso").addEventListener("click", (event) => {
+      const name = nameInput.value.trim() || "Estudante";
+      progressData.profile.name = name;
+      const blob = new Blob([JSON.stringify(progressData, null, 2) + "\n"], { type: "application/json" });
+      event.currentTarget.href = URL.createObjectURL(blob);
+      setTimeout(() => URL.revokeObjectURL(event.currentTarget.href), 1000);
+    });
     const search = document.querySelector("#busca");
     const buttons = [...document.querySelectorAll("[data-filter]")];
     const cards = [...document.querySelectorAll(".resultado")];

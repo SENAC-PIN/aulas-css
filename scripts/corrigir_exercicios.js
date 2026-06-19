@@ -403,6 +403,8 @@ function renderHtmlReport(results, game) {
   const statusLabels = { completed: "Concluído", "in-progress": "Em andamento", "not-started": "Não iniciado" };
   const { profile, derived } = game.progress;
   const unlockedBadges = game.badges.filter((badge) => badge.unlocked);
+  const profileName = profile.name === "Estudante" ? "" : profile.name;
+  const progressForBrowser = JSON.stringify(game.progress).replace(/</g, "\\u003c");
 
   const rows = results.map((result) => {
     const focus = result.criteria.find((item) => !["markers", "html", "css", "reflection"].includes(item.id))?.label || "a organização do seu código";
@@ -449,8 +451,12 @@ function renderHtmlReport(results, game) {
     .painel { padding:20px; border:1px solid var(--line); border-radius:10px; background:var(--paper); }
     .jogador { display:grid; grid-template-columns:auto 1fr auto; gap:18px; align-items:center; margin-bottom:16px; color:#fff; background:linear-gradient(135deg,#355070,#23364d); }
     .nivel { display:grid; place-items:center; width:76px; height:76px; border:3px solid #fff; border-radius:50%; text-align:center; } .nivel strong { display:block; font-size:26px; line-height:1; }
-    .jogador h2 { display:block; margin:0 0 6px; font-size:22px; } .jogador p { margin:0; color:#dce6ef; }
+    .jogador h2 { display:block; margin:8px 0 6px; font-size:22px; } .jogador p { margin:0; color:#dce6ef; }
     .jogador .barra { margin-top:10px; background:rgba(255,255,255,.22); } .jogador .barra span { background:#f4c95d; }
+    .campo-nome label { display:block; margin-bottom:5px; color:#dce6ef; font-size:13px; font-weight:bold; }
+    .controle-nome { display:flex; gap:8px; } .controle-nome input { flex:1; min-width:140px; padding:8px 10px; border:1px solid rgba(255,255,255,.45); border-radius:6px; font:inherit; }
+    .controle-nome button { padding:8px 12px; border:0; border-radius:6px; color:var(--brand); background:#fff; font-weight:bold; cursor:pointer; }
+    .mensagem-nome { min-height:20px; margin-top:4px !important; font-size:12px; }
     .metricas-jogo { display:flex; gap:16px; text-align:center; } .metricas-jogo strong { display:block; font-size:22px; } .metricas-jogo span { color:#dce6ef; font-size:13px; }
     .resumo { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; margin-bottom:20px; }
     .cartao strong { display:block; font-size:28px; } .cartao span { color:var(--muted); }
@@ -490,7 +496,10 @@ function renderHtmlReport(results, game) {
   <main>
     <section class="painel jogador">
       <div class="nivel"><span>Nível</span><strong>${derived.level}</strong></div>
-      <div><h2>${escapeHtml(profile.name)}</h2><p>${derived.xp} XP acumulados</p><div class="barra"><span style="width:${Math.round((derived.currentLevelXp / derived.nextLevelXp) * 100)}%"></span></div><p>${derived.currentLevelXp}/${derived.nextLevelXp} XP para o próximo nível</p></div>
+      <div>
+        <div class="campo-nome"><label for="nome-estudante">Nome do estudante</label><div class="controle-nome"><input id="nome-estudante" value="${escapeHtml(profileName)}" maxlength="80" autocomplete="name" placeholder="Digite seu nome"><button id="salvar-nome" type="button">Salvar nome</button></div><p id="mensagem-nome" class="mensagem-nome" aria-live="polite"></p></div>
+        <h2>Olá, <span id="nome-relatorio">${escapeHtml(profileName || "Estudante")}</span>!</h2><p>${derived.xp} XP acumulados</p><div class="barra"><span style="width:${Math.round((derived.currentLevelXp / derived.nextLevelXp) * 100)}%"></span></div><p>${derived.currentLevelXp}/${derived.nextLevelXp} XP para o próximo nível</p>
+      </div>
       <div class="metricas-jogo"><div><strong>${derived.streak}</strong><span>dias de sequência</span></div><div><strong>${unlockedBadges.length}</strong><span>badges</span></div></div>
     </section>
     <section class="resumo">
@@ -505,7 +514,7 @@ function renderHtmlReport(results, game) {
       <h2>Autoria e aprendizagem</h2>
       <p>O objetivo não é detectar IA — detectores são pouco confiáveis. Cada missão exige uma reflexão escrita e pode incluir uma breve defesa oral ou alteração ao vivo do código.</p>
       <p>O estudante deve conseguir explicar as próprias decisões e modificar sua solução sem ajuda externa.</p>
-      <div class="acoes"><a href="progresso-aluno.json" download>Baixar backup do progresso</a></div>
+      <div class="acoes"><a id="baixar-progresso" href="progresso-aluno.json" download="progresso-aluno.json">Baixar backup do progresso</a></div>
     </section>
     <section class="ferramentas painel" aria-label="Filtros">
       <input id="busca" type="search" placeholder="Buscar exercício ou assunto…" aria-label="Buscar exercício">
@@ -522,6 +531,33 @@ function renderHtmlReport(results, game) {
     </div>
   </main>
   <script>
+    const progressData = ${progressForBrowser};
+    const nameInput = document.querySelector("#nome-estudante");
+    const reportName = document.querySelector("#nome-relatorio");
+    const nameMessage = document.querySelector("#mensagem-nome");
+    const cachedName = localStorage.getItem("cssQuestStudentName");
+    if (cachedName) {
+      nameInput.value = cachedName;
+      reportName.textContent = cachedName;
+    }
+    document.querySelector("#salvar-nome").addEventListener("click", () => {
+      const name = nameInput.value.trim();
+      if (!name) {
+        nameMessage.textContent = "Digite um nome antes de salvar.";
+        nameInput.focus();
+        return;
+      }
+      localStorage.setItem("cssQuestStudentName", name);
+      reportName.textContent = name;
+      nameMessage.textContent = "Nome salvo e exibido neste relatório.";
+    });
+    document.querySelector("#baixar-progresso").addEventListener("click", (event) => {
+      const name = nameInput.value.trim() || "Estudante";
+      progressData.profile.name = name;
+      const blob = new Blob([JSON.stringify(progressData, null, 2) + "\\n"], { type: "application/json" });
+      event.currentTarget.href = URL.createObjectURL(blob);
+      setTimeout(() => URL.revokeObjectURL(event.currentTarget.href), 1000);
+    });
     const search = document.querySelector("#busca");
     const buttons = [...document.querySelectorAll("[data-filter]")];
     const cards = [...document.querySelectorAll(".resultado")];
