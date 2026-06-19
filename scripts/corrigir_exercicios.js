@@ -418,7 +418,7 @@ function renderHtmlReport(results, game) {
       <div class="pontuacao"><strong>${result.score}/${result.total}</strong><span class="status">${statusLabels[result.status]}</span></div>
     </div>
     <div class="barra pequena"><span style="width:${result.percent}%"></span></div>
-    <details ${result.status === "completed" ? "" : "open"}>
+    <details>
       <summary>Ver critérios e dicas</summary>
       ${renderCriteria(result.criteria)}
       <div class="autoria">
@@ -467,7 +467,12 @@ function renderHtmlReport(results, game) {
     input { flex:1 1 240px; min-width:0; padding:10px 12px; border:1px solid #aebdcc; border-radius:6px; font:inherit; }
     button { padding:9px 12px; border:1px solid var(--line); border-radius:6px; color:var(--ink); background:#fff; cursor:pointer; }
     button.ativo { border-color:var(--brand); color:#fff; background:var(--brand); }
-    .resultado { margin-bottom:14px; padding:18px; border:1px solid var(--line); border-left:7px solid var(--gray); border-radius:9px; background:#fff; }
+    button:disabled { cursor:wait; opacity:.65; }
+    .botao-corrigir { border-color:var(--green); color:#fff; background:var(--green); font-weight:bold; }
+    .status-correcao { align-self:center; flex:1 1 100%; color:var(--muted); font-size:13px; }
+    .status-correcao.sucesso { color:var(--green); } .status-correcao.erro { color:#a33b3b; }
+    #resultados { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; align-items:start; }
+    .resultado { min-width:0; padding:14px 16px; border:1px solid var(--line); border-left:7px solid var(--gray); border-radius:9px; background:#fff; }
     .resultado.completed { border-left-color:var(--green); } .resultado.in-progress { border-left-color:var(--amber); }
     .linha-principal { display:flex; justify-content:space-between; align-items:flex-start; gap:18px; }
     h2 { display:inline; margin:0; font-size:19px; } .numero { margin-right:8px; color:var(--muted); font-weight:bold; }
@@ -475,20 +480,25 @@ function renderHtmlReport(results, game) {
     .pontuacao { display:flex; flex-direction:column; align-items:flex-end; gap:5px; white-space:nowrap; }
     .pontuacao > strong { font-size:20px; } .status { padding:4px 9px; border-radius:999px; color:#fff; background:var(--gray); font-size:12px; font-weight:bold; }
     .completed .status { background:var(--green); } .in-progress .status { background:var(--amber); }
-    details { border-top:1px solid var(--line); padding-top:10px; } summary { cursor:pointer; font-weight:bold; }
+    .resultado details { border-top:1px solid var(--line); padding-top:8px; } .resultado summary { cursor:pointer; font-weight:bold; font-size:14px; }
     .criterios { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin:14px 0 0; padding:0; list-style:none; }
     .criterios li { display:flex; gap:9px; padding:11px; border-radius:7px; background:#f7f9fb; } .criterios .icone { color:var(--amber); font-size:20px; } .criterios .passou .icone { color:var(--green); }
     .criterios p { margin:3px 0 0; color:var(--muted); font-size:14px; }
     .autoria { margin-top:12px; padding:12px 14px; border-left:4px solid var(--brand); background:#edf3f8; } .autoria p { margin:4px 0 0; }
-    .conquistas { margin-bottom:20px; } .conquistas h2 { display:block; margin:0 0 12px; }
+    .bloco-retratil { margin-bottom:12px; } .bloco-retratil > summary { display:flex; justify-content:space-between; align-items:center; gap:16px; cursor:pointer; list-style:none; } .bloco-retratil > summary::-webkit-details-marker { display:none; }
+    .bloco-retratil > summary::after { content:"+"; display:grid; place-items:center; width:28px; height:28px; border-radius:50%; color:#fff; background:var(--brand); font-size:20px; }
+    .bloco-retratil[open] > summary::after { content:"−"; }
+    .bloco-retratil[open] > summary { margin-bottom:14px; }
+    .conquistas h2 { display:block; margin:0; }
     .badges { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin:0; padding:0; list-style:none; }
     .badges li { display:flex; gap:10px; padding:12px; border:1px solid var(--line); border-radius:8px; } .badges li > span { font-size:24px; } .badges p { margin:2px 0 0; color:var(--muted); font-size:13px; }
     .badges .bloqueado { opacity:.5; filter:grayscale(1); }
     .integridade { margin-bottom:18px; border-left:6px solid #76558d; } .integridade h2 { display:block; margin:0 0 6px; } .integridade p { margin:5px 0; }
     .acoes { display:flex; flex-wrap:wrap; gap:10px; margin-top:12px; } .acoes a { display:inline-block; padding:9px 12px; border-radius:6px; color:#fff; background:var(--brand); text-decoration:none; }
     .vazio { display:none; padding:30px; text-align:center; color:var(--muted); }
+    .paginacao-relatorio { display:flex; justify-content:center; align-items:center; gap:12px; margin:18px 0; } .paginacao-relatorio button { min-width:94px; } .paginacao-relatorio span { color:var(--muted); font-size:14px; }
     .comando { margin-top:18px; color:var(--muted); font-size:14px; } code { padding:2px 6px; border-radius:4px; background:#e8eef4; }
-    @media (max-width:760px) { .jogador { grid-template-columns:auto 1fr; } .metricas-jogo { grid-column:1/-1; justify-content:space-around; } .resumo { grid-template-columns:repeat(2,1fr); } .criterios,.badges { grid-template-columns:1fr; } .linha-principal { display:grid; } .pontuacao { align-items:flex-start; } }
+    @media (max-width:760px) { .jogador { grid-template-columns:auto 1fr; } .metricas-jogo { grid-column:1/-1; justify-content:space-around; } .resumo { grid-template-columns:repeat(2,1fr); } #resultados,.criterios,.badges { grid-template-columns:1fr; } .linha-principal { display:grid; } .pontuacao { align-items:flex-start; } }
   </style>
 </head>
 <body>
@@ -509,24 +519,28 @@ function renderHtmlReport(results, game) {
       <div class="painel cartao"><strong>${notStarted}</strong><span>Não iniciados</span></div>
       <div class="painel progresso"><div><strong>Progresso geral</strong><span>${progress}%</span></div><div class="barra"><span style="width:${progress}%"></span></div></div>
     </section>
-    <section class="painel conquistas"><h2>Badges da jornada</h2><ul class="badges">${badges}</ul></section>
-    <section class="painel integridade">
-      <h2>Autoria e aprendizagem</h2>
-      <p>O objetivo não é detectar IA — detectores são pouco confiáveis. Cada missão exige uma reflexão escrita e pode incluir uma breve defesa oral ou alteração ao vivo do código.</p>
+    <details class="painel conquistas bloco-retratil"><summary><h2>Badges da jornada (${unlockedBadges.length}/${game.badges.length})</h2></summary><ul class="badges">${badges}</ul></details>
+    <details class="painel integridade bloco-retratil">
+      <summary><h2>Autoria, aprendizagem e backup</h2></summary>
+      <div><p>O objetivo não é detectar IA — detectores são pouco confiáveis. Cada missão exige uma reflexão escrita e pode incluir uma breve defesa oral ou alteração ao vivo do código.</p>
       <p>O estudante deve conseguir explicar as próprias decisões e modificar sua solução sem ajuda externa.</p>
-      <div class="acoes"><a id="baixar-progresso" href="progresso-aluno.json" download="progresso-aluno.json">Baixar backup do progresso</a></div>
-    </section>
+      <div class="acoes"><a id="baixar-progresso" href="progresso-aluno.json" download="progresso-aluno.json">Baixar backup do progresso</a></div></div>
+    </details>
     <section class="ferramentas painel" aria-label="Filtros">
+      <button id="corrigir-agora" class="botao-corrigir" type="button">Corrigir atividades agora</button>
       <input id="busca" type="search" placeholder="Buscar exercício ou assunto…" aria-label="Buscar exercício">
       <button class="ativo" data-filter="all">Todos</button>
       <button data-filter="completed">Concluídos</button>
       <button data-filter="in-progress">Em andamento</button>
       <button data-filter="not-started">Não iniciados</button>
+      <span id="status-correcao" class="status-correcao" aria-live="polite"></span>
     </section>
     <section id="resultados">${rows}</section>
     <p id="vazio" class="painel vazio">Nenhum exercício corresponde ao filtro.</p>
+    <nav id="paginacao-relatorio" class="paginacao-relatorio" aria-label="Paginação dos exercícios"><button id="pagina-anterior" type="button">Anterior</button><span id="info-pagina"></span><button id="proxima-pagina" type="button">Próxima</button></nav>
     <div class="comando">
-      <p>Depois de editar os exercícios, execute <code>node scripts/corrigir_exercicios.js</code> para atualizar XP, badges e relatório.</p>
+      <p>Para usar o botão de correção, inicie o curso com <code>node scripts/iniciar_curso.js</code> e abra <code>http://127.0.0.1:3000</code>.</p>
+      <p>Como alternativa, execute <code>node scripts/corrigir_exercicios.js</code> para atualizar XP, badges e relatório.</p>
       <p>Defina o perfil com <code>node scripts/gerenciar_progresso.js perfil "Nome"</code>. Use os comandos <code>exportar</code> e <code>importar</code> para levar o progresso a outro computador.</p>
     </div>
   </main>
@@ -540,7 +554,7 @@ function renderHtmlReport(results, game) {
       nameInput.value = cachedName;
       reportName.textContent = cachedName;
     }
-    document.querySelector("#salvar-nome").addEventListener("click", () => {
+    document.querySelector("#salvar-nome").addEventListener("click", async () => {
       const name = nameInput.value.trim();
       if (!name) {
         nameMessage.textContent = "Digite um nome antes de salvar.";
@@ -550,6 +564,16 @@ function renderHtmlReport(results, game) {
       localStorage.setItem("cssQuestStudentName", name);
       reportName.textContent = name;
       nameMessage.textContent = "Nome salvo e exibido neste relatório.";
+      if (location.protocol !== "file:") {
+        try {
+          const response = await fetch("/api/perfil", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ name }) });
+          const result = await response.json();
+          if (!response.ok || !result.ok) throw new Error(result.message);
+          nameMessage.textContent = "Nome salvo no relatório e no backup do progresso.";
+        } catch {
+          nameMessage.textContent = "Nome salvo neste navegador; não foi possível atualizar o JSON.";
+        }
+      }
     });
     document.querySelector("#baixar-progresso").addEventListener("click", (event) => {
       const name = nameInput.value.trim() || "Estudante";
@@ -558,19 +582,60 @@ function renderHtmlReport(results, game) {
       event.currentTarget.href = URL.createObjectURL(blob);
       setTimeout(() => URL.revokeObjectURL(event.currentTarget.href), 1000);
     });
+    const correctionButton = document.querySelector("#corrigir-agora");
+    const correctionStatus = document.querySelector("#status-correcao");
+    correctionButton.addEventListener("click", async () => {
+      correctionStatus.className = "status-correcao";
+      if (location.protocol === "file:") {
+        correctionStatus.classList.add("erro");
+        correctionStatus.textContent = "Inicie com node scripts/iniciar_curso.js e abra o relatório pelo endereço localhost.";
+        return;
+      }
+      correctionButton.disabled = true;
+      correctionButton.textContent = "Corrigindo…";
+      correctionStatus.textContent = "Analisando as respostas e recalculando o progresso.";
+      try {
+        const response = await fetch("/api/corrigir", { method: "POST" });
+        const result = await response.json();
+        if (!response.ok || !result.ok) throw new Error(result.message || "Falha na correção.");
+        correctionStatus.classList.add("sucesso");
+        correctionStatus.textContent = result.message;
+        setTimeout(() => location.reload(), 700);
+      } catch (error) {
+        correctionStatus.classList.add("erro");
+        correctionStatus.textContent = error.message + " Confirme se o servidor local está ativo.";
+        correctionButton.disabled = false;
+        correctionButton.textContent = "Corrigir atividades agora";
+      }
+    });
     const search = document.querySelector("#busca");
     const buttons = [...document.querySelectorAll("[data-filter]")];
     const cards = [...document.querySelectorAll(".resultado")];
+    const previousPageButton = document.querySelector("#pagina-anterior");
+    const nextPageButton = document.querySelector("#proxima-pagina");
+    const pageInfo = document.querySelector("#info-pagina");
+    const pagination = document.querySelector("#paginacao-relatorio");
+    const pageSize = 12;
     let activeFilter = "all";
+    let currentPage = 1;
+    let filteredCards = cards;
+    function renderPage() {
+      const totalPages = Math.max(1, Math.ceil(filteredCards.length / pageSize));
+      currentPage = Math.min(currentPage, totalPages);
+      for (const card of cards) card.hidden = true;
+      const start = (currentPage - 1) * pageSize;
+      for (const card of filteredCards.slice(start, start + pageSize)) card.hidden = false;
+      pageInfo.textContent = "Página " + currentPage + " de " + totalPages + " · " + filteredCards.length + " exercício(s)";
+      previousPageButton.disabled = currentPage === 1;
+      nextPageButton.disabled = currentPage === totalPages;
+      pagination.hidden = filteredCards.length === 0;
+      document.querySelector("#vazio").style.display = filteredCards.length ? "none" : "block";
+    }
     function filterCards() {
       const term = search.value.trim().toLowerCase();
-      let visible = 0;
-      for (const card of cards) {
-        const show = (activeFilter === "all" || card.dataset.status === activeFilter) && card.dataset.search.includes(term);
-        card.hidden = !show;
-        if (show) visible++;
-      }
-      document.querySelector("#vazio").style.display = visible ? "none" : "block";
+      filteredCards = cards.filter((card) => (activeFilter === "all" || card.dataset.status === activeFilter) && card.dataset.search.includes(term));
+      currentPage = 1;
+      renderPage();
     }
     search.addEventListener("input", filterCards);
     for (const button of buttons) button.addEventListener("click", () => {
@@ -578,6 +643,17 @@ function renderHtmlReport(results, game) {
       for (const item of buttons) item.classList.toggle("ativo", item === button);
       filterCards();
     });
+    previousPageButton.addEventListener("click", () => {
+      if (currentPage > 1) currentPage--;
+      renderPage();
+      document.querySelector(".ferramentas").scrollIntoView({ behavior: "smooth" });
+    });
+    nextPageButton.addEventListener("click", () => {
+      if (currentPage * pageSize < filteredCards.length) currentPage++;
+      renderPage();
+      document.querySelector(".ferramentas").scrollIntoView({ behavior: "smooth" });
+    });
+    filterCards();
   </script>
 </body>
 </html>`;
@@ -589,12 +665,21 @@ function formatResult(result) {
   return [`${result.fileName}: ${labels[result.status]} (${result.score}/${result.total})`, ...pending].join("\n");
 }
 
-try {
+function correctExercises() {
   const results = listExerciseFiles().map(evaluate);
   const game = updateProgress(results);
   fs.writeFileSync(reportFile, renderHtmlReport(results, game), "utf8");
-  console.log(["Correção concluída", ...results.map(formatResult), "", `Progresso salvo em: ${progressFile}`, `Relatório salvo em: ${reportFile}`].join("\n"));
-} catch (error) {
-  console.error(`Erro ao corrigir exercícios: ${error.message}`);
-  process.exitCode = 1;
+  return { results, game, progressFile, reportFile };
 }
+
+if (require.main === module) {
+  try {
+    const { results } = correctExercises();
+    console.log(["Correção concluída", ...results.map(formatResult), "", `Progresso salvo em: ${progressFile}`, `Relatório salvo em: ${reportFile}`].join("\n"));
+  } catch (error) {
+    console.error(`Erro ao corrigir exercícios: ${error.message}`);
+    process.exitCode = 1;
+  }
+}
+
+module.exports = { correctExercises };

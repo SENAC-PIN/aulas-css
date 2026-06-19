@@ -30,7 +30,8 @@ a:hover { color: var(--accent); }
 }
 
 .cabecalho-site {
-    text-align: center;
+    text-align: left;
+    background: linear-gradient(135deg, #243b55 0%, var(--brand) 58%, #477f7a 100%);
 }
 
 .cabecalho-aula {
@@ -135,6 +136,194 @@ a:hover { color: var(--accent); }
     gap: 10px;
 }
 
+.hero-index {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.65fr);
+    gap: 36px;
+    align-items: center;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.hero-conteudo h1 {
+    margin: 10px 0 12px;
+    max-width: 720px;
+    font-size: clamp(34px, 5vw, 58px);
+    letter-spacing: -0.035em;
+}
+
+.hero-conteudo > p {
+    max-width: 620px;
+    margin: 0;
+    font-size: 18px;
+}
+
+.etiqueta-curso,
+.etiqueta-secao {
+    display: inline-block;
+    color: #bce3dc;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.cabecalho-site .etiqueta-curso {
+    display: inline-block;
+    width: auto;
+    margin: 0;
+    color: #bce3dc;
+}
+
+.hero-index .professor {
+    float: none;
+    width: auto;
+    margin: 22px 0 0;
+    color: #dce6ef;
+}
+
+.identificacao-aluno {
+    padding: 22px;
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.11);
+    box-shadow: 0 18px 45px rgba(15, 27, 40, 0.22);
+    backdrop-filter: blur(8px);
+}
+
+.identificacao-aluno label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.controle-identificacao {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 8px;
+}
+
+.controle-identificacao input,
+.busca-topicos input {
+    min-width: 0;
+    padding: 11px 12px;
+    border: 1px solid #b7c4d1;
+    border-radius: 7px;
+    font: inherit;
+}
+
+.controle-identificacao button {
+    padding: 11px 14px;
+    border: 0;
+    border-radius: 7px;
+    color: var(--brand);
+    background: #ffffff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.identificacao-aluno p {
+    margin: 12px 0 0;
+    color: #edf4f8;
+}
+
+.mensagem-identificacao {
+    min-height: 20px;
+    margin-top: 4px;
+    color: #bce3dc !important;
+    font-size: 13px;
+}
+
+.pagina-inicial {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 28px 20px 56px;
+}
+
+.atalhos-index {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    margin-bottom: 34px;
+}
+
+.atalho {
+    display: grid;
+    gap: 5px;
+    min-height: 112px;
+    padding: 20px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    color: var(--ink);
+    background: var(--paper);
+    box-shadow: 0 8px 24px rgba(36, 49, 63, 0.06);
+    text-decoration: none;
+}
+
+.atalho:hover {
+    border-color: var(--accent);
+    color: var(--ink);
+    transform: translateY(-2px);
+}
+
+.atalho span {
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.atalho strong {
+    align-self: end;
+    font-size: 18px;
+}
+
+.atalho.destaque {
+    border-color: transparent;
+    color: #ffffff;
+    background: var(--brand);
+}
+
+.atalho.destaque span,
+.atalho.destaque:hover {
+    color: #ffffff;
+}
+
+.cabecalho-trilha {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(260px, 380px);
+    gap: 24px;
+    align-items: end;
+    margin-bottom: 18px;
+}
+
+.cabecalho-trilha h2 {
+    margin: 4px 0;
+    font-size: 28px;
+}
+
+.cabecalho-trilha p {
+    margin: 0;
+    color: var(--muted);
+}
+
+.cabecalho-trilha .etiqueta-secao {
+    color: var(--good);
+}
+
+.busca-topicos span {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.busca-topicos input {
+    width: 100%;
+    background: var(--paper);
+}
+
 .botao-layouts.secundario {
     color: var(--brand);
     background: #e8eef4;
@@ -151,10 +340,15 @@ a:hover { color: var(--accent); }
 
 .layout-indice {
     display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     align-items: start;
-    gap: 14px;
-    max-width: 1440px;
+    gap: 16px;
+    max-width: none;
+}
+
+.pagina-inicial .layout-indice {
+    margin: 0;
+    padding: 0;
 }
 
 .painel {
@@ -170,8 +364,14 @@ a:hover { color: var(--accent); }
 
 .layout-indice .painel {
     min-width: 0;
-    padding: 18px;
+    overflow: hidden;
+    padding: 20px;
+    border-top: 5px solid var(--brand);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(36, 49, 63, 0.05);
 }
+
+.layout-indice .painel + .painel { margin-top: 0; }
 
 .layout-indice .painel h2 {
     margin-top: 0;
@@ -180,11 +380,32 @@ a:hover { color: var(--accent); }
 }
 
 .layout-indice .lista-topicos {
+    columns: 2 190px;
+    column-gap: 34px;
     font-size: 14px;
 }
 
+.layout-indice .lista-topicos li {
+    break-inside: avoid;
+    margin: 0;
+    padding: 5px 0;
+    border-bottom: 1px solid #edf1f5;
+}
+
 .layout-indice .lista-topicos a {
+    display: block;
     overflow-wrap: anywhere;
+    text-decoration: none;
+}
+
+.layout-indice .lista-topicos a:hover { text-decoration: underline; }
+
+.nenhum-topico {
+    padding: 30px;
+    border: 1px dashed #aebdcc;
+    border-radius: 10px;
+    color: var(--muted);
+    text-align: center;
 }
 
 .exemplo {
@@ -258,13 +479,22 @@ code { font-family: Consolas, Monaco, monospace; }
 
 @media (max-width: 1180px) {
     .layout-indice {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
 @media (max-width: 820px) {
+    .hero-index,
+    .cabecalho-trilha {
+        grid-template-columns: 1fr;
+    }
+
+    .atalhos-index {
+        grid-template-columns: 1fr;
+    }
+
     .layout-indice {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: 1fr;
     }
 
     .chamada-layouts .painel {
@@ -273,9 +503,11 @@ code { font-family: Consolas, Monaco, monospace; }
 }
 
 @media (max-width: 560px) {
+    .controle-identificacao {
+        grid-template-columns: 1fr;
+    }
+
     .layout-indice {
         grid-template-columns: 1fr;
-        padding-left: 14px;
-        padding-right: 14px;
     }
 }

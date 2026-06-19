@@ -1248,27 +1248,84 @@ function indexPage(pages) {
 </head>
 <body>
     <header class="cabecalho-site">
-        <span class="professor">Professor Diogo Fragoso</span>
-        <h1>Curso prático de CSS</h1>
-        <p>Um índice com links para estudar cada assunto e uma atividade prática em cada página.</p>
-    </header>
-
-    <section class="chamada-layouts">
-        <div class="painel">
-            <div>
-                <h2>Atividades completas de layout</h2>
-                <p>Projetos maiores para praticar Flexbox, Grid, responsividade e organização visual com CSS.</p>
+        <div class="hero-index">
+            <div class="hero-conteudo">
+                <span class="etiqueta-curso">CSS Quest</span>
+                <h1>Atividades práticas de CSS</h1>
+                <p>Aprenda no seu ritmo, complete as missões e acompanhe sua evolução.</p>
+                <span class="professor">Professor Diogo Fragoso</span>
             </div>
-            <div class="acoes-indice">
-                <a class="botao-layouts" href="relatorio-exercicios.html">Ver meu progresso</a>
-                <a class="botao-layouts secundario" href="atividades-layouts.html">Abrir atividades</a>
+            <div class="identificacao-aluno">
+                <label for="nome-estudante-index">Como podemos chamar você?</label>
+                <div class="controle-identificacao">
+                    <input id="nome-estudante-index" maxlength="80" autocomplete="name" placeholder="Digite seu nome">
+                    <button id="salvar-nome-index" type="button">Entrar na jornada</button>
+                </div>
+                <p>Olá, <strong id="saudacao-estudante">Estudante</strong>! Seu nome também aparecerá no relatório.</p>
+                <span id="mensagem-nome-index" class="mensagem-identificacao" aria-live="polite"></span>
             </div>
         </div>
-    </section>
+    </header>
 
-    <main class="layout-indice">
-        ${sections.join("\n        ")}
+    <main class="pagina-inicial">
+        <section class="atalhos-index" aria-label="Ações principais">
+            <a class="atalho destaque" href="relatorio-exercicios.html"><span>Progresso</span><strong>Ver dashboard e corrigir atividades</strong></a>
+            <a class="atalho" href="aulas/css-sintaxe.html"><span>Começar</span><strong>Abrir a primeira aula</strong></a>
+            <a class="atalho" href="atividades-layouts.html"><span>Projetos</span><strong>Praticar layouts completos</strong></a>
+        </section>
+
+        <section class="cabecalho-trilha">
+            <div><span class="etiqueta-secao">Trilha de aprendizagem</span><h2>Escolha um módulo</h2><p>Os termos técnicos são apresentados em inglês, como usados na documentação.</p></div>
+            <label class="busca-topicos" for="busca-topicos"><span>Buscar assunto</span><input id="busca-topicos" type="search" placeholder="Ex.: Grid, Colors, Flexbox…"></label>
+        </section>
+
+        <div class="layout-indice" id="modulos-curso">
+            ${sections.join("\n            ")}
+        </div>
+        <p id="nenhum-topico" class="nenhum-topico" hidden>Nenhum assunto encontrado.</p>
     </main>
+
+    <script>
+        const nameInput = document.querySelector("#nome-estudante-index");
+        const studentGreeting = document.querySelector("#saudacao-estudante");
+        const nameMessage = document.querySelector("#mensagem-nome-index");
+        const savedName = localStorage.getItem("cssQuestStudentName");
+        if (savedName) { nameInput.value = savedName; studentGreeting.textContent = savedName; }
+        document.querySelector("#salvar-nome-index").addEventListener("click", async () => {
+            const name = nameInput.value.trim();
+            if (!name) { nameMessage.textContent = "Digite seu nome para continuar."; nameInput.focus(); return; }
+            localStorage.setItem("cssQuestStudentName", name);
+            studentGreeting.textContent = name;
+            nameMessage.textContent = "Nome salvo. Boa jornada!";
+            if (location.protocol !== "file:") {
+                try {
+                    const response = await fetch("/api/perfil", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ name }) });
+                    const result = await response.json();
+                    if (!response.ok || !result.ok) throw new Error(result.message);
+                    nameMessage.textContent = "Nome salvo no perfil e no relatório. Boa jornada!";
+                } catch {
+                    nameMessage.textContent = "Nome salvo neste navegador; não foi possível atualizar o JSON.";
+                }
+            }
+        });
+        const topicSearch = document.querySelector("#busca-topicos");
+        const modules = [...document.querySelectorAll("#modulos-curso .painel")];
+        topicSearch.addEventListener("input", () => {
+            const term = topicSearch.value.trim().toLowerCase();
+            let visibleModules = 0;
+            for (const module of modules) {
+                let visibleLinks = 0;
+                for (const item of module.querySelectorAll("li")) {
+                    const visible = item.textContent.toLowerCase().includes(term);
+                    item.hidden = !visible;
+                    if (visible) visibleLinks++;
+                }
+                module.hidden = visibleLinks === 0;
+                if (visibleLinks) visibleModules++;
+            }
+            document.querySelector("#nenhum-topico").hidden = visibleModules > 0;
+        });
+    </script>
 </body>
 </html>
 `;
@@ -1285,7 +1342,9 @@ fs.mkdirSync(lessonDir, { recursive: true });
 fs.mkdirSync(exerciseDir, { recursive: true });
 fs.mkdirSync(assetDir, { recursive: true });
 
-fs.writeFileSync(path.join(assetDir, "curso.css"), css + "\n", "utf8");
+const courseCssFile = path.join(assetDir, "curso.css");
+const courseCss = fs.existsSync(courseCssFile) ? fs.readFileSync(courseCssFile, "utf8").trim() : css;
+fs.writeFileSync(courseCssFile, courseCss + "\n", "utf8");
 fs.writeFileSync(path.join(root, "index.html"), indexPage(pages), "utf8");
 
 pages.forEach((current, index) => {
