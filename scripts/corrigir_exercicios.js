@@ -4,13 +4,16 @@ const path = require("path");
 const root = path.resolve(__dirname, "..");
 const exerciseDir = path.join(root, "exercicios");
 const reportFile = path.join(root, "relatorio-exercicios.html");
+const progressFile = path.join(root, "progresso-aluno.json");
 
 const markers = {
   html: ["<!-- STUDENT_HTML_START -->", "<!-- STUDENT_HTML_END -->"],
   css: ["/* STUDENT_CSS_START */", "/* STUDENT_CSS_END */"],
+  reflection: ["<!-- STUDENT_REFLECTION_START -->", "<!-- STUDENT_REFLECTION_END -->"],
 };
 
 const placeholderPattern = /Substitua este conte[uú]do pela sua resposta\./i;
+const reflectionPlaceholderPattern = /Explique com suas palavras uma decis[aã]o tomada na sua solu[cç][aã]o\./i;
 
 function escapeHtml(value) {
   return String(value)
@@ -226,20 +229,23 @@ function evaluate(fileName) {
   const source = fs.readFileSync(path.join(exerciseDir, fileName), "utf8");
   const rawHtml = extractRegion(source, markers.html);
   const rawCss = extractRegion(source, markers.css);
+  const rawReflection = extractRegion(source, markers.reflection);
   const title = source.match(/<h1>([\s\S]*?)<\/h1>/i)?.[1].replace(/<[^>]+>/g, "").trim() || fileName;
   const context = {
     rawHtml: rawHtml || "",
     rawCss: rawCss || "",
     html: stripComments(rawHtml || ""),
     css: stripComments(rawCss || ""),
+    reflection: stripComments(rawReflection || "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim(),
   };
 
   const baseCriteria = [
     criterion("html", "Substituiu o HTML inicial", "Remova o texto padrão e escreva sua solução entre STUDENT_HTML_START e STUDENT_HTML_END.", ({ html }) => html.length > 0 && !placeholderPattern.test(html)),
     criterion("css", "Escreveu CSS próprio", "Escreva suas regras entre STUDENT_CSS_START e STUDENT_CSS_END.", ({ css }) => css.length > 0),
+    criterion("reflection", "Explicou uma decisão da solução", "Escreva com suas palavras uma justificativa de pelo menos 40 caracteres no Registro de autoria.", ({ reflection }) => reflection.length >= 40 && !reflectionPlaceholderPattern.test(reflection)),
   ];
-  if (rawHtml === null || rawCss === null) {
-    baseCriteria.unshift(criterion("markers", "Mantenha as áreas da resposta", "Restaure os marcadores STUDENT_HTML e STUDENT_CSS para permitir a correção.", () => false));
+  if (rawHtml === null || rawCss === null || rawReflection === null) {
+    baseCriteria.unshift(criterion("markers", "Mantenha as áreas da resposta", "Restaure os marcadores STUDENT_HTML, STUDENT_CSS e STUDENT_REFLECTION para permitir a correção.", () => false));
   }
   const criteria = [...baseCriteria, ...getTopicCriteria(fileName)].map((item) => ({
     id: item.id,
@@ -264,6 +270,123 @@ function evaluate(fileName) {
   };
 }
 
+function localDateKey(date = new Date()) {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+}
+
+function readProgress() {
+  const empty = {
+    version: 1,
+    profile: { name: "Estudante" },
+    history: { activityDates: [], completedAt: {}, hintsUsed: {} },
+    snapshot: {},
+  };
+  if (!fs.existsSync(progressFile)) return empty;
+
+  const saved = JSON.parse(fs.readFileSync(progressFile, "utf8"));
+  return {
+    ...empty,
+    ...saved,
+    profile: { ...empty.profile, ...(saved.profile || {}) },
+    history: { ...empty.history, ...(saved.history || {}) },
+    snapshot: saved.snapshot || {},
+  };
+}
+
+function calculateStreak(activityDates) {
+  const dates = [...new Set(activityDates)].sort().reverse();
+  if (dates.length === 0) return 0;
+
+  const today = new Date(`${localDateKey()}T00:00:00`);
+  const latest = new Date(`${dates[0]}T00:00:00`);
+  const daysSinceLatest = Math.round((today - latest) / 86400000);
+  if (daysSinceLatest > 1) return 0;
+
+  let streak = 1;
+  for (let index = 1; index < dates.length; index++) {
+    const previous = new Date(`${dates[index - 1]}T00:00:00`);
+    const current = new Date(`${dates[index]}T00:00:00`);
+    if (Math.round((previous - current) / 86400000) !== 1) break;
+    streak++;
+  }
+  return streak;
+}
+
+function hasCompletedRange(results, first, last) {
+  return results
+    .filter((result) => {
+      const number = Number(result.fileName.match(/^\d+/)?.[0]);
+      return number >= first && number <= last;
+    })
+    .every((result) => result.status === "completed");
+}
+
+function deriveBadges(results) {
+  const completed = results.filter((result) => result.status === "completed").length;
+  const badges = [
+    { id: "first-step", name: "First Step", description: "Concluiu a primeira missão.", unlocked: completed >= 1 },
+    { id: "cascade-apprentice", name: "Cascade Apprentice", description: "Concluiu 10 missões.", unlocked: completed >= 10 },
+    { id: "flexbox-explorer", name: "Flexbox Explorer", description: "Dominou as missões de Flexbox.", unlocked: hasCompletedRange(results, 76, 80) },
+    { id: "grid-architect", name: "Grid Architect", description: "Dominou as missões de CSS Grid.", unlocked: hasCompletedRange(results, 81, 85) },
+    { id: "responsive-ranger", name: "Responsive Ranger", description: "Concluiu a jornada de Responsive Design.", unlocked: hasCompletedRange(results, 87, 95) },
+    { id: "css-master", name: "CSS Master", description: "Concluiu todas as missões.", unlocked: completed === results.length && results.length > 0 },
+  ];
+  return badges;
+}
+
+function updateProgress(results) {
+  const progress = readProgress();
+  const today = localDateKey();
+  const changed = results.some((result) => {
+    const previous = progress.snapshot[result.fileName];
+    if (!previous) return result.status !== "not-started";
+    return previous.score !== result.score || previous.status !== result.status;
+  });
+
+  if (changed && !progress.history.activityDates.includes(today)) {
+    progress.history.activityDates.push(today);
+  }
+
+  for (const result of results) {
+    if (result.status === "completed" && !progress.history.completedAt[result.fileName]) {
+      progress.history.completedAt[result.fileName] = new Date().toISOString();
+    }
+  }
+
+  progress.snapshot = Object.fromEntries(results.map((result) => [result.fileName, {
+    status: result.status,
+    score: result.score,
+    total: result.total,
+  }]));
+
+  const completed = results.filter((result) => result.status === "completed").length;
+  const passedCriteria = results.reduce((total, result) => total + result.score, 0);
+  const xp = passedCriteria * 10 + completed * 50;
+  const level = Math.floor(xp / 500) + 1;
+  const currentLevelXp = xp % 500;
+  const badges = deriveBadges(results);
+
+  progress.derived = {
+    generatedAt: new Date().toISOString(),
+    xp,
+    level,
+    currentLevelXp,
+    nextLevelXp: 500,
+    streak: calculateStreak(progress.history.activityDates),
+    completed,
+    badges: badges.filter((badge) => badge.unlocked).map((badge) => badge.id),
+  };
+
+  if (fs.existsSync(progressFile)) {
+    fs.copyFileSync(progressFile, path.join(root, "progresso-aluno.backup.json"));
+  }
+  fs.writeFileSync(progressFile, `${JSON.stringify(progress, null, 2)}\n`, "utf8");
+  return { progress, badges };
+}
+
 function renderCriteria(criteria) {
   return `<ul class="criterios">${criteria.map((item) => `<li class="${item.passed ? "passou" : "pendente"}">
     <span class="icone" aria-hidden="true">${item.passed ? "✓" : "○"}</span>
@@ -271,15 +394,19 @@ function renderCriteria(criteria) {
   </li>`).join("")}</ul>`;
 }
 
-function renderHtmlReport(results) {
+function renderHtmlReport(results, game) {
   const generatedAt = new Date().toLocaleString("pt-BR");
   const completed = results.filter((item) => item.status === "completed").length;
   const inProgress = results.filter((item) => item.status === "in-progress").length;
   const notStarted = results.length - completed - inProgress;
   const progress = results.length ? Math.round((completed / results.length) * 100) : 0;
   const statusLabels = { completed: "Concluído", "in-progress": "Em andamento", "not-started": "Não iniciado" };
+  const { profile, derived } = game.progress;
+  const unlockedBadges = game.badges.filter((badge) => badge.unlocked);
 
-  const rows = results.map((result) => `<article class="resultado ${result.status}" data-status="${result.status}" data-search="${escapeHtml(`${result.fileName} ${result.title}`.toLowerCase())}">
+  const rows = results.map((result) => {
+    const focus = result.criteria.find((item) => !["markers", "html", "css", "reflection"].includes(item.id))?.label || "a organização do seu código";
+    return `<article class="resultado ${result.status}" data-status="${result.status}" data-search="${escapeHtml(`${result.fileName} ${result.title}`.toLowerCase())}">
     <div class="linha-principal">
       <div>
         <span class="numero">${escapeHtml(result.fileName.match(/^\d+/)?.[0] || "")}</span>
@@ -292,8 +419,18 @@ function renderHtmlReport(results) {
     <details ${result.status === "completed" ? "" : "open"}>
       <summary>Ver critérios e dicas</summary>
       ${renderCriteria(result.criteria)}
+      <div class="autoria">
+        <strong>Checkpoint de autoria</strong>
+        <p>Prepare-se para explicar, sem consultar ferramentas, como sua solução atende ao critério “${escapeHtml(focus)}” e para fazer uma pequena alteração solicitada pelo professor.</p>
+      </div>
     </details>
-  </article>`).join("\n");
+  </article>`;
+  }).join("\n");
+
+  const badges = game.badges.map((badge) => `<li class="${badge.unlocked ? "desbloqueado" : "bloqueado"}">
+    <span aria-hidden="true">${badge.unlocked ? "🏅" : "◇"}</span>
+    <div><strong>${escapeHtml(badge.name)}</strong><p>${escapeHtml(badge.description)}</p></div>
+  </li>`).join("");
 
   return `<!DOCTYPE html>
 <html lang="pt-BR">
@@ -310,6 +447,11 @@ function renderHtmlReport(results) {
     header h1, header p { margin:0; } header p { margin-top:6px; color:#e8eef4; }
     main { padding:26px 20px 48px; }
     .painel { padding:20px; border:1px solid var(--line); border-radius:10px; background:var(--paper); }
+    .jogador { display:grid; grid-template-columns:auto 1fr auto; gap:18px; align-items:center; margin-bottom:16px; color:#fff; background:linear-gradient(135deg,#355070,#23364d); }
+    .nivel { display:grid; place-items:center; width:76px; height:76px; border:3px solid #fff; border-radius:50%; text-align:center; } .nivel strong { display:block; font-size:26px; line-height:1; }
+    .jogador h2 { display:block; margin:0 0 6px; font-size:22px; } .jogador p { margin:0; color:#dce6ef; }
+    .jogador .barra { margin-top:10px; background:rgba(255,255,255,.22); } .jogador .barra span { background:#f4c95d; }
+    .metricas-jogo { display:flex; gap:16px; text-align:center; } .metricas-jogo strong { display:block; font-size:22px; } .metricas-jogo span { color:#dce6ef; font-size:13px; }
     .resumo { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; margin-bottom:20px; }
     .cartao strong { display:block; font-size:28px; } .cartao span { color:var(--muted); }
     .progresso { grid-column:1/-1; } .progresso div:first-child { display:flex; justify-content:space-between; gap:16px; margin-bottom:8px; }
@@ -331,20 +473,39 @@ function renderHtmlReport(results) {
     .criterios { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin:14px 0 0; padding:0; list-style:none; }
     .criterios li { display:flex; gap:9px; padding:11px; border-radius:7px; background:#f7f9fb; } .criterios .icone { color:var(--amber); font-size:20px; } .criterios .passou .icone { color:var(--green); }
     .criterios p { margin:3px 0 0; color:var(--muted); font-size:14px; }
+    .autoria { margin-top:12px; padding:12px 14px; border-left:4px solid var(--brand); background:#edf3f8; } .autoria p { margin:4px 0 0; }
+    .conquistas { margin-bottom:20px; } .conquistas h2 { display:block; margin:0 0 12px; }
+    .badges { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin:0; padding:0; list-style:none; }
+    .badges li { display:flex; gap:10px; padding:12px; border:1px solid var(--line); border-radius:8px; } .badges li > span { font-size:24px; } .badges p { margin:2px 0 0; color:var(--muted); font-size:13px; }
+    .badges .bloqueado { opacity:.5; filter:grayscale(1); }
+    .integridade { margin-bottom:18px; border-left:6px solid #76558d; } .integridade h2 { display:block; margin:0 0 6px; } .integridade p { margin:5px 0; }
+    .acoes { display:flex; flex-wrap:wrap; gap:10px; margin-top:12px; } .acoes a { display:inline-block; padding:9px 12px; border-radius:6px; color:#fff; background:var(--brand); text-decoration:none; }
     .vazio { display:none; padding:30px; text-align:center; color:var(--muted); }
     .comando { margin-top:18px; color:var(--muted); font-size:14px; } code { padding:2px 6px; border-radius:4px; background:#e8eef4; }
-    @media (max-width:760px) { .resumo { grid-template-columns:repeat(2,1fr); } .criterios { grid-template-columns:1fr; } .linha-principal { display:grid; } .pontuacao { align-items:flex-start; } }
+    @media (max-width:760px) { .jogador { grid-template-columns:auto 1fr; } .metricas-jogo { grid-column:1/-1; justify-content:space-around; } .resumo { grid-template-columns:repeat(2,1fr); } .criterios,.badges { grid-template-columns:1fr; } .linha-principal { display:grid; } .pontuacao { align-items:flex-start; } }
   </style>
 </head>
 <body>
   <header><div><h1>Progresso dos exercícios</h1><p>Feedback automático gerado em ${escapeHtml(generatedAt)}</p></div></header>
   <main>
+    <section class="painel jogador">
+      <div class="nivel"><span>Nível</span><strong>${derived.level}</strong></div>
+      <div><h2>${escapeHtml(profile.name)}</h2><p>${derived.xp} XP acumulados</p><div class="barra"><span style="width:${Math.round((derived.currentLevelXp / derived.nextLevelXp) * 100)}%"></span></div><p>${derived.currentLevelXp}/${derived.nextLevelXp} XP para o próximo nível</p></div>
+      <div class="metricas-jogo"><div><strong>${derived.streak}</strong><span>dias de sequência</span></div><div><strong>${unlockedBadges.length}</strong><span>badges</span></div></div>
+    </section>
     <section class="resumo">
       <div class="painel cartao"><strong>${results.length}</strong><span>Total</span></div>
       <div class="painel cartao"><strong>${completed}</strong><span>Concluídos</span></div>
       <div class="painel cartao"><strong>${inProgress}</strong><span>Em andamento</span></div>
       <div class="painel cartao"><strong>${notStarted}</strong><span>Não iniciados</span></div>
       <div class="painel progresso"><div><strong>Progresso geral</strong><span>${progress}%</span></div><div class="barra"><span style="width:${progress}%"></span></div></div>
+    </section>
+    <section class="painel conquistas"><h2>Badges da jornada</h2><ul class="badges">${badges}</ul></section>
+    <section class="painel integridade">
+      <h2>Autoria e aprendizagem</h2>
+      <p>O objetivo não é detectar IA — detectores são pouco confiáveis. Cada missão exige uma reflexão escrita e pode incluir uma breve defesa oral ou alteração ao vivo do código.</p>
+      <p>O estudante deve conseguir explicar as próprias decisões e modificar sua solução sem ajuda externa.</p>
+      <div class="acoes"><a href="progresso-aluno.json" download>Baixar backup do progresso</a></div>
     </section>
     <section class="ferramentas painel" aria-label="Filtros">
       <input id="busca" type="search" placeholder="Buscar exercício ou assunto…" aria-label="Buscar exercício">
@@ -355,7 +516,10 @@ function renderHtmlReport(results) {
     </section>
     <section id="resultados">${rows}</section>
     <p id="vazio" class="painel vazio">Nenhum exercício corresponde ao filtro.</p>
-    <p class="comando">Depois de editar os exercícios, execute <code>node scripts/corrigir_exercicios.js</code> para atualizar este relatório.</p>
+    <div class="comando">
+      <p>Depois de editar os exercícios, execute <code>node scripts/corrigir_exercicios.js</code> para atualizar XP, badges e relatório.</p>
+      <p>Defina o perfil com <code>node scripts/gerenciar_progresso.js perfil "Nome"</code>. Use os comandos <code>exportar</code> e <code>importar</code> para levar o progresso a outro computador.</p>
+    </div>
   </main>
   <script>
     const search = document.querySelector("#busca");
@@ -391,8 +555,9 @@ function formatResult(result) {
 
 try {
   const results = listExerciseFiles().map(evaluate);
-  fs.writeFileSync(reportFile, renderHtmlReport(results), "utf8");
-  console.log(["Correção concluída", ...results.map(formatResult), "", `Relatório salvo em: ${reportFile}`].join("\n"));
+  const game = updateProgress(results);
+  fs.writeFileSync(reportFile, renderHtmlReport(results, game), "utf8");
+  console.log(["Correção concluída", ...results.map(formatResult), "", `Progresso salvo em: ${progressFile}`, `Relatório salvo em: ${reportFile}`].join("\n"));
 } catch (error) {
   console.error(`Erro ao corrigir exercícios: ${error.message}`);
   process.exitCode = 1;

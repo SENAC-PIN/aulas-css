@@ -876,6 +876,13 @@ function exercisePage(topic, number, item) {
             border: 2px dashed #aebdcc;
         }
 
+        .registro-autoria {
+            margin-top: 20px;
+            padding: 16px;
+            border-left: 5px solid #76558d;
+            background: #f7f2fa;
+        }
+
         /* STUDENT_CSS_START */
         /* Escreva seu CSS aqui. */
         /* STUDENT_CSS_END */
@@ -907,6 +914,14 @@ ${checklist}
             <h2>Minha solução</h2>
             <p>Substitua este conteúdo pela sua resposta.</p>
             <!-- STUDENT_HTML_END -->
+        </section>
+
+        <section class="registro-autoria">
+            <h2>Registro de autoria</h2>
+            <p>Explique uma decisão importante do seu código. Você poderá ser convidado a demonstrá-la ou alterá-la.</p>
+            <!-- STUDENT_REFLECTION_START -->
+            <p>Explique com suas palavras uma decisão tomada na sua solução.</p>
+            <!-- STUDENT_REFLECTION_END -->
         </section>
     </main>
 </body>
