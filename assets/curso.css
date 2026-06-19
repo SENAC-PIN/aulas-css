@@ -60,10 +60,10 @@ a:hover { color: var(--accent); }
     max-width: 1100px;
     margin: 0 auto 10px;
     color: #cdd9e5;
-    font-weight: bold;
-    text-transform: uppercase;
+    font-weight: bold;    
     font-size: 13px;
     letter-spacing: 0;
+    float: right;
 }
 
 .link-voltar {
