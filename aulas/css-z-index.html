@@ -6,10 +6,13 @@
     <title>CSS Z-index</title>
     <link rel="stylesheet" href="../assets/curso.css">
     <style>
-.area-posicao { position: relative; height: 160px; background: #eaf4fb; }
-.area-posicao span { position: absolute; width: 90px; height: 90px; display: grid; place-items: center; color: white; }
-.camada-um { left: 30px; top: 20px; background: #355070; z-index: 1; }
-.camada-dois { left: 80px; top: 55px; background: #b56576; z-index: 2; }
+.palco-camadas { position: relative; isolation: isolate; min-height: 230px; background: #eef3f8; border: 2px solid #355070; }
+.camada, .contexto-local { position: absolute; width: 125px; height: 95px; display: grid; place-items: center; color: white; font-weight: bold; }
+.camada-base { top: 25px; left: 25px; z-index: 1; background: #355070; }
+.camada-meio { top: 60px; left: 85px; z-index: 2; background: #2a9d8f; }
+.contexto-local { top: 95px; left: 145px; z-index: 3; transform: rotate(-2deg); background: #b56576; }
+.contexto-local span { position: relative; z-index: 999; }
+.camada-frente { top: 125px; left: 205px; z-index: 4; background: #24313f; }
     </style>
 </head>
 <body>
@@ -24,27 +27,39 @@
         <section class="painel">
             <h2>Exemplo</h2>
             <div class="exemplo">
-                <div class="area-posicao"><span class="camada-um">1</span><span class="camada-dois">2</span></div>
+                <div class="palco-camadas"><span class="camada camada-base">z-index: 1</span><span class="camada camada-meio">z-index: 2</span><div class="contexto-local"><span>filho: 999</span></div><span class="camada camada-frente">fora: 4</span></div>
             </div>
+        </section>
+        <section class="painel">
+            <h2>Conceitos abordados</h2>
+            <ul class="lista-topicos">
+                <li><strong>Ordem de empilhamento:</strong> z-index controla a ordem no eixo visual quando elementos pertencem ao mesmo contexto de empilhamento.</li>
+                <li><strong>Contexto local:</strong> Um filho com z-index: 999 continua limitado ao contexto criado pelo pai; ele não supera irmãos externos do pai.</li>
+                <li><strong>Criação de contexto:</strong> Propriedades como isolation: isolate, transform, opacity menor que 1 e certos elementos posicionados podem criar contextos.</li>
+                <li><strong>Diagnóstico:</strong> Quando z-index parece não funcionar, compare primeiro os contextos ancestrais, não apenas os números dos elementos.</li>
+            </ul>
         </section>
 
         <section class="painel">
             <h2>Código base</h2>
             <pre><code>&lt;div class=&quot;exemplo&quot;&gt;
-  &lt;div class=&quot;area-posicao&quot;&gt;&lt;span class=&quot;camada-um&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;camada-dois&quot;&gt;2&lt;/span&gt;&lt;/div&gt;
+  &lt;div class=&quot;palco-camadas&quot;&gt;&lt;span class=&quot;camada camada-base&quot;&gt;z-index: 1&lt;/span&gt;&lt;span class=&quot;camada camada-meio&quot;&gt;z-index: 2&lt;/span&gt;&lt;div class=&quot;contexto-local&quot;&gt;&lt;span&gt;filho: 999&lt;/span&gt;&lt;/div&gt;&lt;span class=&quot;camada camada-frente&quot;&gt;fora: 4&lt;/span&gt;&lt;/div&gt;
 &lt;/div&gt;
 
 &lt;style&gt;
-.area-posicao { position: relative; height: 160px; background: #eaf4fb; }
-.area-posicao span { position: absolute; width: 90px; height: 90px; display: grid; place-items: center; color: white; }
-.camada-um { left: 30px; top: 20px; background: #355070; z-index: 1; }
-.camada-dois { left: 80px; top: 55px; background: #b56576; z-index: 2; }
+.palco-camadas { position: relative; isolation: isolate; min-height: 230px; background: #eef3f8; border: 2px solid #355070; }
+.camada, .contexto-local { position: absolute; width: 125px; height: 95px; display: grid; place-items: center; color: white; font-weight: bold; }
+.camada-base { top: 25px; left: 25px; z-index: 1; background: #355070; }
+.camada-meio { top: 60px; left: 85px; z-index: 2; background: #2a9d8f; }
+.contexto-local { top: 95px; left: 145px; z-index: 3; transform: rotate(-2deg); background: #b56576; }
+.contexto-local span { position: relative; z-index: 999; }
+.camada-frente { top: 125px; left: 205px; z-index: 4; background: #24313f; }
 &lt;/style&gt;</code></pre>
         </section>
 
         <section class="painel atividade">
             <h2>Atividade prática</h2>
-            <p>Teste top, right, bottom, left e inverta o z-index.</p>
+            <p>Crie camadas sobrepostas e um contexto de empilhamento aninhado para mostrar por que um filho com z-index alto não escapa do contexto do pai.</p>
             <ol>
                 <li>Abra esta página no navegador.</li>
                 <li>Edite o CSS no arquivo ou no DevTools.</li>

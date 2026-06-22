@@ -259,7 +259,434 @@ function summary(topic) {
   return `Aprenda o papel de ${titleOf(topic)} e pratique alterando o exemplo.`;
 }
 
+function focusedLesson(html, css, activity, result, checklist, extra = {}) {
+  return {
+    html,
+    css,
+    activity,
+    guide: {
+      goal: activity,
+      steps: [
+        activity,
+        "Crie o HTML necessário dentro da área do estudante.",
+        "Aplique as propriedades específicas do tema dentro da área CSS.",
+        "Teste o resultado e explique na reflexão por que essas propriedades resolvem a tarefa.",
+      ],
+      result,
+      checklist,
+    },
+    ...extra,
+  };
+}
+
+const specializedLessons = {
+  "CSS Position": focusedLesson(
+    '<div class="position-showcase"><article class="position-card position-static"><strong>static</strong><span>Permanece no fluxo normal.</span></article><article class="position-card position-relative"><strong>relative</strong><span>Move-se sem perder seu espaço.</span></article><div class="absolute-stage"><span>container relative</span><strong class="position-absolute">absolute</strong></div><div class="sticky-stage"><h3 class="position-sticky">sticky</h3><p>Role dentro desta caixa.</p><p>Conteúdo intermediário.</p><p>O título continua preso ao topo.</p></div><span class="position-fixed">fixed</span></div>',
+    `.position-showcase { display: grid; gap: 16px; padding-bottom: 36px; }
+.position-card { padding: 14px; border: 2px solid #355070; background: #eaf4fb; }
+.position-card strong, .position-card span { display: block; }
+.position-static { position: static; top: 20px; }
+.position-relative { position: relative; top: 8px; left: 24px; width: calc(100% - 24px); background: #fff3cd; }
+.absolute-stage { position: relative; min-height: 105px; padding: 12px; border: 2px dashed #2a9d8f; }
+.position-absolute { position: absolute; top: 12px; right: 12px; padding: 12px; background: #2a9d8f; color: white; }
+.sticky-stage { height: 125px; overflow: auto; border: 2px solid #b56576; background: white; }
+.sticky-stage p { min-height: 48px; margin: 0; padding: 10px; }
+.position-sticky { position: sticky; top: 0; z-index: 1; margin: 0; padding: 10px; background: #b56576; color: white; }
+.position-fixed { position: fixed; right: 16px; bottom: 16px; z-index: 10; padding: 8px 12px; border-radius: 999px; background: #24313f; color: white; pointer-events: none; }`,
+    "Crie uma comparação que demonstre static, relative, absolute, fixed e sticky, explicando a referência usada por cada elemento.",
+    "A solução deve tornar perceptível como os cinco valores de position afetam o fluxo, o deslocamento e a referência do elemento.",
+    ["Demonstrou static e relative.", "Usou absolute dentro de um ancestral posicionado.", "Incluiu um elemento fixed.", "Criou uma situação rolável para observar sticky."],
+    { concepts: [
+      ["static", "Valor padrão: o elemento segue o fluxo normal e top/right/bottom/left não produzem deslocamento."],
+      ["relative", "Mantém seu espaço no fluxo, aceita offsets e também pode servir como referência para descendentes absolute."],
+      ["absolute", "Sai do fluxo e usa como referência o ancestral posicionado mais próximo; sem ele, usa o bloco inicial."],
+      ["fixed", "Sai do fluxo e normalmente se posiciona em relação à viewport, permanecendo visível durante a rolagem."],
+      ["sticky", "Alterna entre o fluxo normal e uma posição presa quando alcança um limite como top dentro do container de rolagem."],
+    ] }
+  ),
+  "CSS Position Offsets": focusedLesson(
+    '<div class="palco-offsets"><span class="marcador offset-top-left">top + left</span><span class="marcador offset-top-right">top + right</span><span class="marcador offset-bottom-left">bottom + left</span><span class="marcador offset-bottom-right">bottom + right</span><strong class="offset-inset">inset</strong></div>',
+    `.palco-offsets { position: relative; min-height: 260px; border: 3px dashed #355070; background: #f4f7fb; }
+.marcador, .offset-inset { position: absolute; padding: 10px; color: white; }
+.offset-top-left { top: 12px; left: 12px; background: #355070; }
+.offset-top-right { top: 12px; right: 12px; background: #2a9d8f; }
+.offset-bottom-left { bottom: 12px; left: 12px; background: #b56576; }
+.offset-bottom-right { right: 12px; bottom: 12px; background: #8f5d2f; }
+.offset-inset { inset: 105px 95px auto; text-align: center; background: #24313f; }`,
+    "Posicione elementos nos quatro cantos usando top, right, bottom e left e adicione um exemplo equivalente com inset.",
+    "Os offsets devem ser observados em relação a um container explicitamente posicionado.",
+    ["O container estabelece a referência com position.", "Usou top e bottom.", "Usou left e right.", "Demonstrou a shorthand inset."],
+    { concepts: [
+      ["top/right/bottom/left", "Definem a distância entre as bordas do elemento posicionado e as bordas de seu bloco de referência."],
+      ["inset", "É a shorthand dos quatro offsets e aceita de um a quatro valores, como margin e padding."],
+      ["Referência", "Em absolute, os offsets dependem do ancestral posicionado mais próximo; em fixed, normalmente dependem da viewport."],
+      ["Conflitos", "Quando largura, left e right são definidos juntos, as regras de dimensionamento decidem qual valor será ajustado."],
+    ] }
+  ),
+  "CSS Z-index": focusedLesson(
+    '<div class="palco-camadas"><span class="camada camada-base">z-index: 1</span><span class="camada camada-meio">z-index: 2</span><div class="contexto-local"><span>filho: 999</span></div><span class="camada camada-frente">fora: 4</span></div>',
+    `.palco-camadas { position: relative; isolation: isolate; min-height: 230px; background: #eef3f8; border: 2px solid #355070; }
+.camada, .contexto-local { position: absolute; width: 125px; height: 95px; display: grid; place-items: center; color: white; font-weight: bold; }
+.camada-base { top: 25px; left: 25px; z-index: 1; background: #355070; }
+.camada-meio { top: 60px; left: 85px; z-index: 2; background: #2a9d8f; }
+.contexto-local { top: 95px; left: 145px; z-index: 3; transform: rotate(-2deg); background: #b56576; }
+.contexto-local span { position: relative; z-index: 999; }
+.camada-frente { top: 125px; left: 205px; z-index: 4; background: #24313f; }`,
+    "Crie camadas sobrepostas e um contexto de empilhamento aninhado para mostrar por que um filho com z-index alto não escapa do contexto do pai.",
+    "A ordem visual deve resultar dos valores de z-index e dos contextos de empilhamento, não da margem ou de uma posição acidental.",
+    ["Os elementos estão realmente sobrepostos.", "Usou diferentes valores de z-index.", "Criou um contexto com isolation, transform ou propriedade equivalente.", "Explicou o limite do z-index do elemento filho."],
+    { concepts: [
+      ["Ordem de empilhamento", "z-index controla a ordem no eixo visual quando elementos pertencem ao mesmo contexto de empilhamento."],
+      ["Contexto local", "Um filho com z-index: 999 continua limitado ao contexto criado pelo pai; ele não supera irmãos externos do pai."],
+      ["Criação de contexto", "Propriedades como isolation: isolate, transform, opacity menor que 1 e certos elementos posicionados podem criar contextos."],
+      ["Diagnóstico", "Quando z-index parece não funcionar, compare primeiro os contextos ancestrais, não apenas os números dos elementos."],
+    ] }
+  ),
+  "CSS Icons": focusedLesson(
+    '<button class="acao-icone"><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h11l3 3v13H5zM8 4v6h8V4m-8 9h8v5H8z"/></svg><span>Salvar</span></button>',
+    `.acao-icone {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 6px;
+  background: #355070;
+  color: white;
+  cursor: pointer;
+}
+.icone { width: 22px; height: 22px; fill: currentColor; }
+.acao-icone:hover { color: #ffe8a3; }`,
+    "Crie dois botões com ícones SVG e faça os ícones herdarem a cor com currentColor.",
+    "A solução deve exibir pelo menos um ícone vetorial alinhado ao texto e estilizado por CSS.",
+    ["Existe um SVG ou outra técnica real de ícone.", "O tamanho do ícone é controlado por CSS.", "O ícone acompanha a cor do componente."]
+  ),
+  "CSS Lists": focusedLesson(
+    '<div class="listas-demo"><ul class="lista-marcadores"><li>HTML semântico</li><li>CSS organizado</li></ul><ol class="lista-etapas"><li>Planejar</li><li>Implementar</li><li>Revisar</li></ol></div>',
+    `.lista-marcadores { list-style-type: square; list-style-position: inside; }
+.lista-marcadores li::marker { color: #b56576; font-size: 1.3em; }
+.lista-etapas { list-style-type: upper-roman; }
+.listas-demo li { margin: 6px 0; padding-left: 6px; }`,
+    "Personalize uma lista com list-style e ::marker, mantendo os itens legíveis.",
+    "A página deve mostrar uma lista cujo marcador ou numeração foi realmente personalizado.",
+    ["Usou ul ou ol com li.", "Aplicou list-style ou list-style-type.", "Personalizou o marcador ou seu posicionamento."]
+  ),
+  "Overflow X and Y": focusedLesson(
+    '<div class="caixa-eixos"><div class="conteudo-largo">Conteúdo largo → coluna 1 | coluna 2 | coluna 3 | coluna 4</div><p>Linha vertical 1</p><p>Linha vertical 2</p><p>Linha vertical 3</p></div>',
+    `.caixa-eixos {
+  width: 260px;
+  height: 110px;
+  overflow-x: auto;
+  overflow-y: scroll;
+  padding: 10px;
+  border: 2px solid #355070;
+}
+.conteudo-largo { width: 520px; white-space: nowrap; }`,
+    "Configure overflow-x e overflow-y com comportamentos diferentes e compare as duas barras de rolagem.",
+    "A caixa deve controlar separadamente o transbordamento horizontal e o vertical.",
+    ["Definiu largura e altura limitadas.", "Usou overflow-x.", "Usou overflow-y com um valor diferente."]
+  ),
+  "CSS Image Sprites": focusedLesson(
+    '<div class="acoes-sprite"><button><span class="sprite sprite-casa" aria-hidden="true"></span>Início</button><button><span class="sprite sprite-busca" aria-hidden="true"></span>Buscar</button><button><span class="sprite sprite-config" aria-hidden="true"></span>Ajustes</button></div>',
+    `.acoes-sprite { display: flex; flex-wrap: wrap; gap: 12px; }
+.acoes-sprite button { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; }
+.sprite {
+  width: 48px;
+  height: 48px;
+  background-image: url("../assets/icones-sprite.svg");
+  background-size: 144px 48px;
+  background-repeat: no-repeat;
+}
+.sprite-casa { background-position: 0 0; }
+.sprite-busca { background-position: -48px 0; }
+.sprite-config { background-position: -96px 0; }`,
+    "Crie três classes que revelem partes diferentes da mesma imagem usando background-position.",
+    "Três ícones diferentes devem ser recortados de um único arquivo de sprite.",
+    ["Todos usam a mesma background-image.", "O tamanho do sprite foi definido.", "Cada classe usa um background-position diferente."]
+  ),
+  "CSS Custom Fonts": focusedLesson(
+    '<div class="amostra-fonte"><h3>Fonte personalizada local</h3><p>O navegador usa a fonte registrada pelo @font-face.</p></div>',
+    `@font-face {
+  font-family: "FonteCurso";
+  src: local("Georgia");
+  font-style: normal;
+  font-weight: 400;
+}
+.amostra-fonte { padding: 20px; border-left: 6px solid #b56576; background: #f7f2fa; }
+.amostra-fonte h3 { font-family: "FonteCurso", Georgia, serif; font-size: 30px; margin: 0 0 8px; }`,
+    "Registre uma fonte com @font-face e aplique a família personalizada com uma fonte de fallback.",
+    "O título deve usar uma família declarada em @font-face e continuar legível se ela não estiver disponível.",
+    ["Declarou @font-face.", "Definiu font-family e src.", "Aplicou a família com um fallback adequado."]
+  ),
+  "CSS Image Modal": focusedLesson(
+    '<a class="miniatura-modal" href="#imagem-ampliada"><img src="../assets/imagem-exemplo.svg" alt="Abrir imagem colorida ampliada"></a><div class="modal-imagem" id="imagem-ampliada"><a class="fechar-modal" href="#" aria-label="Fechar imagem">×</a><img src="../assets/imagem-exemplo.svg" alt="Imagem colorida ampliada"></div>',
+    `.miniatura-modal img { width: 220px; display: block; cursor: zoom-in; }
+.modal-imagem {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: none;
+  place-items: center;
+  padding: 40px;
+  background: rgba(0, 0, 0, 0.82);
+}
+.modal-imagem:target { display: grid; }
+.modal-imagem img { max-width: 85vw; max-height: 75vh; }
+.fechar-modal { position: absolute; top: 20px; right: 28px; color: white; font-size: 36px; text-decoration: none; }`,
+    "Monte um modal de imagem que abra pela miniatura e possa ser fechado, usando :target ou dialog.",
+    "Ao acionar a miniatura, a imagem deve aparecer ampliada sobre uma camada que cobre a janela.",
+    ["Existe uma miniatura acionável.", "A camada modal cobre a viewport.", "Há estados claros para abrir e fechar."]
+  ),
+  "CSS Image Shapes": focusedLesson(
+    '<div class="formas-imagem"><img class="forma-circulo" src="../assets/imagem-exemplo.svg" alt="Imagem recortada em círculo"><img class="forma-poligono" src="../assets/imagem-exemplo.svg" alt="Imagem recortada em polígono"></div>',
+    `.formas-imagem { display: flex; flex-wrap: wrap; gap: 18px; }
+.formas-imagem img { width: 180px; height: 150px; object-fit: cover; }
+.forma-circulo { clip-path: circle(45% at 50% 50%); }
+.forma-poligono { clip-path: polygon(50% 0, 100% 38%, 82% 100%, 18% 100%, 0 38%); }`,
+    "Crie dois recortes diferentes com clip-path, como circle() e polygon().",
+    "As imagens devem assumir formas visivelmente diferentes sem editar o arquivo original.",
+    ["Usou uma imagem.", "Aplicou clip-path.", "Criou pelo menos duas formas distinguíveis."]
+  ),
+  "CSS object-position": focusedLesson(
+    '<div class="comparacao-objeto"><figure><img class="foto-objeto foco-esquerda" src="../assets/imagem-exemplo.svg" alt="Recorte com foco à esquerda"><figcaption>left center</figcaption></figure><figure><img class="foto-objeto foco-direita" src="../assets/imagem-exemplo.svg" alt="Recorte com foco à direita"><figcaption>right center</figcaption></figure></div>',
+    `.comparacao-objeto { display: flex; flex-wrap: wrap; gap: 16px; }
+.comparacao-objeto figure { margin: 0; text-align: center; }
+.foto-objeto { width: 210px; height: 120px; object-fit: cover; border: 3px solid #355070; }
+.foco-esquerda { object-position: left center; }
+.foco-direita { object-position: right center; }`,
+    "Compare dois valores de object-position mantendo o mesmo tamanho e object-fit.",
+    "As duas cópias da imagem devem mostrar recortes diferentes por causa de object-position.",
+    ["A imagem tem largura e altura limitadas.", "Usou object-fit.", "Comparou pelo menos dois valores de object-position."]
+  ),
+  "CSS Masking": focusedLesson(
+    '<img class="imagem-mascarada" src="../assets/imagem-exemplo.svg" alt="Imagem revelada por uma máscara radial">',
+    `.imagem-mascarada {
+  width: 320px;
+  max-width: 100%;
+  display: block;
+  -webkit-mask-image: radial-gradient(circle, #000 48%, transparent 70%);
+  mask-image: radial-gradient(circle, #000 48%, transparent 70%);
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}`,
+    "Aplique uma máscara com mask-image e mantenha o prefixo -webkit- para compatibilidade.",
+    "A imagem deve desaparecer gradualmente de acordo com a forma definida pela máscara.",
+    ["Usou mask-image.", "Incluiu a versão -webkit-mask-image.", "Definiu tamanho ou repetição da máscara."]
+  ),
+  "CSS Pagination": focusedLesson(
+    '<nav class="paginacao" aria-label="Paginação"><a href="#" aria-label="Página anterior">‹</a><a href="#">1</a><a href="#" aria-current="page">2</a><a href="#">3</a><a href="#" aria-label="Próxima página">›</a></nav>',
+    `.paginacao { display: flex; gap: 6px; align-items: center; }
+.paginacao a { min-width: 38px; padding: 8px; border: 1px solid #355070; border-radius: 5px; text-align: center; text-decoration: none; }
+.paginacao a:hover, .paginacao a:focus-visible { background: #eaf4fb; }
+.paginacao a[aria-current="page"] { background: #355070; color: white; font-weight: bold; }`,
+    "Crie uma paginação numerada e destaque a página atual com aria-current.",
+    "A navegação deve ter páginas numeradas, controles anterior/próximo e um estado atual visível.",
+    ["Usou nav com rótulo acessível.", "Incluiu links numerados.", "Estilizou o link com aria-current."]
+  ),
+  "Flex Items": focusedLesson(
+    '<div class="flex-itens"><div class="item item-a">A</div><div class="item item-b">B cresce</div><div class="item item-c">C primeiro</div></div>',
+    `.flex-itens { display: flex; min-height: 130px; gap: 10px; align-items: flex-start; }
+.item { flex-basis: 90px; padding: 18px; background: #eaf4fb; border: 1px solid #355070; }
+.item-b { flex-grow: 1; align-self: stretch; }
+.item-c { order: -1; }`,
+    "Altere individualmente os itens usando order, flex-grow, flex-basis ou align-self.",
+    "Os itens devem ter tamanhos, ordem ou alinhamentos diferentes definidos pelas propriedades dos Flex Items.",
+    ["O pai usa display: flex.", "Aplicou uma propriedade flex-* em um item.", "Usou order ou align-self em um item específico."]
+  ),
+  "Flex Responsive": focusedLesson(
+    '<div class="cards-flex"><article>Card 1</article><article>Card 2</article><article>Card 3</article><article>Card 4</article></div>',
+    `.cards-flex { display: flex; flex-wrap: wrap; gap: 12px; }
+.cards-flex article { flex: 1 1 180px; padding: 24px; background: #eaf4fb; border: 1px solid #355070; }
+@media (max-width: 480px) {
+  .cards-flex { flex-direction: column; }
+  .cards-flex article { flex-basis: auto; }
+}`,
+    "Crie cards que quebrem de linha e mudem para coluna em telas pequenas.",
+    "Os cards devem se reorganizar sem provocar rolagem horizontal quando a viewport diminuir.",
+    ["Usou flex-wrap.", "Definiu uma base flexível para os itens.", "Incluiu uma adaptação para tela pequena."]
+  ),
+  "Grid Items": focusedLesson(
+    '<div class="grid-itens"><div class="item-destaque">Destaque</div><div>2</div><div>3</div><div class="item-alto">4</div><div>5</div></div>',
+    `.grid-itens { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 70px; gap: 10px; }
+.grid-itens > div { display: grid; place-items: center; background: #eaf4fb; border: 1px solid #355070; }
+.item-destaque { grid-column: 1 / span 2; }
+.item-alto { grid-row: span 2; }`,
+    "Posicione itens específicos com grid-column e grid-row.",
+    "Pelo menos um item deve ocupar várias colunas ou linhas dentro do Grid Container.",
+    ["O pai usa display: grid.", "Definiu as colunas.", "Aplicou grid-column ou grid-row a um item."]
+  ),
+  "Grid 12-column Layout": focusedLesson(
+    '<div class="grade-12"><header>12 colunas</header><section class="conteudo-grade">8 colunas</section><aside>4 colunas</aside><footer>12 colunas</footer></div>',
+    `.grade-12 { display: grid; grid-template-columns: repeat(12, 1fr); gap: 10px; }
+.grade-12 > * { padding: 18px; background: #eaf4fb; border: 1px solid #355070; }
+.grade-12 header, .grade-12 footer { grid-column: span 12; }
+.grade-12 .conteudo-grade { grid-column: span 8; }
+.grade-12 aside { grid-column: span 4; }`,
+    "Monte um layout de 12 colunas com regiões que ocupem 12, 8 e 4 colunas.",
+    "O layout deve usar uma grade real de 12 colunas e distribuir conteúdo por diferentes spans.",
+    ["Usou repeat(12, 1fr).", "Uma região ocupa 12 colunas.", "Criou a combinação 8 + 4 colunas."]
+  ),
+  "RWD Grid View": focusedLesson(
+    '<div class="grade-rwd"><header>Topo</header><section class="conteudo-rwd">Conteúdo</section><aside>Lateral</aside><footer>Rodapé</footer></div>',
+    `.grade-rwd { display: grid; grid-template-columns: 1fr; gap: 10px; }
+.grade-rwd > * { padding: 18px; background: #eaf4fb; border: 1px solid #355070; }
+@media (min-width: 700px) {
+  .grade-rwd { grid-template-columns: repeat(12, 1fr); }
+  .grade-rwd header, .grade-rwd footer { grid-column: 1 / -1; }
+  .grade-rwd .conteudo-rwd { grid-column: span 8; }
+  .grade-rwd aside { grid-column: span 4; }
+}`,
+    "Comece com uma coluna e transforme o layout em uma grade de 12 colunas em telas maiores.",
+    "O conteúdo deve ficar empilhado no celular e lado a lado quando houver espaço.",
+    ["Adotou estrutura mobile-first.", "Usou @media.", "A grade muda de uma para várias colunas."]
+  ),
+  "RWD Images": focusedLesson(
+    '<picture class="imagem-rwd"><source media="(max-width: 520px)" srcset="../assets/galeria-projeto-2.svg"><img src="../assets/galeria-projeto-1.svg" alt="Arte responsiva escolhida conforme a largura da tela"></picture>',
+    `.imagem-rwd { display: block; max-width: 720px; margin: auto; }
+.imagem-rwd img { display: block; width: 100%; height: auto; border-radius: 10px; }`,
+    "Crie uma imagem fluida e use picture ou srcset para oferecer uma alternativa em telas pequenas.",
+    "A imagem não deve ultrapassar o container e deve permitir que o navegador escolha uma fonte adequada.",
+    ["A imagem usa width ou max-width responsivo.", "A altura permanece proporcional.", "Usou picture, source ou srcset."]
+  ),
+  "RWD Templates": focusedLesson(
+    '<div class="template-rwd"><header>Logo e menu</header><aside>Categorias</aside><section class="conteudo-template">Conteúdo principal</section><footer>Rodapé</footer></div>',
+    `.template-rwd { display: grid; grid-template-areas: "topo" "lateral" "conteudo" "rodape"; gap: 10px; }
+.template-rwd > * { padding: 20px; background: #eaf4fb; border: 1px solid #355070; }
+.template-rwd header { grid-area: topo; }
+.template-rwd aside { grid-area: lateral; }
+.template-rwd .conteudo-template { grid-area: conteudo; }
+.template-rwd footer { grid-area: rodape; }
+@media (min-width: 720px) {
+  .template-rwd { grid-template-columns: 220px 1fr; grid-template-areas: "topo topo" "lateral conteudo" "rodape rodape"; }
+}`,
+    "Implemente um template mobile-first com áreas nomeadas que mudem de posição em telas maiores.",
+    "O template deve ter topo, navegação lateral, conteúdo e rodapé, empilhados no celular e reorganizados no desktop.",
+    ["Usou áreas de Grid ou estrutura equivalente.", "Incluiu @media.", "A disposição muda entre telas pequenas e grandes."]
+  ),
+  "CSS SASS": focusedLesson(
+    '<div class="comparacao-sass"><section><h3>SCSS</h3><pre><code>$cor: #355070;\n.cartao-sass {\n  background: $cor;\n  &amp;:hover { opacity: .8; }\n}</code></pre></section><section><h3>CSS compilado</h3><pre><code>.cartao-sass { background: #355070; }\n.cartao-sass:hover { opacity: .8; }</code></pre></section></div>',
+    `.comparacao-sass { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; }
+.comparacao-sass h3 { margin-top: 0; }
+.comparacao-sass pre { height: 100%; box-sizing: border-box; }`,
+    "Escreva SCSS com uma variável e nesting e apresente o CSS equivalente após a compilação.",
+    "A solução deve distinguir claramente o código SCSS do CSS que o navegador executa.",
+    ["Declarou e usou uma variável SASS.", "Usou nesting com & ou outro recurso SASS.", "Explicou ou mostrou o CSS compilado."],
+    { snippet: `// styles.scss
+$cor: #355070;
+.cartao-sass {
+  background: $cor;
+  &:hover { opacity: .8; }
+}
+
+/* CSS compilado */
+.cartao-sass { background: #355070; }
+.cartao-sass:hover { opacity: .8; }` }
+  ),
+  "SASS Tutorial": focusedLesson(
+    '<div class="comparacao-sass"><section><h3>Mixin SCSS</h3><pre><code>@mixin botao($cor) {\n  padding: 12px 18px;\n  background: $cor;\n}\n.botao-ok { @include botao(#2a9d8f); }</code></pre></section><section><h3>Resultado compilado</h3><button class="botao-ok">Confirmar</button></section></div>',
+    `.comparacao-sass { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; align-items: start; }
+.botao-ok { padding: 12px 18px; border: 0; border-radius: 6px; background: #2a9d8f; color: white; }`,
+    "Crie um mixin SASS com parâmetro, use @include e escreva o CSS que seria gerado.",
+    "O exercício deve mostrar um mixin reutilizável e o componente resultante após a compilação.",
+    ["Declarou @mixin.", "Usou um parâmetro no mixin.", "Aplicou o mixin com @include e mostrou o CSS final."],
+    { snippet: `// componentes.scss
+@mixin botao($cor) {
+  padding: 12px 18px;
+  background: $cor;
+}
+.botao-ok { @include botao(#2a9d8f); }
+
+/* CSS compilado */
+.botao-ok {
+  padding: 12px 18px;
+  background: #2a9d8f;
+}` }
+  ),
+};
+
+const activityOverrides = {
+  "CSS Optimization": "Refatore estilos repetidos criando uma classe base reutilizável e modificadores apenas com as diferenças.",
+  "CSS @property": "Registre uma custom property com @property e anime seu valor em um estado :hover.",
+  "CSS RESPONSIVE": "Altere flex-basis e flex-wrap para observar como os cards se reorganizam em larguras diferentes.",
+  "RWD Intro": "Transforme a caixa em um componente fluido usando width, max-width e box-sizing.",
+  "RWD Viewport": "Compare unidades vw e rem e limite o tamanho com clamp() para manter a leitura confortável.",
+  "RWD Videos": "Mantenha o vídeo em proporção 16:9 enquanto a largura do container muda.",
+};
+
+function focusedGuide(activity, result, checklist) {
+  return focusedLesson("", "", activity, result, checklist).guide;
+}
+
+const guideOverrides = {
+  "CSS Optimization": focusedGuide(
+    activityOverrides["CSS Optimization"],
+    "Os componentes devem compartilhar uma classe base, deixando nos modificadores somente as diferenças.",
+    ["Removeu declarações repetidas.", "Criou uma classe base reutilizável.", "Manteve modificadores pequenos e específicos."]
+  ),
+  "CSS @property": focusedGuide(
+    activityOverrides["CSS @property"],
+    "Uma custom property registrada deve mudar de valor com transição perceptível.",
+    ["Declarou @property.", "Informou syntax, inherits e initial-value.", "Usou a propriedade registrada com var()."]
+  ),
+  "CSS RESPONSIVE": focusedGuide(
+    activityOverrides["CSS RESPONSIVE"],
+    "Os cards devem se reorganizar automaticamente sem causar rolagem horizontal.",
+    ["Usou medidas flexíveis.", "Aplicou flex-wrap ou Grid responsivo.", "O conteúdo funciona em tela estreita."]
+  ),
+  "RWD Intro": focusedGuide(
+    activityOverrides["RWD Intro"],
+    "O componente deve ocupar o espaço disponível sem ultrapassar uma largura máxima.",
+    ["Usou width flexível.", "Definiu max-width.", "Incluiu box-sizing para controlar o tamanho final."]
+  ),
+  "RWD Viewport": focusedGuide(
+    activityOverrides["RWD Viewport"],
+    "O texto deve responder à viewport sem ficar pequeno ou grande demais.",
+    ["Usou vw, vh, vmin ou vmax.", "Definiu um limite com clamp(), min() ou max().", "O viewport está configurado no HTML."]
+  ),
+  "RWD Videos": focusedGuide(
+    activityOverrides["RWD Videos"],
+    "O vídeo deve preencher o container e conservar a proporção em qualquer largura.",
+    ["O container tem largura fluida.", "A proporção do vídeo está definida.", "iframe ou video ocupa todo o container."]
+  ),
+};
+
+function readExistingLesson(topic) {
+  const file = portugueseFiles[topic];
+  if (!file) return null;
+  const lessonFile = path.join(lessonDir, file);
+  if (!fs.existsSync(lessonFile)) return null;
+
+  const source = fs.readFileSync(lessonFile, "utf8");
+  const style = source.match(/<style>([\s\S]*?)<\/style>/i);
+  const example = source.match(/<section class="painel">\s*<h2>Exemplo<\/h2>\s*<div class="exemplo">([\s\S]*?)<\/div>\s*<\/section>/i);
+  const activitySection = source.match(/<section class="painel atividade">([\s\S]*?)<\/section>/i);
+  const activity = activitySection?.[1].match(/<p>([\s\S]*?)<\/p>/i);
+  if (!style || !example || !activity) return null;
+
+  const normalizeBlock = (value) => {
+    const lines = value.replaceAll("\r\n", "\n").split("\n");
+    while (lines.length && !lines[0].trim()) lines.shift();
+    while (lines.length && !lines.at(-1).trim()) lines.pop();
+    const indents = lines.filter((line) => line.trim()).map((line) => line.match(/^\s*/)[0].length);
+    const indent = indents.length ? Math.min(...indents) : 0;
+    return lines.map((line) => line.slice(indent)).join("\n");
+  };
+
+  return {
+    html: normalizeBlock(example[1]).split("\n").map((line) => line.trimStart()).join("\n"),
+    css: normalizeBlock(style[1]),
+    activity: activityOverrides[topic] || activity[1].trim(),
+    guide: guideOverrides[topic],
+  };
+}
+
 function lesson(topic) {
+  if (specializedLessons[topic]) return specializedLessons[topic];
+  const existing = readExistingLesson(topic);
+  if (existing) return existing;
+
   const key = topic.toLowerCase();
   let html = '<div class="cartao-exemplo">Aprendendo CSS na prática</div>';
   let css = `.cartao-exemplo {
@@ -558,6 +985,8 @@ function lesson(topic) {
 
 
 function exerciseGuide(topic, item) {
+  if (item.guide) return item.guide;
+
   const key = topic.toLowerCase();
   const title = titleOf(topic);
   const base = {
@@ -756,7 +1185,16 @@ function page(topic, previous, next, exerciseFile) {
             </div>
             <p><a href="https://youtu.be/Q9rbVLAZcI8">Abrir a videoaula no YouTube</a></p>
         </section>` : "";
-  const snippet = `<div class="exemplo">
+  const conceptsSection = item.concepts ? `        <section class="painel">
+            <h2>Conceitos abordados</h2>
+            <ul class="lista-topicos">
+                ${item.concepts.map(([term, description]) => `<li><strong>${escapeHtml(term)}:</strong> ${escapeHtml(description)}</li>`).join("\n                ")}
+            </ul>
+        </section>` : "";
+  const lessonDetails = [conceptsSection, videoLesson].filter(Boolean).join("\n");
+  const extraLessonSection = lessonDetails ? `${lessonDetails}\n` : "";
+  const renderedExample = item.html.replaceAll("\n", "\n                ");
+  const snippet = item.snippet || `<div class="exemplo">
   ${item.html}
 </div>
 
@@ -789,11 +1227,10 @@ ${item.css}
         <section class="painel">
             <h2>Exemplo</h2>
             <div class="exemplo">
-                ${item.html}
+                ${renderedExample}
             </div>
         </section>
-${videoLesson}
-
+${extraLessonSection}
         <section class="painel">
             <h2>Código base</h2>
             <pre><code>${escapeHtml(snippet)}</code></pre>
@@ -824,6 +1261,17 @@ function exercisePage(topic, number, item) {
   const title = titleOf(topic);
   const padded = String(number).padStart(3, "0");
   const guide = exerciseGuide(topic, item);
+  const isSass = topic.toLowerCase().includes("sass");
+  const studentCssMarkers = isSass ? "" : `        /* STUDENT_CSS_START */
+        /* Escreva seu CSS aqui. */
+        /* STUDENT_CSS_END */`;
+  const sassEditor = isSass ? `
+    <script type="text/scss" id="scss-do-aluno">
+        /* STUDENT_CSS_START */
+        /* Escreva seu SCSS aqui. Este bloco não é executado diretamente pelo navegador. */
+        /* STUDENT_CSS_END */
+    </script>` : "";
+  const sassEditorSection = sassEditor ? `${sassEditor}\n` : "";
   const steps = guide.steps.map((step) => `                <li>${escapeHtml(step)}</li>`).join("\n");
   const checklist = guide.checklist.map((step) => `                <li>${escapeHtml(step)}</li>`).join("\n");
 
@@ -875,7 +1323,6 @@ function exercisePage(topic, number, item) {
             padding: 20px;
             border: 2px dashed #aebdcc;
         }
-
         .registro-autoria {
             margin-top: 20px;
             padding: 16px;
@@ -883,11 +1330,9 @@ function exercisePage(topic, number, item) {
             background: #f7f2fa;
         }
 
-        /* STUDENT_CSS_START */
-        /* Escreva seu CSS aqui. */
-        /* STUDENT_CSS_END */
-    </style>
-</head>
+${studentCssMarkers}
+</style>
+${sassEditorSection}</head>
 <body>
     <main>
         <section class="orientacao">
@@ -915,7 +1360,6 @@ ${checklist}
             <p>Substitua este conteúdo pela sua resposta.</p>
             <!-- STUDENT_HTML_END -->
         </section>
-
         <section class="registro-autoria">
             <h2>Registro de autoria</h2>
             <p>Explique uma decisão importante do seu código. Você poderá ser convidado a demonstrá-la ou alterá-la.</p>
@@ -1343,9 +1787,9 @@ fs.mkdirSync(exerciseDir, { recursive: true });
 fs.mkdirSync(assetDir, { recursive: true });
 
 const courseCssFile = path.join(assetDir, "curso.css");
-const courseCss = fs.existsSync(courseCssFile) ? fs.readFileSync(courseCssFile, "utf8").trim() : css;
-fs.writeFileSync(courseCssFile, courseCss + "\n", "utf8");
-fs.writeFileSync(path.join(root, "index.html"), indexPage(pages), "utf8");
+if (!fs.existsSync(courseCssFile)) fs.writeFileSync(courseCssFile, css + "\n", "utf8");
+const indexFile = path.join(root, "index.html");
+if (!fs.existsSync(indexFile)) fs.writeFileSync(indexFile, indexPage(pages), "utf8");
 
 pages.forEach((current, index) => {
   const item = lesson(current.topic);

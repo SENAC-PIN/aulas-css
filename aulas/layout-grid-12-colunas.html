@@ -6,8 +6,11 @@
     <title>Grid 12-column Layout</title>
     <link rel="stylesheet" href="../assets/curso.css">
     <style>
-.grade { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
-.grade span { padding: 20px; background: #eaf4fb; border: 1px solid #355070; }
+.grade-12 { display: grid; grid-template-columns: repeat(12, 1fr); gap: 10px; }
+.grade-12 > * { padding: 18px; background: #eaf4fb; border: 1px solid #355070; }
+.grade-12 header, .grade-12 footer { grid-column: span 12; }
+.grade-12 .conteudo-grade { grid-column: span 8; }
+.grade-12 aside { grid-column: span 4; }
     </style>
 </head>
 <body>
@@ -22,25 +25,28 @@
         <section class="painel">
             <h2>Exemplo</h2>
             <div class="exemplo">
-                <div class="grade"><span>1</span><span>2</span><span>3</span><span>4</span></div>
+                <div class="grade-12"><header>12 colunas</header><section class="conteudo-grade">8 colunas</section><aside>4 colunas</aside><footer>12 colunas</footer></div>
             </div>
         </section>
 
         <section class="painel">
             <h2>Código base</h2>
             <pre><code>&lt;div class=&quot;exemplo&quot;&gt;
-  &lt;div class=&quot;grade&quot;&gt;&lt;span&gt;1&lt;/span&gt;&lt;span&gt;2&lt;/span&gt;&lt;span&gt;3&lt;/span&gt;&lt;span&gt;4&lt;/span&gt;&lt;/div&gt;
+  &lt;div class=&quot;grade-12&quot;&gt;&lt;header&gt;12 colunas&lt;/header&gt;&lt;section class=&quot;conteudo-grade&quot;&gt;8 colunas&lt;/section&gt;&lt;aside&gt;4 colunas&lt;/aside&gt;&lt;footer&gt;12 colunas&lt;/footer&gt;&lt;/div&gt;
 &lt;/div&gt;
 
 &lt;style&gt;
-.grade { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
-.grade span { padding: 20px; background: #eaf4fb; border: 1px solid #355070; }
+.grade-12 { display: grid; grid-template-columns: repeat(12, 1fr); gap: 10px; }
+.grade-12 &gt; * { padding: 18px; background: #eaf4fb; border: 1px solid #355070; }
+.grade-12 header, .grade-12 footer { grid-column: span 12; }
+.grade-12 .conteudo-grade { grid-column: span 8; }
+.grade-12 aside { grid-column: span 4; }
 &lt;/style&gt;</code></pre>
         </section>
 
         <section class="painel atividade">
             <h2>Atividade prática</h2>
-            <p>Mude para 3 colunas e faca um item ocupar duas colunas.</p>
+            <p>Monte um layout de 12 colunas com regiões que ocupem 12, 8 e 4 colunas.</p>
             <ol>
                 <li>Abra esta página no navegador.</li>
                 <li>Edite o CSS no arquivo ou no DevTools.</li>

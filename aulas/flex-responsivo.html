@@ -6,8 +6,12 @@
     <title>Flex Responsive</title>
     <link rel="stylesheet" href="../assets/curso.css">
     <style>
-.container-flexivel { display: flex; gap: 10px; justify-content: space-between; align-items: center; }
-.container-flexivel span { padding: 18px; background: #eaf4fb; border: 1px solid #355070; }
+.cards-flex { display: flex; flex-wrap: wrap; gap: 12px; }
+.cards-flex article { flex: 1 1 180px; padding: 24px; background: #eaf4fb; border: 1px solid #355070; }
+@media (max-width: 480px) {
+  .cards-flex { flex-direction: column; }
+  .cards-flex article { flex-basis: auto; }
+}
     </style>
 </head>
 <body>
@@ -22,25 +26,29 @@
         <section class="painel">
             <h2>Exemplo</h2>
             <div class="exemplo">
-                <div class="container-flexivel"><span>1</span><span>2</span><span>3</span></div>
+                <div class="cards-flex"><article>Card 1</article><article>Card 2</article><article>Card 3</article><article>Card 4</article></div>
             </div>
         </section>
 
         <section class="painel">
             <h2>Código base</h2>
             <pre><code>&lt;div class=&quot;exemplo&quot;&gt;
-  &lt;div class=&quot;container-flexivel&quot;&gt;&lt;span&gt;1&lt;/span&gt;&lt;span&gt;2&lt;/span&gt;&lt;span&gt;3&lt;/span&gt;&lt;/div&gt;
+  &lt;div class=&quot;cards-flex&quot;&gt;&lt;article&gt;Card 1&lt;/article&gt;&lt;article&gt;Card 2&lt;/article&gt;&lt;article&gt;Card 3&lt;/article&gt;&lt;article&gt;Card 4&lt;/article&gt;&lt;/div&gt;
 &lt;/div&gt;
 
 &lt;style&gt;
-.container-flexivel { display: flex; gap: 10px; justify-content: space-between; align-items: center; }
-.container-flexivel span { padding: 18px; background: #eaf4fb; border: 1px solid #355070; }
+.cards-flex { display: flex; flex-wrap: wrap; gap: 12px; }
+.cards-flex article { flex: 1 1 180px; padding: 24px; background: #eaf4fb; border: 1px solid #355070; }
+@media (max-width: 480px) {
+  .cards-flex { flex-direction: column; }
+  .cards-flex article { flex-basis: auto; }
+}
 &lt;/style&gt;</code></pre>
         </section>
 
         <section class="painel atividade">
             <h2>Atividade prática</h2>
-            <p>Teste flex-direction, justify-content, align-items, gap e flex-wrap.</p>
+            <p>Crie cards que quebrem de linha e mudem para coluna em telas pequenas.</p>
             <ol>
                 <li>Abra esta página no navegador.</li>
                 <li>Edite o CSS no arquivo ou no DevTools.</li>

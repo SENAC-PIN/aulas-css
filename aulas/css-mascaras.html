@@ -6,15 +6,16 @@
     <title>CSS Masking</title>
     <link rel="stylesheet" href="../assets/curso.css">
     <style>
-.foto {
-  width: 260px;
-  height: 150px;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 14px;
-  filter: saturate(1.3);
+.imagem-mascarada {
+  width: 320px;
+  max-width: 100%;
   display: block;
-  margin: auto;
+  -webkit-mask-image: radial-gradient(circle, #000 48%, transparent 70%);
+  mask-image: radial-gradient(circle, #000 48%, transparent 70%);
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
 }
     </style>
 </head>
@@ -30,33 +31,34 @@
         <section class="painel">
             <h2>Exemplo</h2>
             <div class="exemplo">
-                <img class="foto" alt="Imagem colorida de exemplo" src="../assets/imagem-exemplo.svg">
+                <img class="imagem-mascarada" src="../assets/imagem-exemplo.svg" alt="Imagem revelada por uma máscara radial">
             </div>
         </section>
 
         <section class="painel">
             <h2>Código base</h2>
             <pre><code>&lt;div class=&quot;exemplo&quot;&gt;
-  &lt;img class=&quot;foto&quot; alt=&quot;Imagem colorida de exemplo&quot; src=&quot;../assets/imagem-exemplo.svg&quot;&gt;
+  &lt;img class=&quot;imagem-mascarada&quot; src=&quot;../assets/imagem-exemplo.svg&quot; alt=&quot;Imagem revelada por uma máscara radial&quot;&gt;
 &lt;/div&gt;
 
 &lt;style&gt;
-.foto {
-  width: 260px;
-  height: 150px;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 14px;
-  filter: saturate(1.3);
+.imagem-mascarada {
+  width: 320px;
+  max-width: 100%;
   display: block;
-  margin: auto;
+  -webkit-mask-image: radial-gradient(circle, #000 48%, transparent 70%);
+  mask-image: radial-gradient(circle, #000 48%, transparent 70%);
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
 }
 &lt;/style&gt;</code></pre>
         </section>
 
         <section class="painel atividade">
             <h2>Atividade prática</h2>
-            <p>Teste object-fit, object-position, filter, border-radius e clip-path.</p>
+            <p>Aplique uma máscara com mask-image e mantenha o prefixo -webkit- para compatibilidade.</p>
             <ol>
                 <li>Abra esta página no navegador.</li>
                 <li>Edite o CSS no arquivo ou no DevTools.</li>

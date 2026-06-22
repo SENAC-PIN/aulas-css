@@ -1,7 +1,7 @@
 {
   "version": 1,
   "profile": {
-    "name": "Estudante"
+    "name": "Diogo"
   },
   "history": {
     "activityDates": [],
@@ -87,7 +87,7 @@
     "016-css-icones.html": {
       "status": "not-started",
       "score": 0,
-      "total": 5
+      "total": 7
     },
     "017-css-links.html": {
       "status": "not-started",
@@ -97,7 +97,7 @@
     "018-css-listas.html": {
       "status": "not-started",
       "score": 0,
-      "total": 4
+      "total": 5
     },
     "019-css-tabelas.html": {
       "status": "not-started",
@@ -142,7 +142,7 @@
     "027-transbordamento-x-e-y.html": {
       "status": "not-started",
       "score": 0,
-      "total": 4
+      "total": 6
     },
     "028-desafio-de-codigo.html": {
       "status": "not-started",
@@ -202,7 +202,7 @@
     "039-css-sprites-de-imagem.html": {
       "status": "not-started",
       "score": 0,
-      "total": 4
+      "total": 6
     },
     "040-css-seletores-de-atributo.html": {
       "status": "not-started",
@@ -247,7 +247,7 @@
     "048-css-otimizacao.html": {
       "status": "not-started",
       "score": 0,
-      "total": 3
+      "total": 4
     },
     "049-css-acessibilidade.html": {
       "status": "not-started",
@@ -277,7 +277,7 @@
     "054-css-fontes-personalizadas.html": {
       "status": "not-started",
       "score": 0,
-      "total": 4
+      "total": 6
     },
     "055-css-transformacoes-2d.html": {
       "status": "not-started",
@@ -312,7 +312,7 @@
     "061-css-modal-de-imagem.html": {
       "status": "not-started",
       "score": 0,
-      "total": 4
+      "total": 6
     },
     "062-css-centralizacao-de-imagem.html": {
       "status": "not-started",
@@ -327,7 +327,7 @@
     "064-css-formatos-de-imagem.html": {
       "status": "not-started",
       "score": 0,
-      "total": 4
+      "total": 5
     },
     "065-css-ajuste-de-objeto.html": {
       "status": "not-started",
@@ -337,12 +337,12 @@
     "066-css-posicao-de-objeto.html": {
       "status": "not-started",
       "score": 0,
-      "total": 4
+      "total": 5
     },
     "067-css-mascaras.html": {
       "status": "not-started",
       "score": 0,
-      "total": 4
+      "total": 5
     },
     "068-css-botoes.html": {
       "status": "not-started",
@@ -352,7 +352,7 @@
     "069-css-paginacao.html": {
       "status": "not-started",
       "score": 0,
-      "total": 5
+      "total": 7
     },
     "070-css-multiplas-colunas.html": {
       "status": "not-started",
@@ -372,7 +372,7 @@
     "073-css-property.html": {
       "status": "not-started",
       "score": 0,
-      "total": 5
+      "total": 6
     },
     "074-css-dimensionamento-de-caixa.html": {
       "status": "not-started",
@@ -402,12 +402,12 @@
     "079-itens-flex.html": {
       "status": "not-started",
       "score": 0,
-      "total": 4
+      "total": 5
     },
     "080-flex-responsivo.html": {
       "status": "not-started",
       "score": 0,
-      "total": 5
+      "total": 6
     },
     "081-css-grid.html": {
       "status": "not-started",
@@ -427,12 +427,12 @@
     "084-itens-grid.html": {
       "status": "not-started",
       "score": 0,
-      "total": 5
+      "total": 6
     },
     "085-layout-grid-12-colunas.html": {
       "status": "not-started",
       "score": 0,
-      "total": 5
+      "total": 7
     },
     "086-css-supports.html": {
       "status": "not-started",
@@ -467,7 +467,7 @@
     "092-rwd-imagens.html": {
       "status": "not-started",
       "score": 0,
-      "total": 5
+      "total": 6
     },
     "093-rwd-videos.html": {
       "status": "not-started",
@@ -497,16 +497,16 @@
     "098-css-sass.html": {
       "status": "not-started",
       "score": 0,
-      "total": 4
+      "total": 5
     },
     "099-tutorial-sass.html": {
       "status": "not-started",
       "score": 0,
-      "total": 4
+      "total": 5
     }
   },
   "derived": {
-    "generatedAt": "2026-06-19T18:26:34.141Z",
+    "generatedAt": "2026-06-22T17:35:00.336Z",
     "xp": 0,
     "level": 1,
     "currentLevelXp": 0,

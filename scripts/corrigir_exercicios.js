@@ -43,6 +43,125 @@ function criterion(id, label, hint, test) {
 
 const rubricByName = [
   {
+    match: /icones/,
+    criteria: [
+      criterion("icon-element", "Criou um ícone real", "Use SVG, uma fonte de ícones ou uma técnica de background/mask.", ({ html, css }) => /<svg\b|<i\b[^>]*class=["'][^"']*icon/i.test(html) || /\b(?:background-image|mask-image|-webkit-mask-image)\s*:/i.test(css)),
+      criterion("icon-style", "Controlou o ícone por CSS", "Defina tamanho e cor ou preenchimento do ícone.", ({ css }) => /\b(?:width|font-size)\s*:/i.test(css) && /\b(?:color|fill|stroke|background(?:-color)?)\s*:/i.test(css)),
+    ],
+  },
+  {
+    match: /listas/,
+    criteria: [criterion("list-style", "Personalizou os marcadores", "Use list-style, list-style-type ou ::marker.", ({ css }) => /\blist-style(?:-[a-z-]+)?\s*:|::marker\b/i.test(css))],
+  },
+  {
+    match: /transbordamento-x-e-y/,
+    criteria: [
+      criterion("overflow-x", "Controlou o eixo horizontal", "Use overflow-x.", ({ css }) => /\boverflow-x\s*:/i.test(css)),
+      criterion("overflow-y", "Controlou o eixo vertical", "Use overflow-y.", ({ css }) => /\boverflow-y\s*:/i.test(css)),
+    ],
+  },
+  {
+    match: /sprites-de-imagem/,
+    criteria: [
+      criterion("sprite-image", "Usou uma única imagem de sprite", "Defina background-image no elemento do sprite.", ({ css }) => /\bbackground-image\s*:/i.test(css)),
+      criterion("sprite-position", "Recortou o sprite", "Use background-position com valores diferentes.", ({ css }) => /\bbackground-position\s*:/i.test(css)),
+    ],
+  },
+  {
+    match: /fontes-personalizadas/,
+    criteria: [
+      criterion("font-face", "Registrou uma fonte", "Declare uma regra @font-face.", ({ css }) => /@font-face\b/i.test(css)),
+      criterion("font-source", "Definiu a origem da fonte", "Inclua src e aplique a font-family registrada.", ({ css }) => /\bsrc\s*:/i.test(css) && /\bfont-family\s*:/i.test(css)),
+    ],
+  },
+  {
+    match: /otimizacao/,
+    criteria: [criterion("reusable-style", "Criou estilos reutilizáveis", "Use uma classe base compartilhada e pelo menos um modificador.", ({ html, css }) => /class=["'][^"']*\b[a-z0-9_-]+\s+[a-z0-9_-]+/i.test(html) && (css.match(/\.[a-z0-9_-]+\s*\{/gi) || []).length >= 2)],
+  },
+  {
+    match: /modal-de-imagem/,
+    criteria: [
+      criterion("image-modal", "Criou a camada modal", "Use dialog ou uma camada posicionada sobre a viewport.", ({ html, css }) => /<dialog\b/i.test(html) || /\bposition\s*:\s*fixed\b/i.test(css)),
+      criterion("modal-state", "Criou estados de abrir e fechar", "Use :target, uma classe de estado ou dialog.", ({ html, css }) => /<dialog\b/i.test(html) || /:target\b|\.(?:aberto|ativo|open)\b/i.test(css)),
+    ],
+  },
+  {
+    match: /formatos-de-imagem/,
+    criteria: [criterion("image-shape", "Recortou a imagem", "Use clip-path com circle(), ellipse() ou polygon().", ({ css }) => /\bclip-path\s*:\s*(?:circle|ellipse|polygon)\(/i.test(css))],
+  },
+  {
+    match: /posicao-de-objeto/,
+    criteria: [criterion("object-position", "Posicionou o conteúdo da imagem", "Use object-position em uma imagem com tamanho limitado.", ({ css }) => /\bobject-position\s*:/i.test(css))],
+  },
+  {
+    match: /mascaras/,
+    criteria: [criterion("mask-image", "Aplicou uma máscara", "Use mask-image ou -webkit-mask-image.", ({ css }) => /\b(?:-webkit-)?mask-image\s*:/i.test(css))],
+  },
+  {
+    match: /paginacao/,
+    criteria: [
+      criterion("page-links", "Criou links de páginas", "Inclua pelo menos três links na paginação.", ({ html }) => (html.match(/<a\b/gi) || []).length >= 3),
+      criterion("current-page", "Identificou a página atual", "Use aria-current=\"page\" e estilize esse estado.", ({ html, css }) => /aria-current\s*=\s*["']page["']/i.test(html) && /aria-current/i.test(css)),
+    ],
+  },
+  {
+    match: /-property/,
+    criteria: [criterion("at-property", "Registrou a custom property", "Declare @property com syntax, inherits e initial-value.", ({ css }) => /@property\s+--[a-z0-9-]+/i.test(css) && /\bsyntax\s*:|\binherits\s*:|\binitial-value\s*:/i.test(css))],
+  },
+  {
+    match: /itens-flex/,
+    criteria: [criterion("flex-item", "Configurou um Flex Item", "Use order, flex-grow, flex-shrink, flex-basis ou align-self.", ({ css }) => /\b(?:order|flex-grow|flex-shrink|flex-basis|align-self)\s*:/i.test(css))],
+  },
+  {
+    match: /flex-responsivo/,
+    criteria: [
+      criterion("flex-wrap", "Permitiu a quebra dos itens", "Use flex-wrap: wrap.", ({ css }) => /\bflex-wrap\s*:\s*wrap\b/i.test(css)),
+      criterion("flex-breakpoint", "Adaptou o Flexbox", "Use @media ou uma base flexível que reorganize os itens.", ({ css }) => /@media\b/i.test(css) || /\bflex\s*:\s*[^;]*\b(?:%|px|rem)\b/i.test(css)),
+    ],
+  },
+  {
+    match: /itens-grid/,
+    criteria: [criterion("grid-item", "Posicionou um Grid Item", "Use grid-column, grid-row ou grid-area.", ({ css }) => /\bgrid-(?:column|row|area)(?:-[a-z]+)?\s*:/i.test(css))],
+  },
+  {
+    match: /layout-grid-12-colunas/,
+    criteria: [
+      criterion("twelve-columns", "Criou 12 colunas", "Use grid-template-columns: repeat(12, 1fr).", ({ css }) => /grid-template-columns\s*:\s*repeat\(\s*12\s*,/i.test(css)),
+      criterion("column-span", "Distribuiu os elementos", "Use grid-column com span.", ({ css }) => /\bgrid-column\s*:[^;]*\bspan\b/i.test(css)),
+    ],
+  },
+  {
+    match: /rwd-visao-em-grade/,
+    criteria: [criterion("responsive-grid", "Alterou a grade por breakpoint", "Use @media para mudar grid-template-columns.", ({ css }) => /@media\b[\s\S]*grid-template-columns\s*:/i.test(css))],
+  },
+  {
+    match: /rwd-imagens/,
+    criteria: [
+      criterion("fluid-image", "Criou uma imagem fluida", "Use width/max-width responsivo e height: auto.", ({ css }) => /\b(?:width|max-width)\s*:\s*100%/i.test(css) && /\bheight\s*:\s*auto\b/i.test(css)),
+      criterion("responsive-source", "Ofereceu fontes responsivas", "Use picture, source ou srcset.", ({ html }) => /<(?:picture|source)\b|\bsrcset\s*=/i.test(html)),
+    ],
+  },
+  {
+    match: /rwd-modelos/,
+    criteria: [criterion("responsive-template", "Criou um template responsivo", "Use áreas de Grid e um breakpoint.", ({ css }) => /grid-template-areas\s*:/i.test(css) && /@media\b/i.test(css))],
+  },
+  {
+    match: /css-responsivo/,
+    criteria: [criterion("fluid-layout", "Criou um layout fluido", "Use flex-wrap, auto-fit/auto-fill ou medidas flexíveis.", ({ css }) => /\bflex-wrap\s*:\s*wrap\b|repeat\(\s*auto-(?:fit|fill)|\bmax-width\s*:/i.test(css))],
+  },
+  {
+    match: /rwd-introducao/,
+    criteria: [criterion("fluid-component", "Criou um componente fluido", "Combine width flexível com max-width.", ({ css }) => /\bwidth\s*:\s*100%/i.test(css) && /\bmax-width\s*:/i.test(css))],
+  },
+  {
+    match: /rwd-janela-de-visualizacao/,
+    criteria: [criterion("viewport-unit", "Usou unidades da viewport", "Use vw, vh, vmin ou vmax.", ({ css }) => /\d*\.?\d+(?:vw|vh|vmin|vmax)\b/i.test(css))],
+  },
+  {
+    match: /rwd-videos/,
+    criteria: [criterion("video-ratio", "Preservou a proporção do vídeo", "Use aspect-ratio ou padding proporcional.", ({ css }) => /\baspect-ratio\s*:|padding-(?:bottom|top)\s*:\s*56\.25%/i.test(css))],
+  },
+  {
     match: /sintaxe|como-usar|erros/,
     criteria: [
       criterion("css-declaration", "Escreveu uma declaração CSS", "Use o formato property: value; dentro de uma regra CSS.", ({ css }) => /[a-z-]+\s*:\s*[^;{}]+;/i.test(css)),
@@ -126,6 +245,29 @@ const rubricByName = [
     criteria: [criterion("display", "Usou display", "Adicione a propriedade display a uma regra CSS.", ({ css }) => /\bdisplay\s*:/i.test(css))],
   },
   {
+    match: /css-posicionamento/,
+    criteria: [
+      criterion("position-flow", "Comparou static e relative", "Use position: static e position: relative para comparar o fluxo normal e o deslocamento.", ({ css }) => /\bposition\s*:\s*static\b/i.test(css) && /\bposition\s*:\s*relative\b/i.test(css)),
+      criterion("position-absolute", "Demonstrou absolute", "Use position: absolute dentro de um ancestral posicionado e aplique offsets.", ({ css }) => /\bposition\s*:\s*absolute\b/i.test(css) && /\b(?:top|right|bottom|left|inset)\s*:/i.test(css)),
+      criterion("position-fixed", "Demonstrou fixed", "Inclua um elemento com position: fixed.", ({ css }) => /\bposition\s*:\s*fixed\b/i.test(css)),
+      criterion("position-sticky", "Demonstrou sticky", "Use position: sticky com um limite como top: 0.", ({ css }) => /\bposition\s*:\s*sticky\b/i.test(css) && /\b(?:top|bottom)\s*:/i.test(css)),
+    ],
+  },
+  {
+    match: /deslocamentos-de-posicao/,
+    criteria: [
+      criterion("four-offsets", "Usou os quatro offsets", "Demonstre top, right, bottom e left.", ({ css }) => ["top", "right", "bottom", "left"].every((property) => new RegExp(`\\b${property}\\s*:`).test(css))),
+      criterion("inset", "Usou a shorthand inset", "Adicione um exemplo com inset.", ({ css }) => /\binset\s*:/i.test(css)),
+    ],
+  },
+  {
+    match: /css-z-index/,
+    criteria: [
+      criterion("z-index-values", "Criou níveis de empilhamento", "Use pelo menos dois valores de z-index em elementos sobrepostos.", ({ css }) => (css.match(/\bz-index\s*:\s*-?\d+/gi) || []).length >= 2),
+      criterion("stacking-context", "Criou um contexto de empilhamento", "Use isolation, transform ou outra propriedade que crie um contexto local.", ({ css }) => /\bisolation\s*:\s*isolate\b|\btransform\s*:|\bopacity\s*:\s*0?\.\d+/i.test(css)),
+    ],
+  },
+  {
     match: /posicionamento|deslocamentos-de-posicao|z-index/,
     criteria: [criterion("position", "Usou position", "Adicione position e, se necessário, top, right, bottom ou left.", ({ css }) => /\bposition\s*:/i.test(css))],
   },
@@ -184,7 +326,7 @@ const rubricByName = [
     ],
   },
   {
-    match: /consultas-de-midia|responsivo|rwd/,
+    match: /consultas-de-midia|rwd-frameworks/,
     criteria: [criterion("media-query", "Criou uma Media Query", "Adicione uma regra @media para adaptar o layout.", ({ css }) => /@media\b/i.test(css))],
   },
   {
@@ -208,7 +350,24 @@ const rubricByName = [
     criteria: [criterion("shadow", "Usou uma shadow", "Adicione box-shadow ou text-shadow.", ({ css }) => /\b(?:box-shadow|text-shadow)\s*:/i.test(css))],
   },
   {
-    match: /sass/,
+    match: /098-css-sass/,
+    criteria: [
+      criterion("sass-variable", "Criou e usou uma variável SASS", "Declare $nome: valor; e use $nome em uma propriedade.", ({ rawCss }) => {
+        const names = [...rawCss.matchAll(/\$([a-z0-9_-]+)\s*:/gi)].map((match) => match[1]);
+        return names.some((name) => new RegExp(`\\$${name}\\b[\\s\\S]*\\$${name}\\b`, "i").test(rawCss));
+      }),
+      criterion("sass-feature", "Usou um recurso estrutural de SASS", "Use nesting com &, @mixin/@include ou outra construção SASS.", ({ rawCss }) => /&\s*:[a-z-]+|@mixin\b|@include\b/i.test(rawCss)),
+    ],
+  },
+  {
+    match: /099-tutorial-sass/,
+    criteria: [
+      criterion("sass-mixin", "Criou um mixin SASS", "Declare um mixin com @mixin e pelo menos um parâmetro.", ({ rawCss }) => /@mixin\s+[a-z0-9_-]+\s*\([^)]*\$[a-z0-9_-]+/i.test(rawCss)),
+      criterion("sass-include", "Reutilizou o mixin", "Aplique o mixin com @include.", ({ rawCss }) => /@include\s+[a-z0-9_-]+/i.test(rawCss)),
+    ],
+  },
+  {
+    match: /sass-legado-nao-utilizado/,
     criteria: [criterion("sass", "Usou um recurso de SASS", "Use uma variável $nome, nesting ou explique a conversão para CSS.", ({ html, rawCss }) => /\$[a-z0-9_-]+|\.scss|sass/i.test(`${html}\n${rawCss}`))],
   },
 ];

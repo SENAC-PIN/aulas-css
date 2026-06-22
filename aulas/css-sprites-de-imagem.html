@@ -6,16 +6,18 @@
     <title>CSS Image Sprites</title>
     <link rel="stylesheet" href="../assets/curso.css">
     <style>
-.foto {
-  width: 260px;
-  height: 150px;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 14px;
-  filter: saturate(1.3);
-  display: block;
-  margin: auto;
+.acoes-sprite { display: flex; flex-wrap: wrap; gap: 12px; }
+.acoes-sprite button { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; }
+.sprite {
+  width: 48px;
+  height: 48px;
+  background-image: url("../assets/icones-sprite.svg");
+  background-size: 144px 48px;
+  background-repeat: no-repeat;
 }
+.sprite-casa { background-position: 0 0; }
+.sprite-busca { background-position: -48px 0; }
+.sprite-config { background-position: -96px 0; }
     </style>
 </head>
 <body>
@@ -30,33 +32,35 @@
         <section class="painel">
             <h2>Exemplo</h2>
             <div class="exemplo">
-                <img class="foto" alt="Imagem colorida de exemplo" src="../assets/imagem-exemplo.svg">
+                <div class="acoes-sprite"><button><span class="sprite sprite-casa" aria-hidden="true"></span>Início</button><button><span class="sprite sprite-busca" aria-hidden="true"></span>Buscar</button><button><span class="sprite sprite-config" aria-hidden="true"></span>Ajustes</button></div>
             </div>
         </section>
 
         <section class="painel">
             <h2>Código base</h2>
             <pre><code>&lt;div class=&quot;exemplo&quot;&gt;
-  &lt;img class=&quot;foto&quot; alt=&quot;Imagem colorida de exemplo&quot; src=&quot;../assets/imagem-exemplo.svg&quot;&gt;
+  &lt;div class=&quot;acoes-sprite&quot;&gt;&lt;button&gt;&lt;span class=&quot;sprite sprite-casa&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;Início&lt;/button&gt;&lt;button&gt;&lt;span class=&quot;sprite sprite-busca&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;Buscar&lt;/button&gt;&lt;button&gt;&lt;span class=&quot;sprite sprite-config&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;Ajustes&lt;/button&gt;&lt;/div&gt;
 &lt;/div&gt;
 
 &lt;style&gt;
-.foto {
-  width: 260px;
-  height: 150px;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 14px;
-  filter: saturate(1.3);
-  display: block;
-  margin: auto;
+.acoes-sprite { display: flex; flex-wrap: wrap; gap: 12px; }
+.acoes-sprite button { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; }
+.sprite {
+  width: 48px;
+  height: 48px;
+  background-image: url(&quot;../assets/icones-sprite.svg&quot;);
+  background-size: 144px 48px;
+  background-repeat: no-repeat;
 }
+.sprite-casa { background-position: 0 0; }
+.sprite-busca { background-position: -48px 0; }
+.sprite-config { background-position: -96px 0; }
 &lt;/style&gt;</code></pre>
         </section>
 
         <section class="painel atividade">
             <h2>Atividade prática</h2>
-            <p>Teste object-fit, object-position, filter, border-radius e clip-path.</p>
+            <p>Crie três classes que revelem partes diferentes da mesma imagem usando background-position.</p>
             <ol>
                 <li>Abra esta página no navegador.</li>
                 <li>Edite o CSS no arquivo ou no DevTools.</li>

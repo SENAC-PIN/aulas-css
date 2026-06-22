@@ -62,25 +62,26 @@
     <main>
         <section class="orientacao">
             <h1>Exercício 024: CSS Z-index</h1>
-            <p><strong>Objetivo:</strong> Controlar a posição de elementos na página.</p>
-            <p><strong>Proposta:</strong> Teste top, right, bottom, left e inverta o z-index.</p>
+            <p><strong>Objetivo:</strong> Crie camadas sobrepostas e um contexto de empilhamento aninhado para mostrar por que um filho com z-index alto não escapa do contexto do pai.</p>
+            <p><strong>Proposta:</strong> Crie camadas sobrepostas e um contexto de empilhamento aninhado para mostrar por que um filho com z-index alto não escapa do contexto do pai.</p>
 
             <h2>O que fazer</h2>
             <ol>
-                <li>Crie pelo menos duas caixas ou elementos visuais.</li>
-                <li>Aplique position com valores como relative, absolute, fixed ou sticky.</li>
-                <li>Use top, right, bottom ou left para deslocar um elemento.</li>
-                <li>Se houver sobreposição, use z-index para definir qual elemento fica na frente.</li>
+                <li>Crie camadas sobrepostas e um contexto de empilhamento aninhado para mostrar por que um filho com z-index alto não escapa do contexto do pai.</li>
+                <li>Crie o HTML necessário dentro da área do estudante.</li>
+                <li>Aplique as propriedades específicas do tema dentro da área CSS.</li>
+                <li>Teste o resultado e explique na reflexão por que essas propriedades resolvem a tarefa.</li>
             </ol>
 
             <h2>Resultado esperado</h2>
-            <p>A página deve mostrar um elemento deslocado ou sobreposto de forma controlada.</p>
+            <p>A ordem visual deve resultar dos valores de z-index e dos contextos de empilhamento, não da margem ou de uma posição acidental.</p>
 
             <h2>Checklist antes de entregar</h2>
             <ul>
-                <li>Usou a propriedade position.</li>
-                <li>Usou ao menos um deslocamento.</li>
-                <li>O posicionamento final é intencional e visível.</li>
+                <li>Os elementos estão realmente sobrepostos.</li>
+                <li>Usou diferentes valores de z-index.</li>
+                <li>Criou um contexto com isolation, transform ou propriedade equivalente.</li>
+                <li>Explicou o limite do z-index do elemento filho.</li>
             </ul>
         </section>
 

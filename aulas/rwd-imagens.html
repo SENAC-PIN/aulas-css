@@ -6,16 +6,8 @@
     <title>RWD Images</title>
     <link rel="stylesheet" href="../assets/curso.css">
     <style>
-.foto {
-  width: 260px;
-  height: 150px;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 14px;
-  filter: saturate(1.3);
-  display: block;
-  margin: auto;
-}
+.imagem-rwd { display: block; max-width: 720px; margin: auto; }
+.imagem-rwd img { display: block; width: 100%; height: auto; border-radius: 10px; }
     </style>
 </head>
 <body>
@@ -30,33 +22,25 @@
         <section class="painel">
             <h2>Exemplo</h2>
             <div class="exemplo">
-                <img class="foto" alt="Imagem colorida de exemplo" src="../assets/imagem-exemplo.svg">
+                <picture class="imagem-rwd"><source media="(max-width: 520px)" srcset="../assets/galeria-projeto-2.svg"><img src="../assets/galeria-projeto-1.svg" alt="Arte responsiva escolhida conforme a largura da tela"></picture>
             </div>
         </section>
 
         <section class="painel">
             <h2>Código base</h2>
             <pre><code>&lt;div class=&quot;exemplo&quot;&gt;
-  &lt;img class=&quot;foto&quot; alt=&quot;Imagem colorida de exemplo&quot; src=&quot;../assets/imagem-exemplo.svg&quot;&gt;
+  &lt;picture class=&quot;imagem-rwd&quot;&gt;&lt;source media=&quot;(max-width: 520px)&quot; srcset=&quot;../assets/galeria-projeto-2.svg&quot;&gt;&lt;img src=&quot;../assets/galeria-projeto-1.svg&quot; alt=&quot;Arte responsiva escolhida conforme a largura da tela&quot;&gt;&lt;/picture&gt;
 &lt;/div&gt;
 
 &lt;style&gt;
-.foto {
-  width: 260px;
-  height: 150px;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 14px;
-  filter: saturate(1.3);
-  display: block;
-  margin: auto;
-}
+.imagem-rwd { display: block; max-width: 720px; margin: auto; }
+.imagem-rwd img { display: block; width: 100%; height: auto; border-radius: 10px; }
 &lt;/style&gt;</code></pre>
         </section>
 
         <section class="painel atividade">
             <h2>Atividade prática</h2>
-            <p>Teste object-fit, object-position, filter, border-radius e clip-path.</p>
+            <p>Crie uma imagem fluida e use picture ou srcset para oferecer uma alternativa em telas pequenas.</p>
             <ol>
                 <li>Abra esta página no navegador.</li>
                 <li>Edite o CSS no arquivo ou no DevTools.</li>

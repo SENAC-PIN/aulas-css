@@ -6,16 +6,19 @@
     <title>CSS Image Modal</title>
     <link rel="stylesheet" href="../assets/curso.css">
     <style>
-.foto {
-  width: 260px;
-  height: 150px;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 14px;
-  filter: saturate(1.3);
-  display: block;
-  margin: auto;
+.miniatura-modal img { width: 220px; display: block; cursor: zoom-in; }
+.modal-imagem {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: none;
+  place-items: center;
+  padding: 40px;
+  background: rgba(0, 0, 0, 0.82);
 }
+.modal-imagem:target { display: grid; }
+.modal-imagem img { max-width: 85vw; max-height: 75vh; }
+.fechar-modal { position: absolute; top: 20px; right: 28px; color: white; font-size: 36px; text-decoration: none; }
     </style>
 </head>
 <body>
@@ -30,33 +33,36 @@
         <section class="painel">
             <h2>Exemplo</h2>
             <div class="exemplo">
-                <img class="foto" alt="Imagem colorida de exemplo" src="../assets/imagem-exemplo.svg">
+                <a class="miniatura-modal" href="#imagem-ampliada"><img src="../assets/imagem-exemplo.svg" alt="Abrir imagem colorida ampliada"></a><div class="modal-imagem" id="imagem-ampliada"><a class="fechar-modal" href="#" aria-label="Fechar imagem">×</a><img src="../assets/imagem-exemplo.svg" alt="Imagem colorida ampliada"></div>
             </div>
         </section>
 
         <section class="painel">
             <h2>Código base</h2>
             <pre><code>&lt;div class=&quot;exemplo&quot;&gt;
-  &lt;img class=&quot;foto&quot; alt=&quot;Imagem colorida de exemplo&quot; src=&quot;../assets/imagem-exemplo.svg&quot;&gt;
+  &lt;a class=&quot;miniatura-modal&quot; href=&quot;#imagem-ampliada&quot;&gt;&lt;img src=&quot;../assets/imagem-exemplo.svg&quot; alt=&quot;Abrir imagem colorida ampliada&quot;&gt;&lt;/a&gt;&lt;div class=&quot;modal-imagem&quot; id=&quot;imagem-ampliada&quot;&gt;&lt;a class=&quot;fechar-modal&quot; href=&quot;#&quot; aria-label=&quot;Fechar imagem&quot;&gt;×&lt;/a&gt;&lt;img src=&quot;../assets/imagem-exemplo.svg&quot; alt=&quot;Imagem colorida ampliada&quot;&gt;&lt;/div&gt;
 &lt;/div&gt;
 
 &lt;style&gt;
-.foto {
-  width: 260px;
-  height: 150px;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 14px;
-  filter: saturate(1.3);
-  display: block;
-  margin: auto;
+.miniatura-modal img { width: 220px; display: block; cursor: zoom-in; }
+.modal-imagem {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: none;
+  place-items: center;
+  padding: 40px;
+  background: rgba(0, 0, 0, 0.82);
 }
+.modal-imagem:target { display: grid; }
+.modal-imagem img { max-width: 85vw; max-height: 75vh; }
+.fechar-modal { position: absolute; top: 20px; right: 28px; color: white; font-size: 36px; text-decoration: none; }
 &lt;/style&gt;</code></pre>
         </section>
 
         <section class="painel atividade">
             <h2>Atividade prática</h2>
-            <p>Teste object-fit, object-position, filter, border-radius e clip-path.</p>
+            <p>Monte um modal de imagem que abra pela miniatura e possa ser fechado, usando :target ou dialog.</p>
             <ol>
                 <li>Abra esta página no navegador.</li>
                 <li>Edite o CSS no arquivo ou no DevTools.</li>

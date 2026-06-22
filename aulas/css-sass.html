@@ -6,12 +6,9 @@
     <title>CSS SASS</title>
     <link rel="stylesheet" href="../assets/curso.css">
     <style>
-$cor: #355070;
-.cartao {
-  padding: 24px;
-  background: $cor;
-  color: white;
-}
+.comparacao-sass { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; }
+.comparacao-sass h3 { margin-top: 0; }
+.comparacao-sass pre { height: 100%; box-sizing: border-box; }
     </style>
 </head>
 <body>
@@ -26,29 +23,32 @@ $cor: #355070;
         <section class="painel">
             <h2>Exemplo</h2>
             <div class="exemplo">
-                <div class="cartao">Aprendendo SASS na prática</div>
+                <div class="comparacao-sass"><section><h3>SCSS</h3><pre><code>$cor: #355070;
+                .cartao-sass {
+                  background: $cor;
+                  &amp;:hover { opacity: .8; }
+                }</code></pre></section><section><h3>CSS compilado</h3><pre><code>.cartao-sass { background: #355070; }
+                .cartao-sass:hover { opacity: .8; }</code></pre></section></div>
             </div>
         </section>
 
         <section class="painel">
             <h2>Código base</h2>
-            <pre><code>&lt;div class=&quot;exemplo&quot;&gt;
-  &lt;div class=&quot;cartao&quot;&gt;Aprendendo SASS na prática&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;style&gt;
+            <pre><code>// styles.scss
 $cor: #355070;
-.cartao {
-  padding: 24px;
+.cartao-sass {
   background: $cor;
-  color: white;
+  &amp;:hover { opacity: .8; }
 }
-&lt;/style&gt;</code></pre>
+
+/* CSS compilado */
+.cartao-sass { background: #355070; }
+.cartao-sass:hover { opacity: .8; }</code></pre>
         </section>
 
         <section class="painel atividade">
             <h2>Atividade prática</h2>
-            <p>Reescreva o exemplo em CSS comum, substituindo a variavel SASS.</p>
+            <p>Escreva SCSS com uma variável e nesting e apresente o CSS equivalente após a compilação.</p>
             <ol>
                 <li>Abra esta página no navegador.</li>
                 <li>Edite o CSS no arquivo ou no DevTools.</li>

@@ -6,9 +6,10 @@
     <title>CSS Pagination</title>
     <link rel="stylesheet" href="../assets/curso.css">
     <style>
-.navegacao { display: flex; gap: 8px; background: #355070; padding: 10px; }
-.navegacao a { color: white; text-decoration: none; padding: 8px 12px; }
-.navegacao a:hover { background: #b56576; }
+.paginacao { display: flex; gap: 6px; align-items: center; }
+.paginacao a { min-width: 38px; padding: 8px; border: 1px solid #355070; border-radius: 5px; text-align: center; text-decoration: none; }
+.paginacao a:hover, .paginacao a:focus-visible { background: #eaf4fb; }
+.paginacao a[aria-current="page"] { background: #355070; color: white; font-weight: bold; }
     </style>
 </head>
 <body>
@@ -23,26 +24,27 @@
         <section class="painel">
             <h2>Exemplo</h2>
             <div class="exemplo">
-                <nav class="navegacao"><a href="#">Inicio</a><a href="#">Aulas</a><a href="#">Contato</a></nav>
+                <nav class="paginacao" aria-label="Paginação"><a href="#" aria-label="Página anterior">‹</a><a href="#">1</a><a href="#" aria-current="page">2</a><a href="#">3</a><a href="#" aria-label="Próxima página">›</a></nav>
             </div>
         </section>
 
         <section class="painel">
             <h2>Código base</h2>
             <pre><code>&lt;div class=&quot;exemplo&quot;&gt;
-  &lt;nav class=&quot;navegacao&quot;&gt;&lt;a href=&quot;#&quot;&gt;Inicio&lt;/a&gt;&lt;a href=&quot;#&quot;&gt;Aulas&lt;/a&gt;&lt;a href=&quot;#&quot;&gt;Contato&lt;/a&gt;&lt;/nav&gt;
+  &lt;nav class=&quot;paginacao&quot; aria-label=&quot;Paginação&quot;&gt;&lt;a href=&quot;#&quot; aria-label=&quot;Página anterior&quot;&gt;‹&lt;/a&gt;&lt;a href=&quot;#&quot;&gt;1&lt;/a&gt;&lt;a href=&quot;#&quot; aria-current=&quot;page&quot;&gt;2&lt;/a&gt;&lt;a href=&quot;#&quot;&gt;3&lt;/a&gt;&lt;a href=&quot;#&quot; aria-label=&quot;Próxima página&quot;&gt;›&lt;/a&gt;&lt;/nav&gt;
 &lt;/div&gt;
 
 &lt;style&gt;
-.navegacao { display: flex; gap: 8px; background: #355070; padding: 10px; }
-.navegacao a { color: white; text-decoration: none; padding: 8px 12px; }
-.navegacao a:hover { background: #b56576; }
+.paginacao { display: flex; gap: 6px; align-items: center; }
+.paginacao a { min-width: 38px; padding: 8px; border: 1px solid #355070; border-radius: 5px; text-align: center; text-decoration: none; }
+.paginacao a:hover, .paginacao a:focus-visible { background: #eaf4fb; }
+.paginacao a[aria-current=&quot;page&quot;] { background: #355070; color: white; font-weight: bold; }
 &lt;/style&gt;</code></pre>
         </section>
 
         <section class="painel atividade">
             <h2>Atividade prática</h2>
-            <p>Adicione estilos para hover, active e página atual.</p>
+            <p>Crie uma paginação numerada e destaque a página atual com aria-current.</p>
             <ol>
                 <li>Abra esta página no navegador.</li>
                 <li>Edite o CSS no arquivo ou no DevTools.</li>

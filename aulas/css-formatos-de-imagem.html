@@ -6,16 +6,10 @@
     <title>CSS Image Shapes</title>
     <link rel="stylesheet" href="../assets/curso.css">
     <style>
-.foto {
-  width: 260px;
-  height: 150px;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 14px;
-  filter: saturate(1.3);
-  display: block;
-  margin: auto;
-}
+.formas-imagem { display: flex; flex-wrap: wrap; gap: 18px; }
+.formas-imagem img { width: 180px; height: 150px; object-fit: cover; }
+.forma-circulo { clip-path: circle(45% at 50% 50%); }
+.forma-poligono { clip-path: polygon(50% 0, 100% 38%, 82% 100%, 18% 100%, 0 38%); }
     </style>
 </head>
 <body>
@@ -30,33 +24,27 @@
         <section class="painel">
             <h2>Exemplo</h2>
             <div class="exemplo">
-                <img class="foto" alt="Imagem colorida de exemplo" src="../assets/imagem-exemplo.svg">
+                <div class="formas-imagem"><img class="forma-circulo" src="../assets/imagem-exemplo.svg" alt="Imagem recortada em círculo"><img class="forma-poligono" src="../assets/imagem-exemplo.svg" alt="Imagem recortada em polígono"></div>
             </div>
         </section>
 
         <section class="painel">
             <h2>Código base</h2>
             <pre><code>&lt;div class=&quot;exemplo&quot;&gt;
-  &lt;img class=&quot;foto&quot; alt=&quot;Imagem colorida de exemplo&quot; src=&quot;../assets/imagem-exemplo.svg&quot;&gt;
+  &lt;div class=&quot;formas-imagem&quot;&gt;&lt;img class=&quot;forma-circulo&quot; src=&quot;../assets/imagem-exemplo.svg&quot; alt=&quot;Imagem recortada em círculo&quot;&gt;&lt;img class=&quot;forma-poligono&quot; src=&quot;../assets/imagem-exemplo.svg&quot; alt=&quot;Imagem recortada em polígono&quot;&gt;&lt;/div&gt;
 &lt;/div&gt;
 
 &lt;style&gt;
-.foto {
-  width: 260px;
-  height: 150px;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 14px;
-  filter: saturate(1.3);
-  display: block;
-  margin: auto;
-}
+.formas-imagem { display: flex; flex-wrap: wrap; gap: 18px; }
+.formas-imagem img { width: 180px; height: 150px; object-fit: cover; }
+.forma-circulo { clip-path: circle(45% at 50% 50%); }
+.forma-poligono { clip-path: polygon(50% 0, 100% 38%, 82% 100%, 18% 100%, 0 38%); }
 &lt;/style&gt;</code></pre>
         </section>
 
         <section class="painel atividade">
             <h2>Atividade prática</h2>
-            <p>Teste object-fit, object-position, filter, border-radius e clip-path.</p>
+            <p>Crie dois recortes diferentes com clip-path, como circle() e polygon().</p>
             <ol>
                 <li>Abra esta página no navegador.</li>
                 <li>Edite o CSS no arquivo ou no DevTools.</li>

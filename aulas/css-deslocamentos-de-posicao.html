@@ -6,10 +6,13 @@
     <title>CSS Position Offsets</title>
     <link rel="stylesheet" href="../assets/curso.css">
     <style>
-.area-posicao { position: relative; height: 160px; background: #eaf4fb; }
-.area-posicao span { position: absolute; width: 90px; height: 90px; display: grid; place-items: center; color: white; }
-.camada-um { left: 30px; top: 20px; background: #355070; z-index: 1; }
-.camada-dois { left: 80px; top: 55px; background: #b56576; z-index: 2; }
+.palco-offsets { position: relative; min-height: 260px; border: 3px dashed #355070; background: #f4f7fb; }
+.marcador, .offset-inset { position: absolute; padding: 10px; color: white; }
+.offset-top-left { top: 12px; left: 12px; background: #355070; }
+.offset-top-right { top: 12px; right: 12px; background: #2a9d8f; }
+.offset-bottom-left { bottom: 12px; left: 12px; background: #b56576; }
+.offset-bottom-right { right: 12px; bottom: 12px; background: #8f5d2f; }
+.offset-inset { inset: 105px 95px auto; text-align: center; background: #24313f; }
     </style>
 </head>
 <body>
@@ -24,27 +27,39 @@
         <section class="painel">
             <h2>Exemplo</h2>
             <div class="exemplo">
-                <div class="area-posicao"><span class="camada-um">1</span><span class="camada-dois">2</span></div>
+                <div class="palco-offsets"><span class="marcador offset-top-left">top + left</span><span class="marcador offset-top-right">top + right</span><span class="marcador offset-bottom-left">bottom + left</span><span class="marcador offset-bottom-right">bottom + right</span><strong class="offset-inset">inset</strong></div>
             </div>
+        </section>
+        <section class="painel">
+            <h2>Conceitos abordados</h2>
+            <ul class="lista-topicos">
+                <li><strong>top/right/bottom/left:</strong> Definem a distância entre as bordas do elemento posicionado e as bordas de seu bloco de referência.</li>
+                <li><strong>inset:</strong> É a shorthand dos quatro offsets e aceita de um a quatro valores, como margin e padding.</li>
+                <li><strong>Referência:</strong> Em absolute, os offsets dependem do ancestral posicionado mais próximo; em fixed, normalmente dependem da viewport.</li>
+                <li><strong>Conflitos:</strong> Quando largura, left e right são definidos juntos, as regras de dimensionamento decidem qual valor será ajustado.</li>
+            </ul>
         </section>
 
         <section class="painel">
             <h2>Código base</h2>
             <pre><code>&lt;div class=&quot;exemplo&quot;&gt;
-  &lt;div class=&quot;area-posicao&quot;&gt;&lt;span class=&quot;camada-um&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;camada-dois&quot;&gt;2&lt;/span&gt;&lt;/div&gt;
+  &lt;div class=&quot;palco-offsets&quot;&gt;&lt;span class=&quot;marcador offset-top-left&quot;&gt;top + left&lt;/span&gt;&lt;span class=&quot;marcador offset-top-right&quot;&gt;top + right&lt;/span&gt;&lt;span class=&quot;marcador offset-bottom-left&quot;&gt;bottom + left&lt;/span&gt;&lt;span class=&quot;marcador offset-bottom-right&quot;&gt;bottom + right&lt;/span&gt;&lt;strong class=&quot;offset-inset&quot;&gt;inset&lt;/strong&gt;&lt;/div&gt;
 &lt;/div&gt;
 
 &lt;style&gt;
-.area-posicao { position: relative; height: 160px; background: #eaf4fb; }
-.area-posicao span { position: absolute; width: 90px; height: 90px; display: grid; place-items: center; color: white; }
-.camada-um { left: 30px; top: 20px; background: #355070; z-index: 1; }
-.camada-dois { left: 80px; top: 55px; background: #b56576; z-index: 2; }
+.palco-offsets { position: relative; min-height: 260px; border: 3px dashed #355070; background: #f4f7fb; }
+.marcador, .offset-inset { position: absolute; padding: 10px; color: white; }
+.offset-top-left { top: 12px; left: 12px; background: #355070; }
+.offset-top-right { top: 12px; right: 12px; background: #2a9d8f; }
+.offset-bottom-left { bottom: 12px; left: 12px; background: #b56576; }
+.offset-bottom-right { right: 12px; bottom: 12px; background: #8f5d2f; }
+.offset-inset { inset: 105px 95px auto; text-align: center; background: #24313f; }
 &lt;/style&gt;</code></pre>
         </section>
 
         <section class="painel atividade">
             <h2>Atividade prática</h2>
-            <p>Teste top, right, bottom, left e inverta o z-index.</p>
+            <p>Posicione elementos nos quatro cantos usando top, right, bottom e left e adicione um exemplo equivalente com inset.</p>
             <ol>
                 <li>Abra esta página no navegador.</li>
                 <li>Edite o CSS no arquivo ou no DevTools.</li>

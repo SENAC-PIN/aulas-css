@@ -6,16 +6,19 @@
     <title>CSS Icons</title>
     <link rel="stylesheet" href="../assets/curso.css">
     <style>
-.botao {
-  padding: 12px 20px;
+.acao-icone {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
   border: 0;
   border-radius: 6px;
   background: #355070;
   color: white;
   cursor: pointer;
 }
-
-.botao:hover { background: #b56576; }
+.icone { width: 22px; height: 22px; fill: currentColor; }
+.acao-icone:hover { color: #ffe8a3; }
     </style>
 </head>
 <body>
@@ -30,33 +33,36 @@
         <section class="painel">
             <h2>Exemplo</h2>
             <div class="exemplo">
-                <button class="botao">* Continuar</button>
+                <button class="acao-icone"><svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h11l3 3v13H5zM8 4v6h8V4m-8 9h8v5H8z"/></svg><span>Salvar</span></button>
             </div>
         </section>
 
         <section class="painel">
             <h2>Código base</h2>
             <pre><code>&lt;div class=&quot;exemplo&quot;&gt;
-  &lt;button class=&quot;botao&quot;&gt;* Continuar&lt;/button&gt;
+  &lt;button class=&quot;acao-icone&quot;&gt;&lt;svg class=&quot;icone&quot; viewBox=&quot;0 0 24 24&quot; aria-hidden=&quot;true&quot;&gt;&lt;path d=&quot;M5 4h11l3 3v13H5zM8 4v6h8V4m-8 9h8v5H8z&quot;/&gt;&lt;/svg&gt;&lt;span&gt;Salvar&lt;/span&gt;&lt;/button&gt;
 &lt;/div&gt;
 
 &lt;style&gt;
-.botao {
-  padding: 12px 20px;
+.acao-icone {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
   border: 0;
   border-radius: 6px;
   background: #355070;
   color: white;
   cursor: pointer;
 }
-
-.botao:hover { background: #b56576; }
+.icone { width: 22px; height: 22px; fill: currentColor; }
+.acao-icone:hover { color: #ffe8a3; }
 &lt;/style&gt;</code></pre>
         </section>
 
         <section class="painel atividade">
             <h2>Atividade prática</h2>
-            <p>Crie estados hover, active e focus-visible.</p>
+            <p>Crie dois botões com ícones SVG e faça os ícones herdarem a cor com currentColor.</p>
             <ol>
                 <li>Abra esta página no navegador.</li>
                 <li>Edite o CSS no arquivo ou no DevTools.</li>

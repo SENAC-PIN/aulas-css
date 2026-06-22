@@ -6,13 +6,10 @@
     <title>CSS Lists</title>
     <link rel="stylesheet" href="../assets/curso.css">
     <style>
-.etapas { counter-reset: etapa; list-style: none; padding-left: 0; }
-.etapas li::before {
-  counter-increment: etapa;
-  content: "Etapa " counter(etapa) ": ";
-  font-weight: bold;
-  color: #355070;
-}
+.lista-marcadores { list-style-type: square; list-style-position: inside; }
+.lista-marcadores li::marker { color: #b56576; font-size: 1.3em; }
+.lista-etapas { list-style-type: upper-roman; }
+.listas-demo li { margin: 6px 0; padding-left: 6px; }
     </style>
 </head>
 <body>
@@ -27,30 +24,27 @@
         <section class="painel">
             <h2>Exemplo</h2>
             <div class="exemplo">
-                <ol class="etapas"><li>Planejar</li><li>Codar</li><li>Revisar</li></ol>
+                <div class="listas-demo"><ul class="lista-marcadores"><li>HTML semântico</li><li>CSS organizado</li></ul><ol class="lista-etapas"><li>Planejar</li><li>Implementar</li><li>Revisar</li></ol></div>
             </div>
         </section>
 
         <section class="painel">
             <h2>Código base</h2>
             <pre><code>&lt;div class=&quot;exemplo&quot;&gt;
-  &lt;ol class=&quot;etapas&quot;&gt;&lt;li&gt;Planejar&lt;/li&gt;&lt;li&gt;Codar&lt;/li&gt;&lt;li&gt;Revisar&lt;/li&gt;&lt;/ol&gt;
+  &lt;div class=&quot;listas-demo&quot;&gt;&lt;ul class=&quot;lista-marcadores&quot;&gt;&lt;li&gt;HTML semântico&lt;/li&gt;&lt;li&gt;CSS organizado&lt;/li&gt;&lt;/ul&gt;&lt;ol class=&quot;lista-etapas&quot;&gt;&lt;li&gt;Planejar&lt;/li&gt;&lt;li&gt;Implementar&lt;/li&gt;&lt;li&gt;Revisar&lt;/li&gt;&lt;/ol&gt;&lt;/div&gt;
 &lt;/div&gt;
 
 &lt;style&gt;
-.etapas { counter-reset: etapa; list-style: none; padding-left: 0; }
-.etapas li::before {
-  counter-increment: etapa;
-  content: &quot;Etapa &quot; counter(etapa) &quot;: &quot;;
-  font-weight: bold;
-  color: #355070;
-}
+.lista-marcadores { list-style-type: square; list-style-position: inside; }
+.lista-marcadores li::marker { color: #b56576; font-size: 1.3em; }
+.lista-etapas { list-style-type: upper-roman; }
+.listas-demo li { margin: 6px 0; padding-left: 6px; }
 &lt;/style&gt;</code></pre>
         </section>
 
         <section class="painel atividade">
             <h2>Atividade prática</h2>
-            <p>Mude o texto exibido antes de cada item.</p>
+            <p>Personalize uma lista com list-style e ::marker, mantendo os itens legíveis.</p>
             <ol>
                 <li>Abra esta página no navegador.</li>
                 <li>Edite o CSS no arquivo ou no DevTools.</li>

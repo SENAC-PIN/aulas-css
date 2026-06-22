@@ -6,8 +6,10 @@
     <title>Grid Items</title>
     <link rel="stylesheet" href="../assets/curso.css">
     <style>
-.grade { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
-.grade span { padding: 20px; background: #eaf4fb; border: 1px solid #355070; }
+.grid-itens { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 70px; gap: 10px; }
+.grid-itens > div { display: grid; place-items: center; background: #eaf4fb; border: 1px solid #355070; }
+.item-destaque { grid-column: 1 / span 2; }
+.item-alto { grid-row: span 2; }
     </style>
 </head>
 <body>
@@ -22,25 +24,27 @@
         <section class="painel">
             <h2>Exemplo</h2>
             <div class="exemplo">
-                <div class="grade"><span>1</span><span>2</span><span>3</span><span>4</span></div>
+                <div class="grid-itens"><div class="item-destaque">Destaque</div><div>2</div><div>3</div><div class="item-alto">4</div><div>5</div></div>
             </div>
         </section>
 
         <section class="painel">
             <h2>Código base</h2>
             <pre><code>&lt;div class=&quot;exemplo&quot;&gt;
-  &lt;div class=&quot;grade&quot;&gt;&lt;span&gt;1&lt;/span&gt;&lt;span&gt;2&lt;/span&gt;&lt;span&gt;3&lt;/span&gt;&lt;span&gt;4&lt;/span&gt;&lt;/div&gt;
+  &lt;div class=&quot;grid-itens&quot;&gt;&lt;div class=&quot;item-destaque&quot;&gt;Destaque&lt;/div&gt;&lt;div&gt;2&lt;/div&gt;&lt;div&gt;3&lt;/div&gt;&lt;div class=&quot;item-alto&quot;&gt;4&lt;/div&gt;&lt;div&gt;5&lt;/div&gt;&lt;/div&gt;
 &lt;/div&gt;
 
 &lt;style&gt;
-.grade { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
-.grade span { padding: 20px; background: #eaf4fb; border: 1px solid #355070; }
+.grid-itens { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 70px; gap: 10px; }
+.grid-itens &gt; div { display: grid; place-items: center; background: #eaf4fb; border: 1px solid #355070; }
+.item-destaque { grid-column: 1 / span 2; }
+.item-alto { grid-row: span 2; }
 &lt;/style&gt;</code></pre>
         </section>
 
         <section class="painel atividade">
             <h2>Atividade prática</h2>
-            <p>Mude para 3 colunas e faca um item ocupar duas colunas.</p>
+            <p>Posicione itens específicos com grid-column e grid-row.</p>
             <ol>
                 <li>Abra esta página no navegador.</li>
                 <li>Edite o CSS no arquivo ou no DevTools.</li>

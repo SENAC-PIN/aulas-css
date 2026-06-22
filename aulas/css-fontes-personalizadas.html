@@ -6,13 +6,14 @@
     <title>CSS Custom Fonts</title>
     <link rel="stylesheet" href="../assets/curso.css">
     <style>
-.texto {
-  font-family: Georgia, serif;
-  font-size: 24px;
-  text-align: center;
-  text-transform: uppercase;
-  text-shadow: 2px 2px 0 #cdd7e2;
+@font-face {
+  font-family: "FonteCurso";
+  src: local("Georgia");
+  font-style: normal;
+  font-weight: 400;
 }
+.amostra-fonte { padding: 20px; border-left: 6px solid #b56576; background: #f7f2fa; }
+.amostra-fonte h3 { font-family: "FonteCurso", Georgia, serif; font-size: 30px; margin: 0 0 8px; }
     </style>
 </head>
 <body>
@@ -27,30 +28,31 @@
         <section class="painel">
             <h2>Exemplo</h2>
             <div class="exemplo">
-                <p class="texto">Texto alinhado, decorado e transformado com CSS.</p>
+                <div class="amostra-fonte"><h3>Fonte personalizada local</h3><p>O navegador usa a fonte registrada pelo @font-face.</p></div>
             </div>
         </section>
 
         <section class="painel">
             <h2>Código base</h2>
             <pre><code>&lt;div class=&quot;exemplo&quot;&gt;
-  &lt;p class=&quot;texto&quot;&gt;Texto alinhado, decorado e transformado com CSS.&lt;/p&gt;
+  &lt;div class=&quot;amostra-fonte&quot;&gt;&lt;h3&gt;Fonte personalizada local&lt;/h3&gt;&lt;p&gt;O navegador usa a fonte registrada pelo @font-face.&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;
 
 &lt;style&gt;
-.texto {
-  font-family: Georgia, serif;
-  font-size: 24px;
-  text-align: center;
-  text-transform: uppercase;
-  text-shadow: 2px 2px 0 #cdd7e2;
+@font-face {
+  font-family: &quot;FonteCurso&quot;;
+  src: local(&quot;Georgia&quot;);
+  font-style: normal;
+  font-weight: 400;
 }
+.amostra-fonte { padding: 20px; border-left: 6px solid #b56576; background: #f7f2fa; }
+.amostra-fonte h3 { font-family: &quot;FonteCurso&quot;, Georgia, serif; font-size: 30px; margin: 0 0 8px; }
 &lt;/style&gt;</code></pre>
         </section>
 
         <section class="painel atividade">
             <h2>Atividade prática</h2>
-            <p>Teste font-size, line-height, text-align e text-shadow.</p>
+            <p>Registre uma fonte com @font-face e aplique a família personalizada com uma fonte de fallback.</p>
             <ol>
                 <li>Abra esta página no navegador.</li>
                 <li>Edite o CSS no arquivo ou no DevTools.</li>

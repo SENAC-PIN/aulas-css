@@ -6,19 +6,14 @@
     <title>RWD Templates</title>
     <link rel="stylesheet" href="../assets/curso.css">
     <style>
-.grade-modelos {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  justify-content: center;
-}
-.cartao-modelo-rwd {
-  flex: 1 1 120px;
-  padding: 15px;
-  background: #eaf4fb;
-  text-align: center;
-  border: 1px solid #355070;
-  border-radius: 6px;
+.template-rwd { display: grid; grid-template-areas: "topo" "lateral" "conteudo" "rodape"; gap: 10px; }
+.template-rwd > * { padding: 20px; background: #eaf4fb; border: 1px solid #355070; }
+.template-rwd header { grid-area: topo; }
+.template-rwd aside { grid-area: lateral; }
+.template-rwd .conteudo-template { grid-area: conteudo; }
+.template-rwd footer { grid-area: rodape; }
+@media (min-width: 720px) {
+  .template-rwd { grid-template-columns: 220px 1fr; grid-template-areas: "topo topo" "lateral conteudo" "rodape rodape"; }
 }
     </style>
 </head>
@@ -34,45 +29,32 @@
         <section class="painel">
             <h2>Exemplo</h2>
             <div class="exemplo">
-                <div class="grade-modelos">
-                  <div class="cartao-modelo-rwd">Modelo A</div>
-                  <div class="cartao-modelo-rwd">Modelo B</div>
-                  <div class="cartao-modelo-rwd">Modelo C</div>
-                </div>
+                <div class="template-rwd"><header>Logo e menu</header><aside>Categorias</aside><section class="conteudo-template">Conteúdo principal</section><footer>Rodapé</footer></div>
             </div>
         </section>
 
         <section class="painel">
             <h2>Código base</h2>
             <pre><code>&lt;div class=&quot;exemplo&quot;&gt;
-  &lt;div class=&quot;grade-modelos&quot;&gt;
-    &lt;div class=&quot;cartao-modelo-rwd&quot;&gt;Modelo A&lt;/div&gt;
-    &lt;div class=&quot;cartao-modelo-rwd&quot;&gt;Modelo B&lt;/div&gt;
-    &lt;div class=&quot;cartao-modelo-rwd&quot;&gt;Modelo C&lt;/div&gt;
-  &lt;/div&gt;
+  &lt;div class=&quot;template-rwd&quot;&gt;&lt;header&gt;Logo e menu&lt;/header&gt;&lt;aside&gt;Categorias&lt;/aside&gt;&lt;section class=&quot;conteudo-template&quot;&gt;Conteúdo principal&lt;/section&gt;&lt;footer&gt;Rodapé&lt;/footer&gt;&lt;/div&gt;
 &lt;/div&gt;
 
 &lt;style&gt;
-.grade-modelos {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  justify-content: center;
-}
-.cartao-modelo-rwd {
-  flex: 1 1 120px;
-  padding: 15px;
-  background: #eaf4fb;
-  text-align: center;
-  border: 1px solid #355070;
-  border-radius: 6px;
+.template-rwd { display: grid; grid-template-areas: &quot;topo&quot; &quot;lateral&quot; &quot;conteudo&quot; &quot;rodape&quot;; gap: 10px; }
+.template-rwd &gt; * { padding: 20px; background: #eaf4fb; border: 1px solid #355070; }
+.template-rwd header { grid-area: topo; }
+.template-rwd aside { grid-area: lateral; }
+.template-rwd .conteudo-template { grid-area: conteudo; }
+.template-rwd footer { grid-area: rodape; }
+@media (min-width: 720px) {
+  .template-rwd { grid-template-columns: 220px 1fr; grid-template-areas: &quot;topo topo&quot; &quot;lateral conteudo&quot; &quot;rodape rodape&quot;; }
 }
 &lt;/style&gt;</code></pre>
         </section>
 
         <section class="painel atividade">
             <h2>Atividade prática</h2>
-            <p>Altere o breakpoint para 800px e teste a largura da tela.</p>
+            <p>Implemente um template mobile-first com áreas nomeadas que mudem de posição em telas maiores.</p>
             <ol>
                 <li>Abra esta página no navegador.</li>
                 <li>Edite o CSS no arquivo ou no DevTools.</li>

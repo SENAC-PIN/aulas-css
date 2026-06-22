@@ -6,13 +6,15 @@
     <title>Overflow X and Y</title>
     <link rel="stylesheet" href="../assets/curso.css">
     <style>
-.caixa-rolagem {
-  width: 220px;
-  height: 90px;
-  overflow: auto;
+.caixa-eixos {
+  width: 260px;
+  height: 110px;
+  overflow-x: auto;
+  overflow-y: scroll;
+  padding: 10px;
   border: 2px solid #355070;
-  padding: 12px;
 }
+.conteudo-largo { width: 520px; white-space: nowrap; }
     </style>
 </head>
 <body>
@@ -27,30 +29,32 @@
         <section class="painel">
             <h2>Exemplo</h2>
             <div class="exemplo">
-                <div class="caixa-rolagem">Conteudo grande dentro de uma caixa pequena. Role para ler tudo que aparece aqui.</div>
+                <div class="caixa-eixos"><div class="conteudo-largo">Conteúdo largo → coluna 1 | coluna 2 | coluna 3 | coluna 4</div><p>Linha vertical 1</p><p>Linha vertical 2</p><p>Linha vertical 3</p></div>
             </div>
         </section>
 
         <section class="painel">
             <h2>Código base</h2>
             <pre><code>&lt;div class=&quot;exemplo&quot;&gt;
-  &lt;div class=&quot;caixa-rolagem&quot;&gt;Conteudo grande dentro de uma caixa pequena. Role para ler tudo que aparece aqui.&lt;/div&gt;
+  &lt;div class=&quot;caixa-eixos&quot;&gt;&lt;div class=&quot;conteudo-largo&quot;&gt;Conteúdo largo → coluna 1 | coluna 2 | coluna 3 | coluna 4&lt;/div&gt;&lt;p&gt;Linha vertical 1&lt;/p&gt;&lt;p&gt;Linha vertical 2&lt;/p&gt;&lt;p&gt;Linha vertical 3&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;
 
 &lt;style&gt;
-.caixa-rolagem {
-  width: 220px;
-  height: 90px;
-  overflow: auto;
+.caixa-eixos {
+  width: 260px;
+  height: 110px;
+  overflow-x: auto;
+  overflow-y: scroll;
+  padding: 10px;
   border: 2px solid #355070;
-  padding: 12px;
 }
+.conteudo-largo { width: 520px; white-space: nowrap; }
 &lt;/style&gt;</code></pre>
         </section>
 
         <section class="painel atividade">
             <h2>Atividade prática</h2>
-            <p>Teste visible, hidden, scroll, auto, overflow-x e overflow-y.</p>
+            <p>Configure overflow-x e overflow-y com comportamentos diferentes e compare as duas barras de rolagem.</p>
             <ol>
                 <li>Abra esta página no navegador.</li>
                 <li>Edite o CSS no arquivo ou no DevTools.</li>
