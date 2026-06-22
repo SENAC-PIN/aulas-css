@@ -41,6 +41,31 @@
             margin-top: 6px;
         }
 
+        .codigo-referencia {
+            margin: 20px 0;
+            padding: 16px;
+            border: 1px solid #cdd7e2;
+            border-radius: 6px;
+            background: #ffffff;
+        }
+
+        .codigo-referencia h2 {
+            margin-top: 0;
+        }
+
+        .codigo-referencia pre {
+            overflow: auto;
+            margin: 10px 0 0;
+            padding: 16px;
+            border-radius: 6px;
+            background: #1f2933;
+            color: #edf2f7;
+        }
+
+        .codigo-referencia code {
+            font-family: Consolas, Monaco, monospace;
+        }
+
         .area-do-aluno {
             min-height: 260px;
             padding: 20px;
@@ -66,8 +91,26 @@
     <main>
         <section class="orientacao">
             <h1>Exercício 099: SASS Tutorial</h1>
-            <p><strong>Objetivo:</strong> Crie um mixin SASS com parâmetro, use @include e escreva o CSS que seria gerado.</p>
+            <p><strong>Objetivo:</strong> Compreender como recursos do SASS são escritos e transformados em CSS executável pelo navegador.</p>
             <p><strong>Proposta:</strong> Crie um mixin SASS com parâmetro, use @include e escreva o CSS que seria gerado.</p>
+
+            <div class="codigo-referencia">
+                <h2>Código base de referência</h2>
+                <p>Observe como o HTML e as propriedades do tema são usados. Depois crie sua própria solução na área do estudante.</p>
+                <pre><code>/* GUIA DA ATIVIDADE: Crie um mixin SASS com parâmetro, use @include e escreva o CSS que seria gerado. Localize no exemplo a parte relacionada ao tema e altere um valor por vez. Salve e compare o antes e o depois. */
+// componentes.scss
+@mixin botao($cor) {
+  padding: 12px 18px;
+  background: $cor;
+}
+.botao-ok { @include botao(#2a9d8f); }
+
+/* CSS compilado */
+.botao-ok {
+  padding: 12px 18px;
+  background: #2a9d8f;
+}</code></pre>
+            </div>
 
             <h2>O que fazer</h2>
             <ol>

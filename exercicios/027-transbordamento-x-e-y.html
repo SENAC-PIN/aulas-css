@@ -41,6 +41,31 @@
             margin-top: 6px;
         }
 
+        .codigo-referencia {
+            margin: 20px 0;
+            padding: 16px;
+            border: 1px solid #cdd7e2;
+            border-radius: 6px;
+            background: #ffffff;
+        }
+
+        .codigo-referencia h2 {
+            margin-top: 0;
+        }
+
+        .codigo-referencia pre {
+            overflow: auto;
+            margin: 10px 0 0;
+            padding: 16px;
+            border-radius: 6px;
+            background: #1f2933;
+            color: #edf2f7;
+        }
+
+        .codigo-referencia code {
+            font-family: Consolas, Monaco, monospace;
+        }
+
         .area-do-aluno {
             min-height: 260px;
             padding: 20px;
@@ -62,8 +87,29 @@
     <main>
         <section class="orientacao">
             <h1>Exercício 027: Overflow X and Y</h1>
-            <p><strong>Objetivo:</strong> Configure overflow-x e overflow-y com comportamentos diferentes e compare as duas barras de rolagem.</p>
+            <p><strong>Objetivo:</strong> Compreender como controlar separadamente o conteúdo que ultrapassa os limites de uma caixa.</p>
             <p><strong>Proposta:</strong> Configure overflow-x e overflow-y com comportamentos diferentes e compare as duas barras de rolagem.</p>
+
+            <div class="codigo-referencia">
+                <h2>Código base de referência</h2>
+                <p>Observe como o HTML e as propriedades do tema são usados. Depois crie sua própria solução na área do estudante.</p>
+                <pre><code>&lt;div class=&quot;exemplo&quot;&gt;
+  &lt;div class=&quot;caixa-eixos&quot;&gt;&lt;div class=&quot;conteudo-largo&quot;&gt;Conteúdo largo → coluna 1 | coluna 2 | coluna 3 | coluna 4&lt;/div&gt;&lt;p&gt;Linha vertical 1&lt;/p&gt;&lt;p&gt;Linha vertical 2&lt;/p&gt;&lt;p&gt;Linha vertical 3&lt;/p&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+/* GUIA DA ATIVIDADE: Configure overflow-x e overflow-y com comportamentos diferentes e compare as duas barras de rolagem. Comece pela declaração overflow-x indicada abaixo. Salve e compare o antes e o depois. */
+.caixa-eixos {
+  width: 260px;
+  height: 110px;
+  overflow-x: auto; /* altere esta declaração e observe o efeito */
+  overflow-y: scroll;
+  padding: 10px;
+  border: 2px solid #355070;
+}
+.conteudo-largo { width: 520px; white-space: nowrap; }
+&lt;/style&gt;</code></pre>
+            </div>
 
             <h2>O que fazer</h2>
             <ol>

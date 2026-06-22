@@ -41,6 +41,31 @@
             margin-top: 6px;
         }
 
+        .codigo-referencia {
+            margin: 20px 0;
+            padding: 16px;
+            border: 1px solid #cdd7e2;
+            border-radius: 6px;
+            background: #ffffff;
+        }
+
+        .codigo-referencia h2 {
+            margin-top: 0;
+        }
+
+        .codigo-referencia pre {
+            overflow: auto;
+            margin: 10px 0 0;
+            padding: 16px;
+            border-radius: 6px;
+            background: #1f2933;
+            color: #edf2f7;
+        }
+
+        .codigo-referencia code {
+            font-family: Consolas, Monaco, monospace;
+        }
+
         .area-do-aluno {
             min-height: 260px;
             padding: 20px;
@@ -64,6 +89,33 @@
             <h1>Exercício 058: CSS Animations</h1>
             <p><strong>Objetivo:</strong> Criar uma mudança visual controlada com CSS.</p>
             <p><strong>Proposta:</strong> Altere o exemplo para testar outro valor ligado a CSS Animations.</p>
+
+            <div class="codigo-referencia">
+                <h2>Código base de referência</h2>
+                <p>Observe como o HTML e as propriedades do tema são usados. Depois crie sua própria solução na área do estudante.</p>
+                <pre><code>&lt;div class=&quot;exemplo&quot;&gt;
+  &lt;div class=&quot;alerta-pulsante&quot;&gt;Alerta Ativo&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+/* GUIA DA ATIVIDADE: Altere o exemplo para testar outro valor ligado a CSS Animations. Comece pela declaração animation indicada abaixo. Salve e compare o antes e o depois. */
+.alerta-pulsante {
+  width: 120px;
+  padding: 12px;
+  background: #e63946;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 50px;
+  animation: pulsar 2s infinite ease-in-out; /* altere esta declaração e observe o efeito */
+}
+@keyframes pulsar {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(230, 57, 70, 0.7); }
+  70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(230, 57, 70, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(230, 57, 70, 0); }
+}
+&lt;/style&gt;</code></pre>
+            </div>
 
             <h2>O que fazer</h2>
             <ol>

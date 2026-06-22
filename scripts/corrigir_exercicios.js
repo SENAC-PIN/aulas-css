@@ -43,6 +43,10 @@ function criterion(id, label, hint, test) {
 
 const rubricByName = [
   {
+    match: /001-css-sintaxe/,
+    criteria: [criterion("font-size-reference", "Alterou o tamanho do texto", "Use font-size com uma unidade como px, rem ou em.", ({ css }) => /\bfont-size\s*:\s*\d*\.?\d+(?:px|rem|em|%|vw)\b/i.test(css))],
+  },
+  {
     match: /icones/,
     criteria: [
       criterion("icon-element", "Criou um ícone real", "Use SVG, uma fonte de ícones ou uma técnica de background/mask.", ({ html, css }) => /<svg\b|<i\b[^>]*class=["'][^"']*icon/i.test(html) || /\b(?:background-image|mask-image|-webkit-mask-image)\s*:/i.test(css)),

@@ -41,6 +41,31 @@
             margin-top: 6px;
         }
 
+        .codigo-referencia {
+            margin: 20px 0;
+            padding: 16px;
+            border: 1px solid #cdd7e2;
+            border-radius: 6px;
+            background: #ffffff;
+        }
+
+        .codigo-referencia h2 {
+            margin-top: 0;
+        }
+
+        .codigo-referencia pre {
+            overflow: auto;
+            margin: 10px 0 0;
+            padding: 16px;
+            border-radius: 6px;
+            background: #1f2933;
+            color: #edf2f7;
+        }
+
+        .codigo-referencia code {
+            font-family: Consolas, Monaco, monospace;
+        }
+
         .area-do-aluno {
             min-height: 260px;
             padding: 20px;
@@ -64,6 +89,41 @@
             <h1>Exercício 038: CSS Image Gallery</h1>
             <p><strong>Objetivo:</strong> Praticar apresentação e ajuste visual de imagens com CSS.</p>
             <p><strong>Proposta:</strong> Adicione novas imagens e teste diferentes tamanhos de coluna na galeria.</p>
+
+            <div class="codigo-referencia">
+                <h2>Código base de referência</h2>
+                <p>Observe como o HTML e as propriedades do tema são usados. Depois crie sua própria solução na área do estudante.</p>
+                <pre><code>&lt;div class=&quot;exemplo&quot;&gt;
+  &lt;div class=&quot;galeria-imagens&quot;&gt;&lt;figure class=&quot;item-galeria&quot;&gt;&lt;img class=&quot;foto-galeria&quot; src=&quot;../assets/galeria-projeto-1.svg&quot; alt=&quot;Cartaz colorido do projeto 1&quot;&gt;&lt;figcaption&gt;Projeto 1&lt;/figcaption&gt;&lt;/figure&gt;&lt;figure class=&quot;item-galeria&quot;&gt;&lt;img class=&quot;foto-galeria&quot; src=&quot;../assets/galeria-projeto-2.svg&quot; alt=&quot;Cartaz colorido do projeto 2&quot;&gt;&lt;figcaption&gt;Projeto 2&lt;/figcaption&gt;&lt;/figure&gt;&lt;figure class=&quot;item-galeria&quot;&gt;&lt;img class=&quot;foto-galeria&quot; src=&quot;../assets/galeria-projeto-3.svg&quot; alt=&quot;Cartaz colorido do projeto 3&quot;&gt;&lt;figcaption&gt;Projeto 3&lt;/figcaption&gt;&lt;/figure&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+/* GUIA DA ATIVIDADE: Adicione novas imagens e teste diferentes tamanhos de coluna na galeria. Comece pela declaração grid-template-columns indicada abaixo. Salve e compare o antes e o depois. */
+.galeria-imagens {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* altere esta declaração e observe o efeito */
+  gap: 14px;
+}
+.item-galeria {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid #d7e0ea;
+  border-radius: 8px;
+  background: #ffffff;
+}
+.foto-galeria {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+.item-galeria figcaption {
+  margin: 0;
+  padding: 10px;
+  font-weight: bold;
+}
+&lt;/style&gt;</code></pre>
+            </div>
 
             <h2>O que fazer</h2>
             <ol>

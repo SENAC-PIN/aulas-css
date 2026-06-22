@@ -38,9 +38,10 @@
 &lt;/div&gt;
 
 &lt;style&gt;
+/* GUIA DA ATIVIDADE: Mude o texto exibido antes de cada item. Comece pela declaração counter-increment indicada abaixo. Salve e compare o antes e o depois. */
 .etapas { counter-reset: etapa; list-style: none; padding-left: 0; }
 .etapas li::before {
-  counter-increment: etapa;
+  counter-increment: etapa; /* altere esta declaração e observe o efeito */
   content: &quot;Etapa &quot; counter(etapa) &quot;: &quot;;
   font-weight: bold;
   color: #355070;

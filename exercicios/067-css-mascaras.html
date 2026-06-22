@@ -41,6 +41,31 @@
             margin-top: 6px;
         }
 
+        .codigo-referencia {
+            margin: 20px 0;
+            padding: 16px;
+            border: 1px solid #cdd7e2;
+            border-radius: 6px;
+            background: #ffffff;
+        }
+
+        .codigo-referencia h2 {
+            margin-top: 0;
+        }
+
+        .codigo-referencia pre {
+            overflow: auto;
+            margin: 10px 0 0;
+            padding: 16px;
+            border-radius: 6px;
+            background: #1f2933;
+            color: #edf2f7;
+        }
+
+        .codigo-referencia code {
+            font-family: Consolas, Monaco, monospace;
+        }
+
         .area-do-aluno {
             min-height: 260px;
             padding: 20px;
@@ -62,8 +87,31 @@
     <main>
         <section class="orientacao">
             <h1>Exercício 067: CSS Masking</h1>
-            <p><strong>Objetivo:</strong> Aplique uma máscara com mask-image e mantenha o prefixo -webkit- para compatibilidade.</p>
+            <p><strong>Objetivo:</strong> Compreender como CSS Masking controla a apresentação e o comportamento das imagens.</p>
             <p><strong>Proposta:</strong> Aplique uma máscara com mask-image e mantenha o prefixo -webkit- para compatibilidade.</p>
+
+            <div class="codigo-referencia">
+                <h2>Código base de referência</h2>
+                <p>Observe como o HTML e as propriedades do tema são usados. Depois crie sua própria solução na área do estudante.</p>
+                <pre><code>&lt;div class=&quot;exemplo&quot;&gt;
+  &lt;img class=&quot;imagem-mascarada&quot; src=&quot;../assets/imagem-exemplo.svg&quot; alt=&quot;Imagem revelada por uma máscara radial&quot;&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+/* GUIA DA ATIVIDADE: Aplique uma máscara com mask-image e mantenha o prefixo -webkit- para compatibilidade. Comece pela declaração mask-image indicada abaixo. Salve e compare o antes e o depois. */
+.imagem-mascarada {
+  width: 320px;
+  max-width: 100%;
+  display: block;
+  -webkit-mask-image: radial-gradient(circle, #000 48%, transparent 70%); /* altere esta declaração e observe o efeito */
+  mask-image: radial-gradient(circle, #000 48%, transparent 70%);
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+&lt;/style&gt;</code></pre>
+            </div>
 
             <h2>O que fazer</h2>
             <ol>

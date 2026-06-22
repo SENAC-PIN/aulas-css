@@ -41,6 +41,31 @@
             margin-top: 6px;
         }
 
+        .codigo-referencia {
+            margin: 20px 0;
+            padding: 16px;
+            border: 1px solid #cdd7e2;
+            border-radius: 6px;
+            background: #ffffff;
+        }
+
+        .codigo-referencia h2 {
+            margin-top: 0;
+        }
+
+        .codigo-referencia pre {
+            overflow: auto;
+            margin: 10px 0 0;
+            padding: 16px;
+            border-radius: 6px;
+            background: #1f2933;
+            color: #edf2f7;
+        }
+
+        .codigo-referencia code {
+            font-family: Consolas, Monaco, monospace;
+        }
+
         .area-do-aluno {
             min-height: 260px;
             padding: 20px;
@@ -62,8 +87,33 @@
     <main>
         <section class="orientacao">
             <h1>Exercício 089: RWD Viewport</h1>
-            <p><strong>Objetivo:</strong> Compare unidades vw e rem e limite o tamanho com clamp() para manter a leitura confortável.</p>
+            <p><strong>Objetivo:</strong> Compreender como RWD Viewport mantém o conteúdo utilizável em diferentes tamanhos de tela.</p>
             <p><strong>Proposta:</strong> Compare unidades vw e rem e limite o tamanho com clamp() para manter a leitura confortável.</p>
+
+            <div class="codigo-referencia">
+                <h2>Código base de referência</h2>
+                <p>Observe como o HTML e as propriedades do tema são usados. Depois crie sua própria solução na área do estudante.</p>
+                <pre><code>&lt;div class=&quot;exemplo&quot;&gt;
+  &lt;div class=&quot;conteiner-viewport&quot;&gt;
+&lt;p class=&quot;texto-responsivo-vw&quot;&gt;Tamanho de texto responsivo proporcional ao Viewport (vw).&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+/* GUIA DA ATIVIDADE: Compare unidades vw e rem e limite o tamanho com clamp() para manter a leitura confortável. Comece pela declaração font-size indicada abaixo. Salve e compare o antes e o depois. */
+.conteiner-viewport {
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 6px;
+  text-align: center;
+}
+.texto-responsivo-vw {
+  font-size: 3.5vw; /* altere esta declaração e observe o efeito */
+  color: #355070;
+  font-weight: bold;
+}
+&lt;/style&gt;</code></pre>
+            </div>
 
             <h2>O que fazer</h2>
             <ol>

@@ -41,6 +41,31 @@
             margin-top: 6px;
         }
 
+        .codigo-referencia {
+            margin: 20px 0;
+            padding: 16px;
+            border: 1px solid #cdd7e2;
+            border-radius: 6px;
+            background: #ffffff;
+        }
+
+        .codigo-referencia h2 {
+            margin-top: 0;
+        }
+
+        .codigo-referencia pre {
+            overflow: auto;
+            margin: 10px 0 0;
+            padding: 16px;
+            border-radius: 6px;
+            background: #1f2933;
+            color: #edf2f7;
+        }
+
+        .codigo-referencia code {
+            font-family: Consolas, Monaco, monospace;
+        }
+
         .area-do-aluno {
             min-height: 260px;
             padding: 20px;
@@ -62,8 +87,24 @@
     <main>
         <section class="orientacao">
             <h1>Exercício 084: Grid Items</h1>
-            <p><strong>Objetivo:</strong> Posicione itens específicos com grid-column e grid-row.</p>
+            <p><strong>Objetivo:</strong> Compreender como Grid Items controla linhas, colunas e o posicionamento dos itens.</p>
             <p><strong>Proposta:</strong> Posicione itens específicos com grid-column e grid-row.</p>
+
+            <div class="codigo-referencia">
+                <h2>Código base de referência</h2>
+                <p>Observe como o HTML e as propriedades do tema são usados. Depois crie sua própria solução na área do estudante.</p>
+                <pre><code>&lt;div class=&quot;exemplo&quot;&gt;
+  &lt;div class=&quot;grid-itens&quot;&gt;&lt;div class=&quot;item-destaque&quot;&gt;Destaque&lt;/div&gt;&lt;div&gt;2&lt;/div&gt;&lt;div&gt;3&lt;/div&gt;&lt;div class=&quot;item-alto&quot;&gt;4&lt;/div&gt;&lt;div&gt;5&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+/* GUIA DA ATIVIDADE: Posicione itens específicos com grid-column e grid-row. Comece pela declaração grid-column indicada abaixo. Salve e compare o antes e o depois. */
+.grid-itens { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 70px; gap: 10px; }
+.grid-itens &gt; div { display: grid; place-items: center; background: #eaf4fb; border: 1px solid #355070; }
+.item-destaque { grid-column: 1 / span 2; /* altere esta declaração e observe o efeito */ }
+.item-alto { grid-row: span 2; }
+&lt;/style&gt;</code></pre>
+            </div>
 
             <h2>O que fazer</h2>
             <ol>

@@ -47,9 +47,10 @@
 &lt;/div&gt;
 
 &lt;style&gt;
+/* GUIA DA ATIVIDADE: Crie camadas sobrepostas e um contexto de empilhamento aninhado para mostrar por que um filho com z-index alto não escapa do contexto do pai. Comece pela declaração z-index indicada abaixo. Salve e compare o antes e o depois. */
 .palco-camadas { position: relative; isolation: isolate; min-height: 230px; background: #eef3f8; border: 2px solid #355070; }
 .camada, .contexto-local { position: absolute; width: 125px; height: 95px; display: grid; place-items: center; color: white; font-weight: bold; }
-.camada-base { top: 25px; left: 25px; z-index: 1; background: #355070; }
+.camada-base { top: 25px; /* altere esta declaração e observe o efeito */ left: 25px; z-index: 1; background: #355070; }
 .camada-meio { top: 60px; left: 85px; z-index: 2; background: #2a9d8f; }
 .contexto-local { top: 95px; left: 145px; z-index: 3; transform: rotate(-2deg); background: #b56576; }
 .contexto-local span { position: relative; z-index: 999; }

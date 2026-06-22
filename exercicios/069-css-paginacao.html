@@ -41,6 +41,31 @@
             margin-top: 6px;
         }
 
+        .codigo-referencia {
+            margin: 20px 0;
+            padding: 16px;
+            border: 1px solid #cdd7e2;
+            border-radius: 6px;
+            background: #ffffff;
+        }
+
+        .codigo-referencia h2 {
+            margin-top: 0;
+        }
+
+        .codigo-referencia pre {
+            overflow: auto;
+            margin: 10px 0 0;
+            padding: 16px;
+            border-radius: 6px;
+            background: #1f2933;
+            color: #edf2f7;
+        }
+
+        .codigo-referencia code {
+            font-family: Consolas, Monaco, monospace;
+        }
+
         .area-do-aluno {
             min-height: 260px;
             padding: 20px;
@@ -62,8 +87,24 @@
     <main>
         <section class="orientacao">
             <h1>Exercício 069: CSS Pagination</h1>
-            <p><strong>Objetivo:</strong> Crie uma paginação numerada e destaque a página atual com aria-current.</p>
+            <p><strong>Objetivo:</strong> Compreender a estrutura visual e acessível de uma navegação paginada.</p>
             <p><strong>Proposta:</strong> Crie uma paginação numerada e destaque a página atual com aria-current.</p>
+
+            <div class="codigo-referencia">
+                <h2>Código base de referência</h2>
+                <p>Observe como o HTML e as propriedades do tema são usados. Depois crie sua própria solução na área do estudante.</p>
+                <pre><code>&lt;div class=&quot;exemplo&quot;&gt;
+  &lt;nav class=&quot;paginacao&quot; aria-label=&quot;Paginação&quot;&gt;&lt;a href=&quot;#&quot; aria-label=&quot;Página anterior&quot;&gt;‹&lt;/a&gt;&lt;a href=&quot;#&quot;&gt;1&lt;/a&gt;&lt;a href=&quot;#&quot; aria-current=&quot;page&quot;&gt;2&lt;/a&gt;&lt;a href=&quot;#&quot;&gt;3&lt;/a&gt;&lt;a href=&quot;#&quot; aria-label=&quot;Próxima página&quot;&gt;›&lt;/a&gt;&lt;/nav&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+/* GUIA DA ATIVIDADE: Crie uma paginação numerada e destaque a página atual com aria-current. Comece pela declaração background indicada abaixo. Salve e compare o antes e o depois. */
+.paginacao { display: flex; gap: 6px; align-items: center; }
+.paginacao a { min-width: 38px; padding: 8px; border: 1px solid #355070; border-radius: 5px; text-align: center; text-decoration: none; }
+.paginacao a:hover, .paginacao a:focus-visible { background: #eaf4fb; /* altere esta declaração e observe o efeito */ }
+.paginacao a[aria-current=&quot;page&quot;] { background: #355070; color: white; font-weight: bold; }
+&lt;/style&gt;</code></pre>
+            </div>
 
             <h2>O que fazer</h2>
             <ol>

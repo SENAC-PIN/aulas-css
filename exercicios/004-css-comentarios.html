@@ -41,6 +41,31 @@
             margin-top: 6px;
         }
 
+        .codigo-referencia {
+            margin: 20px 0;
+            padding: 16px;
+            border: 1px solid #cdd7e2;
+            border-radius: 6px;
+            background: #ffffff;
+        }
+
+        .codigo-referencia h2 {
+            margin-top: 0;
+        }
+
+        .codigo-referencia pre {
+            overflow: auto;
+            margin: 10px 0 0;
+            padding: 16px;
+            border-radius: 6px;
+            background: #1f2933;
+            color: #edf2f7;
+        }
+
+        .codigo-referencia code {
+            font-family: Consolas, Monaco, monospace;
+        }
+
         .area-do-aluno {
             min-height: 260px;
             padding: 20px;
@@ -64,6 +89,31 @@
             <h1>Exercício 004: CSS Comments</h1>
             <p><strong>Objetivo:</strong> Praticar CSS Comments alterando o HTML e o CSS desta página.</p>
             <p><strong>Proposta:</strong> Adicione um comentario explicando a cor escolhida.</p>
+
+            <div class="codigo-referencia">
+                <h2>Código base de referência</h2>
+                <p>Observe como o HTML e as propriedades do tema são usados. Depois crie sua própria solução na área do estudante.</p>
+                <pre><code>&lt;div class=&quot;exemplo&quot;&gt;
+  &lt;div class=&quot;caixa-comentario&quot;&gt;Passe o mouse para ver a cor mudar&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+/* GUIA DA ATIVIDADE: Adicione um comentario explicando a cor escolhida. Localize no exemplo a parte relacionada ao tema e altere um valor por vez. Salve e compare o antes e o depois. */
+/* Define o design base da caixa de exemplo */
+.caixa-comentario {
+  padding: 20px;
+  background-color: #457b9d;
+  color: white;
+  border-radius: 6px;
+  transition: background-color 0.3s;
+  text-align: center;
+}
+/* Altera a cor de fundo durante o hover do usuário */
+.caixa-comentario:hover {
+  background-color: #1d3557;
+}
+&lt;/style&gt;</code></pre>
+            </div>
 
             <h2>O que fazer</h2>
             <ol>

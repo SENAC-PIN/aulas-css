@@ -41,6 +41,31 @@
             margin-top: 6px;
         }
 
+        .codigo-referencia {
+            margin: 20px 0;
+            padding: 16px;
+            border: 1px solid #cdd7e2;
+            border-radius: 6px;
+            background: #ffffff;
+        }
+
+        .codigo-referencia h2 {
+            margin-top: 0;
+        }
+
+        .codigo-referencia pre {
+            overflow: auto;
+            margin: 10px 0 0;
+            padding: 16px;
+            border-radius: 6px;
+            background: #1f2933;
+            color: #edf2f7;
+        }
+
+        .codigo-referencia code {
+            font-family: Consolas, Monaco, monospace;
+        }
+
         .area-do-aluno {
             min-height: 260px;
             padding: 20px;
@@ -62,8 +87,37 @@
     <main>
         <section class="orientacao">
             <h1>Exercício 087: CSS RESPONSIVE</h1>
-            <p><strong>Objetivo:</strong> Altere flex-basis e flex-wrap para observar como os cards se reorganizam em larguras diferentes.</p>
+            <p><strong>Objetivo:</strong> Compreender como CSS RESPONSIVE mantém o conteúdo utilizável em diferentes tamanhos de tela.</p>
             <p><strong>Proposta:</strong> Altere flex-basis e flex-wrap para observar como os cards se reorganizam em larguras diferentes.</p>
+
+            <div class="codigo-referencia">
+                <h2>Código base de referência</h2>
+                <p>Observe como o HTML e as propriedades do tema são usados. Depois crie sua própria solução na área do estudante.</p>
+                <pre><code>&lt;div class=&quot;exemplo&quot;&gt;
+  &lt;div class=&quot;grid-responsivo&quot;&gt;
+&lt;div class=&quot;bloco-card&quot;&gt;Card 1&lt;/div&gt;
+&lt;div class=&quot;bloco-card&quot;&gt;Card 2&lt;/div&gt;
+&lt;div class=&quot;bloco-card&quot;&gt;Card 3&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+/* GUIA DA ATIVIDADE: Altere flex-basis e flex-wrap para observar como os cards se reorganizam em larguras diferentes. Comece pela declaração flex-wrap indicada abaixo. Salve e compare o antes e o depois. */
+.grid-responsivo {
+  display: flex;
+  flex-wrap: wrap; /* altere esta declaração e observe o efeito */
+  gap: 12px;
+}
+.bloco-card {
+  flex: 1 1 150px;
+  padding: 20px;
+  background: #eaf4fb;
+  text-align: center;
+  border: 1px solid #355070;
+  border-radius: 6px;
+}
+&lt;/style&gt;</code></pre>
+            </div>
 
             <h2>O que fazer</h2>
             <ol>

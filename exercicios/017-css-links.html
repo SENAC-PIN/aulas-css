@@ -41,6 +41,31 @@
             margin-top: 6px;
         }
 
+        .codigo-referencia {
+            margin: 20px 0;
+            padding: 16px;
+            border: 1px solid #cdd7e2;
+            border-radius: 6px;
+            background: #ffffff;
+        }
+
+        .codigo-referencia h2 {
+            margin-top: 0;
+        }
+
+        .codigo-referencia pre {
+            overflow: auto;
+            margin: 10px 0 0;
+            padding: 16px;
+            border-radius: 6px;
+            background: #1f2933;
+            color: #edf2f7;
+        }
+
+        .codigo-referencia code {
+            font-family: Consolas, Monaco, monospace;
+        }
+
         .area-do-aluno {
             min-height: 260px;
             padding: 20px;
@@ -64,6 +89,21 @@
             <h1>Exercício 017: CSS Links</h1>
             <p><strong>Objetivo:</strong> Praticar CSS Links alterando o HTML e o CSS desta página.</p>
             <p><strong>Proposta:</strong> Adicione estilos para hover, active e página atual.</p>
+
+            <div class="codigo-referencia">
+                <h2>Código base de referência</h2>
+                <p>Observe como o HTML e as propriedades do tema são usados. Depois crie sua própria solução na área do estudante.</p>
+                <pre><code>&lt;div class=&quot;exemplo&quot;&gt;
+  &lt;nav class=&quot;navegacao&quot;&gt;&lt;a href=&quot;#&quot;&gt;Inicio&lt;/a&gt;&lt;a href=&quot;#&quot;&gt;Aulas&lt;/a&gt;&lt;a href=&quot;#&quot;&gt;Contato&lt;/a&gt;&lt;/nav&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+/* GUIA DA ATIVIDADE: Adicione estilos para hover, active e página atual. Comece pela declaração text-decoration indicada abaixo. Salve e compare o antes e o depois. */
+.navegacao { display: flex; gap: 8px; background: #355070; padding: 10px; }
+.navegacao a { color: white; /* altere esta declaração e observe o efeito */ text-decoration: none; padding: 8px 12px; }
+.navegacao a:hover { background: #b56576; }
+&lt;/style&gt;</code></pre>
+            </div>
 
             <h2>O que fazer</h2>
             <ol>

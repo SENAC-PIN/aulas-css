@@ -41,6 +41,31 @@
             margin-top: 6px;
         }
 
+        .codigo-referencia {
+            margin: 20px 0;
+            padding: 16px;
+            border: 1px solid #cdd7e2;
+            border-radius: 6px;
+            background: #ffffff;
+        }
+
+        .codigo-referencia h2 {
+            margin-top: 0;
+        }
+
+        .codigo-referencia pre {
+            overflow: auto;
+            margin: 10px 0 0;
+            padding: 16px;
+            border-radius: 6px;
+            background: #1f2933;
+            color: #edf2f7;
+        }
+
+        .codigo-referencia code {
+            font-family: Consolas, Monaco, monospace;
+        }
+
         .area-do-aluno {
             min-height: 260px;
             padding: 20px;
@@ -62,8 +87,28 @@
     <main>
         <section class="orientacao">
             <h1>Exercício 090: RWD Grid View</h1>
-            <p><strong>Objetivo:</strong> Comece com uma coluna e transforme o layout em uma grade de 12 colunas em telas maiores.</p>
+            <p><strong>Objetivo:</strong> Compreender como RWD Grid View controla linhas, colunas e o posicionamento dos itens.</p>
             <p><strong>Proposta:</strong> Comece com uma coluna e transforme o layout em uma grade de 12 colunas em telas maiores.</p>
+
+            <div class="codigo-referencia">
+                <h2>Código base de referência</h2>
+                <p>Observe como o HTML e as propriedades do tema são usados. Depois crie sua própria solução na área do estudante.</p>
+                <pre><code>&lt;div class=&quot;exemplo&quot;&gt;
+  &lt;div class=&quot;grade-rwd&quot;&gt;&lt;header&gt;Topo&lt;/header&gt;&lt;section class=&quot;conteudo-rwd&quot;&gt;Conteúdo&lt;/section&gt;&lt;aside&gt;Lateral&lt;/aside&gt;&lt;footer&gt;Rodapé&lt;/footer&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+/* GUIA DA ATIVIDADE: Comece com uma coluna e transforme o layout em uma grade de 12 colunas em telas maiores. Comece pela declaração grid-template-columns indicada abaixo. Salve e compare o antes e o depois. */
+.grade-rwd { display: grid; /* altere esta declaração e observe o efeito */ grid-template-columns: 1fr; gap: 10px; }
+.grade-rwd &gt; * { padding: 18px; background: #eaf4fb; border: 1px solid #355070; }
+@media (min-width: 700px) {
+  .grade-rwd { grid-template-columns: repeat(12, 1fr); }
+  .grade-rwd header, .grade-rwd footer { grid-column: 1 / -1; }
+  .grade-rwd .conteudo-rwd { grid-column: span 8; }
+  .grade-rwd aside { grid-column: span 4; }
+}
+&lt;/style&gt;</code></pre>
+            </div>
 
             <h2>O que fazer</h2>
             <ol>

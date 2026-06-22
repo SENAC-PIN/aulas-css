@@ -41,6 +41,31 @@
             margin-top: 6px;
         }
 
+        .codigo-referencia {
+            margin: 20px 0;
+            padding: 16px;
+            border: 1px solid #cdd7e2;
+            border-radius: 6px;
+            background: #ffffff;
+        }
+
+        .codigo-referencia h2 {
+            margin-top: 0;
+        }
+
+        .codigo-referencia pre {
+            overflow: auto;
+            margin: 10px 0 0;
+            padding: 16px;
+            border-radius: 6px;
+            background: #1f2933;
+            color: #edf2f7;
+        }
+
+        .codigo-referencia code {
+            font-family: Consolas, Monaco, monospace;
+        }
+
         .area-do-aluno {
             min-height: 260px;
             padding: 20px;
@@ -62,8 +87,25 @@
     <main>
         <section class="orientacao">
             <h1>Exercício 085: Grid 12-column Layout</h1>
-            <p><strong>Objetivo:</strong> Monte um layout de 12 colunas com regiões que ocupem 12, 8 e 4 colunas.</p>
+            <p><strong>Objetivo:</strong> Compreender como Grid 12-column Layout controla linhas, colunas e o posicionamento dos itens.</p>
             <p><strong>Proposta:</strong> Monte um layout de 12 colunas com regiões que ocupem 12, 8 e 4 colunas.</p>
+
+            <div class="codigo-referencia">
+                <h2>Código base de referência</h2>
+                <p>Observe como o HTML e as propriedades do tema são usados. Depois crie sua própria solução na área do estudante.</p>
+                <pre><code>&lt;div class=&quot;exemplo&quot;&gt;
+  &lt;div class=&quot;grade-12&quot;&gt;&lt;header&gt;12 colunas&lt;/header&gt;&lt;section class=&quot;conteudo-grade&quot;&gt;8 colunas&lt;/section&gt;&lt;aside&gt;4 colunas&lt;/aside&gt;&lt;footer&gt;12 colunas&lt;/footer&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+/* GUIA DA ATIVIDADE: Monte um layout de 12 colunas com regiões que ocupem 12, 8 e 4 colunas. Comece pela declaração grid-template-columns indicada abaixo. Salve e compare o antes e o depois. */
+.grade-12 { display: grid; /* altere esta declaração e observe o efeito */ grid-template-columns: repeat(12, 1fr); gap: 10px; }
+.grade-12 &gt; * { padding: 18px; background: #eaf4fb; border: 1px solid #355070; }
+.grade-12 header, .grade-12 footer { grid-column: span 12; }
+.grade-12 .conteudo-grade { grid-column: span 8; }
+.grade-12 aside { grid-column: span 4; }
+&lt;/style&gt;</code></pre>
+            </div>
 
             <h2>O que fazer</h2>
             <ol>

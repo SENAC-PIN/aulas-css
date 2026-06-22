@@ -41,6 +41,31 @@
             margin-top: 6px;
         }
 
+        .codigo-referencia {
+            margin: 20px 0;
+            padding: 16px;
+            border: 1px solid #cdd7e2;
+            border-radius: 6px;
+            background: #ffffff;
+        }
+
+        .codigo-referencia h2 {
+            margin-top: 0;
+        }
+
+        .codigo-referencia pre {
+            overflow: auto;
+            margin: 10px 0 0;
+            padding: 16px;
+            border-radius: 6px;
+            background: #1f2933;
+            color: #edf2f7;
+        }
+
+        .codigo-referencia code {
+            font-family: Consolas, Monaco, monospace;
+        }
+
         .area-do-aluno {
             min-height: 260px;
             padding: 20px;
@@ -62,8 +87,22 @@
     <main>
         <section class="orientacao">
             <h1>Exercício 092: RWD Images</h1>
-            <p><strong>Objetivo:</strong> Crie uma imagem fluida e use picture ou srcset para oferecer uma alternativa em telas pequenas.</p>
+            <p><strong>Objetivo:</strong> Compreender como RWD Images mantém o conteúdo utilizável em diferentes tamanhos de tela.</p>
             <p><strong>Proposta:</strong> Crie uma imagem fluida e use picture ou srcset para oferecer uma alternativa em telas pequenas.</p>
+
+            <div class="codigo-referencia">
+                <h2>Código base de referência</h2>
+                <p>Observe como o HTML e as propriedades do tema são usados. Depois crie sua própria solução na área do estudante.</p>
+                <pre><code>&lt;div class=&quot;exemplo&quot;&gt;
+  &lt;picture class=&quot;imagem-rwd&quot;&gt;&lt;source media=&quot;(max-width: 520px)&quot; srcset=&quot;../assets/galeria-projeto-2.svg&quot;&gt;&lt;img src=&quot;../assets/galeria-projeto-1.svg&quot; alt=&quot;Arte responsiva escolhida conforme a largura da tela&quot;&gt;&lt;/picture&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+/* GUIA DA ATIVIDADE: Crie uma imagem fluida e use picture ou srcset para oferecer uma alternativa em telas pequenas. Comece pela declaração width indicada abaixo. Salve e compare o antes e o depois. */
+.imagem-rwd { display: block; /* altere esta declaração e observe o efeito */ max-width: 720px; margin: auto; }
+.imagem-rwd img { display: block; width: 100%; height: auto; border-radius: 10px; }
+&lt;/style&gt;</code></pre>
+            </div>
 
             <h2>O que fazer</h2>
             <ol>

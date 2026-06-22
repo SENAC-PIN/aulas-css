@@ -280,6 +280,26 @@ function focusedLesson(html, css, activity, result, checklist, extra = {}) {
 }
 
 const specializedLessons = {
+  "CSS Syntax": focusedLesson(
+    '<div class="bloco-sintaxe">Sintaxe básica: Seletor, Propriedade e Valor</div>',
+    `.bloco-sintaxe {
+  color: #17415f;
+  background-color: #dff3f6;
+  font-size: 18px; /* propriedade usada para alterar o tamanho do texto */
+  padding: 20px;
+  border-radius: 6px;
+  text-align: center;
+}`,
+    "Altere o valor de font-size para aumentar ou diminuir o texto e identifique seletor, propriedade e valor na regra.",
+    "O texto deve mudar de tamanho por meio de uma declaração font-size válida dentro da regra CSS.",
+    ["Manteve um seletor seguido por chaves.", "Escreveu a propriedade font-size.", "Informou um valor com unidade e ponto e vírgula."],
+    { concepts: [
+      ["Seletor", "Indica quais elementos HTML receberão os estilos; no exemplo, .bloco-sintaxe seleciona a classe."],
+      ["Propriedade", "Define o aspecto que será alterado, como color, font-size ou padding."],
+      ["Valor", "Configura a propriedade; em font-size: 18px, 18px é o valor."],
+      ["Declaração", "É o conjunto propriedade: valor; e normalmente termina com ponto e vírgula."],
+    ] }
+  ),
   "CSS Position": focusedLesson(
     '<div class="position-showcase"><article class="position-card position-static"><strong>static</strong><span>Permanece no fluxo normal.</span></article><article class="position-card position-relative"><strong>relative</strong><span>Move-se sem perder seu espaço.</span></article><div class="absolute-stage"><span>container relative</span><strong class="position-absolute">absolute</strong></div><div class="sticky-stage"><h3 class="position-sticky">sticky</h3><p>Role dentro desta caixa.</p><p>Conteúdo intermediário.</p><p>O título continua preso ao topo.</p></div><span class="position-fixed">fixed</span></div>',
     `.position-showcase { display: grid; gap: 16px; padding-bottom: 36px; }
@@ -984,8 +1004,33 @@ function lesson(topic) {
 }
 
 
+function learningGoal(topic) {
+  const key = topic.toLowerCase();
+  if (topic === "CSS Syntax") return "Compreender a estrutura de uma regra CSS, distinguindo seletor, propriedade, valor e declaração.";
+  if (topic === "CSS Position") return "Distinguir os valores de position e compreender como cada um altera o fluxo e a referência do elemento.";
+  if (topic === "CSS Position Offsets") return "Compreender como os offsets posicionam um elemento em relação ao seu bloco de referência.";
+  if (topic === "CSS Z-index") return "Compreender a ordem de empilhamento e a influência dos contextos de empilhamento sobre z-index.";
+  if (key.includes("sass")) return "Compreender como recursos do SASS são escritos e transformados em CSS executável pelo navegador.";
+  if (key.includes("flex")) return `Compreender como ${titleOf(topic)} organiza e adapta itens ao espaço disponível.`;
+  if (key.includes("grid")) return `Compreender como ${titleOf(topic)} controla linhas, colunas e o posicionamento dos itens.`;
+  if (key.includes("responsive") || key.startsWith("rwd")) return `Compreender como ${titleOf(topic)} mantém o conteúdo utilizável em diferentes tamanhos de tela.`;
+  if (key.includes("image") || key.includes("object") || key.includes("mask") || key.includes("sprites")) return `Compreender como ${titleOf(topic)} controla a apresentação e o comportamento das imagens.`;
+  if (key.includes("icon")) return "Compreender como ícones vetoriais são inseridos, dimensionados e coloridos com CSS.";
+  if (key.includes("lists")) return "Compreender como listas e seus marcadores podem ser estruturados e personalizados.";
+  if (key.includes("pagination")) return "Compreender a estrutura visual e acessível de uma navegação paginada.";
+  if (key.includes("@property")) return "Compreender como registrar uma custom property tipada e torná-la animável.";
+  if (key.includes("overflow")) return "Compreender como controlar separadamente o conteúdo que ultrapassa os limites de uma caixa.";
+  if (key.includes("optimization")) return "Compreender como reduzir repetição e tornar regras CSS mais reutilizáveis e fáceis de manter.";
+  return `Compreender os conceitos centrais de ${titleOf(topic)} e aplicá-los corretamente em uma solução própria.`;
+}
+
 function exerciseGuide(topic, item) {
-  if (item.guide) return item.guide;
+  if (item.guide) {
+    return {
+      ...item.guide,
+      goal: item.guide.goal === item.activity ? learningGoal(topic) : item.guide.goal,
+    };
+  }
 
   const key = topic.toLowerCase();
   const title = titleOf(topic);
@@ -1167,6 +1212,138 @@ function exerciseGuide(topic, item) {
     ],
   };
 }
+
+function instructionalProperties(topic) {
+  const exact = {
+    "CSS Syntax": ["font-size"],
+    "CSS Colors": ["background", "background-color", "color"],
+    "CSS Backgrounds": ["background-image", "background"],
+    "CSS Borders": ["border-style", "border"],
+    "CSS Margins": ["margin"],
+    "CSS Padding": ["padding"],
+    "CSS Height / Width": ["width", "height"],
+    "CSS Box Model": ["padding", "border", "margin"],
+    "CSS Outline": ["outline"],
+    "CSS Text": ["text-align", "font-size"],
+    "CSS Fonts": ["font-family", "font-size"],
+    "CSS Icons": ["fill", "color", "width"],
+    "CSS Links": ["text-decoration", "color"],
+    "CSS Lists": ["list-style-type", "list-style"],
+    "CSS Tables": ["border-collapse", "border"],
+    "CSS Display": ["display"],
+    "CSS Max-width": ["max-width"],
+    "CSS Position": ["position"],
+    "CSS Position Offsets": ["inset", "top"],
+    "CSS Z-index": ["z-index"],
+    "CSS Overflow": ["overflow"],
+    "Overflow": ["overflow"],
+    "Overflow X and Y": ["overflow-x", "overflow-y"],
+    "CSS Float": ["float"],
+    "CSS Inline-block": ["display"],
+    "CSS Align": ["justify-content", "align-items"],
+    "CSS Opacity": ["opacity"],
+    "CSS Navigation Bars": ["display", "background"],
+    "CSS Dropdowns": ["display", "position"],
+    "CSS Image Gallery": ["grid-template-columns"],
+    "CSS Image Sprites": ["background-position"],
+    "CSS Forms": ["padding", "border"],
+    "CSS Counters": ["counter-increment", "counter-reset"],
+    "CSS Units": ["font-size"],
+    "CSS Inheritance": ["color", "font-family"],
+    "CSS !important": ["color"],
+    "CSS Math Functions": ["font-size", "width"],
+    "CSS Accessibility": ["outline", "outline-offset"],
+    "CSS Website Layout": ["display", "flex"],
+    "CSS Gradients": ["background"],
+    "CSS Shadows": ["box-shadow", "text-shadow"],
+    "CSS Text Effects": ["text-shadow", "text-transform"],
+    "CSS Custom Fonts": ["font-family", "src"],
+    "CSS 2D Transforms": ["transform"],
+    "CSS 3D Transforms": ["transform", "perspective"],
+    "CSS Transitions": ["transition"],
+    "CSS Animations": ["animation"],
+    "CSS Tooltips": ["opacity", "visibility"],
+    "CSS Image Styling": ["border-radius", "object-fit"],
+    "CSS Image Modal": ["display", "position"],
+    "CSS Image Centering": ["margin", "display"],
+    "CSS Image Filters": ["filter"],
+    "CSS Image Shapes": ["clip-path"],
+    "CSS object-fit": ["object-fit"],
+    "CSS object-position": ["object-position"],
+    "CSS Masking": ["mask-image", "-webkit-mask-image"],
+    "CSS Buttons": ["background", "border-radius"],
+    "CSS Pagination": ["background", "color"],
+    "CSS Multiple Columns": ["column-count", "column-gap"],
+    "CSS User Interface": ["user-select", "resize"],
+    "CSS Variables": ["background", "padding"],
+    "CSS @property": ["initial-value", "syntax"],
+    "CSS Box Sizing": ["box-sizing"],
+    "CSS Media Queries": ["background", "display"],
+    "CSS FLEXBOX": ["justify-content", "display"],
+    "Flexbox Intro": ["display", "gap"],
+    "Flex Container": ["justify-content", "align-items"],
+    "Flex Items": ["flex-grow", "order"],
+    "Flex Responsive": ["flex-wrap", "flex"],
+    "CSS GRID": ["grid-template-columns", "display"],
+    "Grid Intro": ["grid-template-columns", "display"],
+    "Grid Container": ["grid-template-columns", "gap"],
+    "Grid Items": ["grid-column", "grid-row"],
+    "Grid 12-column Layout": ["grid-template-columns", "grid-column"],
+    "CSS @supports": ["display", "border"],
+    "CSS RESPONSIVE": ["flex-wrap", "flex"],
+    "RWD Intro": ["max-width", "width"],
+    "RWD Viewport": ["font-size"],
+    "RWD Grid View": ["grid-template-columns", "grid-column"],
+    "RWD Media Queries": ["flex-direction"],
+    "RWD Images": ["width", "height"],
+    "RWD Videos": ["padding-bottom", "aspect-ratio"],
+    "RWD Frameworks": ["flex", "width"],
+    "RWD Templates": ["grid-template-areas", "grid-template-columns"],
+    "CSS CERT": ["border", "background"],
+    "CSS Certificate": ["border", "font-family"],
+  };
+  return exact[topic] || [];
+}
+
+function guidedCss(topic, css) {
+  const properties = instructionalProperties(topic);
+  let target = null;
+  let annotated = css;
+
+  for (const property of properties) {
+    const declaration = new RegExp(`\\b${property.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\s*:`);
+    const lines = annotated.split("\n");
+    const lineIndex = lines.findIndex((line) => declaration.test(line));
+    if (lineIndex === -1) continue;
+    target = property;
+    if (!lines[lineIndex].includes("/*") && lines[lineIndex].includes(";")) {
+      lines[lineIndex] = lines[lineIndex].replace(";", "; /* altere esta declaração e observe o efeito */");
+      annotated = lines.join("\n");
+    }
+    break;
+  }
+
+  return { css: annotated, target };
+}
+
+function referenceSnippet(topic, item) {
+  const guided = guidedCss(topic, item.css);
+  const startingPoint = guided.target
+    ? `Comece pela declaração ${guided.target} indicada abaixo.`
+    : "Localize no exemplo a parte relacionada ao tema e altere um valor por vez.";
+  const guidance = `/* GUIA DA ATIVIDADE: ${item.activity} ${startingPoint} Salve e compare o antes e o depois. */`;
+
+  if (item.snippet) return `${guidance}\n${item.snippet}`;
+  return `<div class="exemplo">
+  ${item.html}
+</div>
+
+<style>
+${guidance}
+${guided.css}
+</style>`;
+}
+
 function page(topic, previous, next, exerciseFile) {
   const item = lesson(topic);
   const title = titleOf(topic);
@@ -1194,13 +1371,7 @@ function page(topic, previous, next, exerciseFile) {
   const lessonDetails = [conceptsSection, videoLesson].filter(Boolean).join("\n");
   const extraLessonSection = lessonDetails ? `${lessonDetails}\n` : "";
   const renderedExample = item.html.replaceAll("\n", "\n                ");
-  const snippet = item.snippet || `<div class="exemplo">
-  ${item.html}
-</div>
-
-<style>
-${item.css}
-</style>`;
+  const snippet = referenceSnippet(topic, item);
   const previousLink = previous ? `<a href="${previous.file}">Anterior: ${escapeHtml(titleOf(previous.topic))}</a>` : "<span></span>";
   const nextLink = next ? `<a href="${next.file}">Próxima: ${escapeHtml(titleOf(next.topic))}</a>` : "<span></span>";
 
@@ -1272,6 +1443,7 @@ function exercisePage(topic, number, item) {
         /* STUDENT_CSS_END */
     </script>` : "";
   const sassEditorSection = sassEditor ? `${sassEditor}\n` : "";
+  const exerciseReferenceSnippet = referenceSnippet(topic, item);
   const steps = guide.steps.map((step) => `                <li>${escapeHtml(step)}</li>`).join("\n");
   const checklist = guide.checklist.map((step) => `                <li>${escapeHtml(step)}</li>`).join("\n");
 
@@ -1318,6 +1490,31 @@ function exercisePage(topic, number, item) {
             margin-top: 6px;
         }
 
+        .codigo-referencia {
+            margin: 20px 0;
+            padding: 16px;
+            border: 1px solid #cdd7e2;
+            border-radius: 6px;
+            background: #ffffff;
+        }
+
+        .codigo-referencia h2 {
+            margin-top: 0;
+        }
+
+        .codigo-referencia pre {
+            overflow: auto;
+            margin: 10px 0 0;
+            padding: 16px;
+            border-radius: 6px;
+            background: #1f2933;
+            color: #edf2f7;
+        }
+
+        .codigo-referencia code {
+            font-family: Consolas, Monaco, monospace;
+        }
+
         .area-do-aluno {
             min-height: 260px;
             padding: 20px;
@@ -1339,6 +1536,12 @@ ${sassEditorSection}</head>
             <h1>Exercício ${padded}: ${escapeHtml(title)}</h1>
             <p><strong>Objetivo:</strong> ${escapeHtml(guide.goal)}</p>
             <p><strong>Proposta:</strong> ${escapeHtml(item.activity)}</p>
+
+            <div class="codigo-referencia">
+                <h2>Código base de referência</h2>
+                <p>Observe como o HTML e as propriedades do tema são usados. Depois crie sua própria solução na área do estudante.</p>
+                <pre><code>${escapeHtml(exerciseReferenceSnippet)}</code></pre>
+            </div>
 
             <h2>O que fazer</h2>
             <ol>

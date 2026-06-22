@@ -41,6 +41,31 @@
             margin-top: 6px;
         }
 
+        .codigo-referencia {
+            margin: 20px 0;
+            padding: 16px;
+            border: 1px solid #cdd7e2;
+            border-radius: 6px;
+            background: #ffffff;
+        }
+
+        .codigo-referencia h2 {
+            margin-top: 0;
+        }
+
+        .codigo-referencia pre {
+            overflow: auto;
+            margin: 10px 0 0;
+            padding: 16px;
+            border-radius: 6px;
+            background: #1f2933;
+            color: #edf2f7;
+        }
+
+        .codigo-referencia code {
+            font-family: Consolas, Monaco, monospace;
+        }
+
         .area-do-aluno {
             min-height: 260px;
             padding: 20px;
@@ -62,8 +87,32 @@
     <main>
         <section class="orientacao">
             <h1>Exercício 039: CSS Image Sprites</h1>
-            <p><strong>Objetivo:</strong> Crie três classes que revelem partes diferentes da mesma imagem usando background-position.</p>
+            <p><strong>Objetivo:</strong> Compreender como CSS Image Sprites controla a apresentação e o comportamento das imagens.</p>
             <p><strong>Proposta:</strong> Crie três classes que revelem partes diferentes da mesma imagem usando background-position.</p>
+
+            <div class="codigo-referencia">
+                <h2>Código base de referência</h2>
+                <p>Observe como o HTML e as propriedades do tema são usados. Depois crie sua própria solução na área do estudante.</p>
+                <pre><code>&lt;div class=&quot;exemplo&quot;&gt;
+  &lt;div class=&quot;acoes-sprite&quot;&gt;&lt;button&gt;&lt;span class=&quot;sprite sprite-casa&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;Início&lt;/button&gt;&lt;button&gt;&lt;span class=&quot;sprite sprite-busca&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;Buscar&lt;/button&gt;&lt;button&gt;&lt;span class=&quot;sprite sprite-config&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;Ajustes&lt;/button&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+/* GUIA DA ATIVIDADE: Crie três classes que revelem partes diferentes da mesma imagem usando background-position. Comece pela declaração background-position indicada abaixo. Salve e compare o antes e o depois. */
+.acoes-sprite { display: flex; flex-wrap: wrap; gap: 12px; }
+.acoes-sprite button { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; }
+.sprite {
+  width: 48px;
+  height: 48px;
+  background-image: url(&quot;../assets/icones-sprite.svg&quot;);
+  background-size: 144px 48px;
+  background-repeat: no-repeat;
+}
+.sprite-casa { background-position: 0 0; /* altere esta declaração e observe o efeito */ }
+.sprite-busca { background-position: -48px 0; }
+.sprite-config { background-position: -96px 0; }
+&lt;/style&gt;</code></pre>
+            </div>
 
             <h2>O que fazer</h2>
             <ol>

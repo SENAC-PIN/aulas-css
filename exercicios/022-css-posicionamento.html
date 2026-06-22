@@ -41,6 +41,31 @@
             margin-top: 6px;
         }
 
+        .codigo-referencia {
+            margin: 20px 0;
+            padding: 16px;
+            border: 1px solid #cdd7e2;
+            border-radius: 6px;
+            background: #ffffff;
+        }
+
+        .codigo-referencia h2 {
+            margin-top: 0;
+        }
+
+        .codigo-referencia pre {
+            overflow: auto;
+            margin: 10px 0 0;
+            padding: 16px;
+            border-radius: 6px;
+            background: #1f2933;
+            color: #edf2f7;
+        }
+
+        .codigo-referencia code {
+            font-family: Consolas, Monaco, monospace;
+        }
+
         .area-do-aluno {
             min-height: 260px;
             padding: 20px;
@@ -62,8 +87,31 @@
     <main>
         <section class="orientacao">
             <h1>Exercício 022: CSS Position</h1>
-            <p><strong>Objetivo:</strong> Crie uma comparação que demonstre static, relative, absolute, fixed e sticky, explicando a referência usada por cada elemento.</p>
+            <p><strong>Objetivo:</strong> Distinguir os valores de position e compreender como cada um altera o fluxo e a referência do elemento.</p>
             <p><strong>Proposta:</strong> Crie uma comparação que demonstre static, relative, absolute, fixed e sticky, explicando a referência usada por cada elemento.</p>
+
+            <div class="codigo-referencia">
+                <h2>Código base de referência</h2>
+                <p>Observe como o HTML e as propriedades do tema são usados. Depois crie sua própria solução na área do estudante.</p>
+                <pre><code>&lt;div class=&quot;exemplo&quot;&gt;
+  &lt;div class=&quot;position-showcase&quot;&gt;&lt;article class=&quot;position-card position-static&quot;&gt;&lt;strong&gt;static&lt;/strong&gt;&lt;span&gt;Permanece no fluxo normal.&lt;/span&gt;&lt;/article&gt;&lt;article class=&quot;position-card position-relative&quot;&gt;&lt;strong&gt;relative&lt;/strong&gt;&lt;span&gt;Move-se sem perder seu espaço.&lt;/span&gt;&lt;/article&gt;&lt;div class=&quot;absolute-stage&quot;&gt;&lt;span&gt;container relative&lt;/span&gt;&lt;strong class=&quot;position-absolute&quot;&gt;absolute&lt;/strong&gt;&lt;/div&gt;&lt;div class=&quot;sticky-stage&quot;&gt;&lt;h3 class=&quot;position-sticky&quot;&gt;sticky&lt;/h3&gt;&lt;p&gt;Role dentro desta caixa.&lt;/p&gt;&lt;p&gt;Conteúdo intermediário.&lt;/p&gt;&lt;p&gt;O título continua preso ao topo.&lt;/p&gt;&lt;/div&gt;&lt;span class=&quot;position-fixed&quot;&gt;fixed&lt;/span&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+/* GUIA DA ATIVIDADE: Crie uma comparação que demonstre static, relative, absolute, fixed e sticky, explicando a referência usada por cada elemento. Comece pela declaração position indicada abaixo. Salve e compare o antes e o depois. */
+.position-showcase { display: grid; gap: 16px; padding-bottom: 36px; }
+.position-card { padding: 14px; border: 2px solid #355070; background: #eaf4fb; }
+.position-card strong, .position-card span { display: block; }
+.position-static { position: static; /* altere esta declaração e observe o efeito */ top: 20px; }
+.position-relative { position: relative; top: 8px; left: 24px; width: calc(100% - 24px); background: #fff3cd; }
+.absolute-stage { position: relative; min-height: 105px; padding: 12px; border: 2px dashed #2a9d8f; }
+.position-absolute { position: absolute; top: 12px; right: 12px; padding: 12px; background: #2a9d8f; color: white; }
+.sticky-stage { height: 125px; overflow: auto; border: 2px solid #b56576; background: white; }
+.sticky-stage p { min-height: 48px; margin: 0; padding: 10px; }
+.position-sticky { position: sticky; top: 0; z-index: 1; margin: 0; padding: 10px; background: #b56576; color: white; }
+.position-fixed { position: fixed; right: 16px; bottom: 16px; z-index: 10; padding: 8px 12px; border-radius: 999px; background: #24313f; color: white; pointer-events: none; }
+&lt;/style&gt;</code></pre>
+            </div>
 
             <h2>O que fazer</h2>
             <ol>

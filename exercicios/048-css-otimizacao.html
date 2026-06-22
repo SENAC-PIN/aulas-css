@@ -41,6 +41,31 @@
             margin-top: 6px;
         }
 
+        .codigo-referencia {
+            margin: 20px 0;
+            padding: 16px;
+            border: 1px solid #cdd7e2;
+            border-radius: 6px;
+            background: #ffffff;
+        }
+
+        .codigo-referencia h2 {
+            margin-top: 0;
+        }
+
+        .codigo-referencia pre {
+            overflow: auto;
+            margin: 10px 0 0;
+            padding: 16px;
+            border-radius: 6px;
+            background: #1f2933;
+            color: #edf2f7;
+        }
+
+        .codigo-referencia code {
+            font-family: Consolas, Monaco, monospace;
+        }
+
         .area-do-aluno {
             min-height: 260px;
             padding: 20px;
@@ -62,8 +87,39 @@
     <main>
         <section class="orientacao">
             <h1>Exercício 048: CSS Optimization</h1>
-            <p><strong>Objetivo:</strong> Refatore estilos repetidos criando uma classe base reutilizável e modificadores apenas com as diferenças.</p>
+            <p><strong>Objetivo:</strong> Compreender como reduzir repetição e tornar regras CSS mais reutilizáveis e fáceis de manter.</p>
             <p><strong>Proposta:</strong> Refatore estilos repetidos criando uma classe base reutilizável e modificadores apenas com as diferenças.</p>
+
+            <div class="codigo-referencia">
+                <h2>Código base de referência</h2>
+                <p>Observe como o HTML e as propriedades do tema são usados. Depois crie sua própria solução na área do estudante.</p>
+                <pre><code>&lt;div class=&quot;exemplo&quot;&gt;
+  &lt;div class=&quot;container-otimizador&quot;&gt;
+&lt;button class=&quot;btn btn-principal&quot;&gt;Principal&lt;/button&gt;
+&lt;button class=&quot;btn btn-secundario&quot;&gt;Secundário&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+/* GUIA DA ATIVIDADE: Refatore estilos repetidos criando uma classe base reutilizável e modificadores apenas com as diferenças. Localize no exemplo a parte relacionada ao tema e altere um valor por vez. Salve e compare o antes e o depois. */
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.btn-principal {
+  background: #355070;
+  color: white;
+}
+.btn-secundario {
+  background: #eaf4fb;
+  color: #355070;
+  border: 1px solid #355070;
+}
+&lt;/style&gt;</code></pre>
+            </div>
 
             <h2>O que fazer</h2>
             <ol>

@@ -41,6 +41,31 @@
             margin-top: 6px;
         }
 
+        .codigo-referencia {
+            margin: 20px 0;
+            padding: 16px;
+            border: 1px solid #cdd7e2;
+            border-radius: 6px;
+            background: #ffffff;
+        }
+
+        .codigo-referencia h2 {
+            margin-top: 0;
+        }
+
+        .codigo-referencia pre {
+            overflow: auto;
+            margin: 10px 0 0;
+            padding: 16px;
+            border-radius: 6px;
+            background: #1f2933;
+            color: #edf2f7;
+        }
+
+        .codigo-referencia code {
+            font-family: Consolas, Monaco, monospace;
+        }
+
         .area-do-aluno {
             min-height: 260px;
             padding: 20px;
@@ -64,6 +89,34 @@
             <h1>Exercício 044: CSS Inheritance</h1>
             <p><strong>Objetivo:</strong> Praticar CSS Inheritance alterando o HTML e o CSS desta página.</p>
             <p><strong>Proposta:</strong> Altere o exemplo para testar outro valor ligado a CSS Inheritance.</p>
+
+            <div class="codigo-referencia">
+                <h2>Código base de referência</h2>
+                <p>Observe como o HTML e as propriedades do tema são usados. Depois crie sua própria solução na área do estudante.</p>
+                <pre><code>&lt;div class=&quot;exemplo&quot;&gt;
+  &lt;div class=&quot;pai-heranca&quot;&gt;
+&lt;p&gt;Este parágrafo herda a cor vermelha e a fonte do elemento pai.&lt;/p&gt;
+&lt;span class=&quot;filho-sem-borda&quot;&gt;Esta tag span também herda as propriedades de texto.&lt;/span&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+/* GUIA DA ATIVIDADE: Altere o exemplo para testar outro valor ligado a CSS Inheritance. Comece pela declaração color indicada abaixo. Salve e compare o antes e o depois. */
+.pai-heranca {
+  color: #e63946; /* altere esta declaração e observe o efeito */
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  border: 2px solid #1d3557;
+  padding: 20px;
+  border-radius: 6px;
+}
+.filho-sem-borda {
+  display: block;
+  margin-top: 10px;
+  font-size: 14px;
+}
+&lt;/style&gt;</code></pre>
+            </div>
 
             <h2>O que fazer</h2>
             <ol>
