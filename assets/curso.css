@@ -386,19 +386,58 @@ a:hover { color: var(--accent); }
 }
 
 .layout-indice .lista-topicos li {
+    position: relative;
     break-inside: avoid;
-    margin: 0;
-    padding: 5px 0;
+    margin: 3px 0;
+    padding: 6px 7px;
+    border-left: 4px solid transparent;
+    border-radius: 6px;
     border-bottom: 1px solid #edf1f5;
 }
 
 .layout-indice .lista-topicos a {
     display: block;
+    padding-right: 76px;
     overflow-wrap: anywhere;
     text-decoration: none;
 }
 
 .layout-indice .lista-topicos a:hover { text-decoration: underline; }
+
+.layout-indice .lista-topicos li.status-completed { border-left-color: #16845b; background: #e9f8f1; }
+.layout-indice .lista-topicos li.status-in-progress { border-left-color: #d97706; background: #fff6e5; }
+.layout-indice .lista-topicos li.status-not-started { border-left-color: #c24135; background: #fff0ee; }
+
+.status-atividade,
+.legenda-status-item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid currentColor;
+    border-radius: 999px;
+    font-weight: bold;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.status-atividade { position: absolute; top: 50%; right: 6px; padding: 4px 6px; transform: translateY(-50%); font-size: 10px; }
+.status-completed .status-atividade,
+.legenda-status-item.status-completed { color: #116b49; background: #d7f2e5; }
+.status-in-progress .status-atividade,
+.legenda-status-item.status-in-progress { color: #a64b00; background: #ffedc7; }
+.status-not-started .status-atividade,
+.legenda-status-item.status-not-started { color: #a83228; background: #ffddd9; }
+
+.legenda-status {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    margin: 12px 0 22px;
+}
+
+.legenda-status-item { gap: 5px; padding: 7px 10px; font-size: 12px; }
+.resumo-status { margin-left: auto; color: var(--muted); font-size: 13px; }
 
 .nenhum-topico {
     padding: 30px;

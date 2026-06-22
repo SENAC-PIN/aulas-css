@@ -1766,6 +1766,20 @@ a:hover { color: var(--accent); }
     overflow-wrap: anywhere;
 }
 
+.layout-indice .lista-topicos li { position: relative; break-inside: avoid; margin: 3px 0; padding: 6px 7px; border-left: 4px solid transparent; border-radius: 6px; border-bottom: 1px solid #edf1f5; }
+.layout-indice .lista-topicos a { display: block; padding-right: 76px; text-decoration: none; }
+.layout-indice .lista-topicos li.status-completed { border-left-color: #16845b; background: #e9f8f1; }
+.layout-indice .lista-topicos li.status-in-progress { border-left-color: #d97706; background: #fff6e5; }
+.layout-indice .lista-topicos li.status-not-started { border-left-color: #c24135; background: #fff0ee; }
+.status-atividade, .legenda-status-item { display: inline-flex; align-items: center; justify-content: center; border: 1px solid currentColor; border-radius: 999px; font-weight: bold; line-height: 1; white-space: nowrap; }
+.status-atividade { position: absolute; top: 50%; right: 6px; padding: 4px 6px; transform: translateY(-50%); font-size: 10px; }
+.status-completed .status-atividade, .legenda-status-item.status-completed { color: #116b49; background: #d7f2e5; }
+.status-in-progress .status-atividade, .legenda-status-item.status-in-progress { color: #a64b00; background: #ffedc7; }
+.status-not-started .status-atividade, .legenda-status-item.status-not-started { color: #a83228; background: #ffddd9; }
+.legenda-status { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 12px 0 22px; }
+.legenda-status-item { gap: 5px; padding: 7px 10px; font-size: 12px; }
+.resumo-status { margin-left: auto; color: var(--muted); font-size: 13px; }
+
 .exemplo {
     min-height: 170px;
     padding: 20px;
@@ -1926,6 +1940,13 @@ function indexPage(pages) {
             <label class="busca-topicos" for="busca-topicos"><span>Buscar assunto</span><input id="busca-topicos" type="search" placeholder="Ex.: Grid, Colors, Flexbox…"></label>
         </section>
 
+        <div class="legenda-status" aria-label="Legenda do progresso das atividades">
+            <span class="legenda-status-item status-completed">✓ OK</span>
+            <span class="legenda-status-item status-in-progress">Parcial</span>
+            <span class="legenda-status-item status-not-started">Não iniciado</span>
+            <span class="resumo-status" id="resumo-status" aria-live="polite">Carregando progresso…</span>
+        </div>
+
         <div class="layout-indice" id="modulos-curso">
             ${sections.join("\n            ")}
         </div>
@@ -1955,6 +1976,62 @@ function indexPage(pages) {
                 }
             }
         });
+        const statusMeta = {
+            completed: { label: "✓ OK", className: "status-completed" },
+            "in-progress": { label: "Parcial", className: "status-in-progress" },
+            "not-started": { label: "Não iniciado", className: "status-not-started" },
+        };
+        const topicItems = [...document.querySelectorAll("#modulos-curso .lista-topicos li")];
+        const statusSummary = document.querySelector("#resumo-status");
+
+        function applyTopicStatus(item, status) {
+            const normalizedStatus = statusMeta[status] ? status : "not-started";
+            const meta = statusMeta[normalizedStatus];
+            item.classList.remove("status-completed", "status-in-progress", "status-not-started");
+            item.classList.add(meta.className);
+            item.dataset.status = normalizedStatus;
+            const badge = item.querySelector(".status-atividade");
+            badge.textContent = meta.label;
+            badge.setAttribute("aria-label", "Estado da atividade: " + meta.label);
+            item.title = "Estado da atividade: " + meta.label;
+        }
+
+        topicItems.forEach((item, index) => {
+            const link = item.querySelector("a");
+            const lessonFile = link.getAttribute("href").split("/").pop();
+            item.dataset.exercise = String(index + 1).padStart(3, "0") + "-" + lessonFile;
+            const badge = document.createElement("span");
+            badge.className = "status-atividade";
+            item.appendChild(badge);
+            applyTopicStatus(item, "not-started");
+        });
+
+        async function loadTopicStatuses() {
+            try {
+                const response = await fetch("progresso-aluno.json?time=" + Date.now(), { cache: "no-store" });
+                if (!response.ok) throw new Error("Progresso indisponível");
+                const progress = await response.json();
+                const snapshot = progress.snapshot || {};
+                const counts = { completed: 0, "in-progress": 0, "not-started": 0 };
+                for (const item of topicItems) {
+                    const status = snapshot[item.dataset.exercise]?.status || "not-started";
+                    applyTopicStatus(item, status);
+                    counts[statusMeta[status] ? status : "not-started"]++;
+                }
+                statusSummary.textContent = counts.completed + " concluídas · " + counts["in-progress"] + " parciais · " + counts["not-started"] + " não iniciadas";
+            } catch {
+                statusSummary.textContent = location.protocol === "file:"
+                    ? "Abra o curso pelo servidor local para carregar o progresso."
+                    : "Não foi possível carregar o progresso.";
+            }
+        }
+
+        loadTopicStatuses();
+        window.addEventListener("focus", loadTopicStatuses);
+        document.addEventListener("visibilitychange", () => {
+            if (document.visibilityState === "visible") loadTopicStatuses();
+        });
+
         const topicSearch = document.querySelector("#busca-topicos");
         const modules = [...document.querySelectorAll("#modulos-curso .painel")];
         topicSearch.addEventListener("input", () => {
@@ -1963,7 +2040,7 @@ function indexPage(pages) {
             for (const module of modules) {
                 let visibleLinks = 0;
                 for (const item of module.querySelectorAll("li")) {
-                    const visible = item.textContent.toLowerCase().includes(term);
+                    const visible = item.querySelector("a").textContent.toLowerCase().includes(term);
                     item.hidden = !visible;
                     if (visible) visibleLinks++;
                 }
